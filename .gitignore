@@ -1,0 +1,19 @@
+# Node modules
+library-catalog/node_modules/
+
+# Python virtual environment
+library-catalog-backend/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# SQLite DBs
+*.db
+
+# Vite build
+library-catalog/dist/
+
+# Logs and system files
+*.log
+.DS_Store
