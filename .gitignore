@@ -17,3 +17,117 @@ library-catalog/dist/
 # Logs and system files
 *.log
 .DS_Store
+
+# Node/Vite/React
+node_modules/
+library-catalog/node_modules/
+dist/
+build/
+.env
+.env.*
+*.local
+*.log
+pnpm-lock.yaml
+
+# VSCode
+.vscode/
+
+# Python/Flask
+*.pyc
+__pycache__/
+instance/
+*.db
+*.sqlite3
+*.sqlite
+.env
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.bak
+*.swp
+*.swo
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# Test
+pytest_cache/
+
+# Exported files
+*.csv
+*.xlsx
+*.xls
+*.json
+
+# .gitignore for Personal Library Catalog (Full-Stack)
+# Covers Node.js, React, Vite, Python, Flask, and common editor/system files
+# For more info: https://git-scm.com/docs/gitignore
+
+# --- Node/Vite/React ---
+node_modules/
+library-catalog/node_modules/
+dist/
+build/
+# Environment files
+.env
+.env.*
+*.local
+pnpm-lock.yaml
+
+# --- Python/Flask ---
+# Virtual environments
+.venv/
+venv/
+library-catalog-backend/venv/
+# Bytecode/cache
+__pycache__/
+*.pyc
+# Databases
+*.db
+*.sqlite3
+*.sqlite
+instance/
+# Environment
+.env
+
+# --- VSCode ---
+.vscode/
+
+# --- OS/Editor/System ---
+.DS_Store
+Thumbs.db
+*.log
+
+# --- Miscellaneous ---
+*.bak
+*.swp
+*.swo
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- Coverage ---
+htmlcov/
+.coverage
+coverage.xml
+
+# --- Test ---
+pytest_cache/
+
+# --- Exported files ---
+*.csv
+*.xlsx
+*.xls
+*.json
+
+# End of .gitignore
