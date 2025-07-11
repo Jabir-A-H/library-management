@@ -1,4 +1,4 @@
-# Personal Library Management System
+# ছোটপাতা পাঠাগার
 
 > A modern, full-stack library management application with FastAPI backend and Next.js frontend, featuring JWT authentication, async operations, and comprehensive book tracking.
 
@@ -223,7 +223,7 @@ PORT=8000
 
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:8000
-NEXT_PUBLIC_APP_NAME=Library Management System
+NEXT_PUBLIC_APP_NAME=ছোটপাতা পাঠাগার
 ```
 
 ## 🚀 Deployment
