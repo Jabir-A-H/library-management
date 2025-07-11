@@ -1,136 +1,105 @@
-# Node modules
-library-catalog/node_modules/
+# ===================================
+# Personal Library Management System
+# ===================================
 
-# Python virtual environment
-library-catalog-backend/venv/
+# ===============================
+# Assets (Private)
+# ===============================
+extras/
+
+# ===============================
+# Environment & Configuration
+# ===============================
+.env
+.env.*
+!.env.example
+backend/.env
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# ===============================
+# Python/Backend
+# ===============================
+# Virtual environments
+venv/
+.venv/
+backend/venv/
+backend/.venv/
 
 # Python cache
 __pycache__/
+*.py[cod]
 *.pyc
+.Python
 
-# SQLite DBs
+# Database files
 *.db
+*.sqlite
+*.sqlite3
+instance/
 
-# Vite build
-library-catalog/dist/
-
-# Logs and system files
-*.log
-.DS_Store
-
-# Node/Vite/React
-node_modules/
-library-catalog/node_modules/
-dist/
+# Python packaging
 build/
-.env
-.env.*
-*.local
-*.log
+dist/
+*.egg-info/
+*.egg
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Alembic (keep versions directory structure)
+backend/alembic/versions/*.py
+!backend/alembic/versions/
+
+# ===============================
+# Node.js/Frontend
+# ===============================
+node_modules/
+frontend/node_modules/
+
+# Next.js build outputs
+.next/
+out/
+frontend/dist/
+frontend/build/
+
+# Package manager lock files
+package-lock.json
+yarn.lock
 pnpm-lock.yaml
 
-# VSCode
+# Next.js environment
+next-env.d.ts
+
+# ===============================
+# Development & IDE
+# ===============================
 .vscode/
+.idea/
 
-# Python/Flask
-*.pyc
-__pycache__/
-instance/
-*.db
-*.sqlite3
-*.sqlite
-.env
-.venv/
-venv/
-
-# OS
+# ===============================
+# OS Files
+# ===============================
 .DS_Store
 Thumbs.db
 
-# Misc
-*.bak
-*.swp
-*.swo
-
-# Jupyter Notebooks
-.ipynb_checkpoints/
-
-# Coverage
-htmlcov/
-.coverage
-coverage.xml
-
-# Test
-pytest_cache/
-
-# Exported files
-*.csv
-*.xlsx
-*.xls
-*.json
-
-# .gitignore for Personal Library Catalog (Full-Stack)
-# Covers Node.js, React, Vite, Python, Flask, and common editor/system files
-# For more info: https://git-scm.com/docs/gitignore
-
-# --- Node/Vite/React ---
-node_modules/
-library-catalog/node_modules/
-dist/
-build/
-# Environment files
-.env
-.env.*
-*.local
-pnpm-lock.yaml
-
-# --- Python/Flask ---
-# Virtual environments
-.venv/
-venv/
-library-catalog-backend/venv/
-# Bytecode/cache
-__pycache__/
-*.pyc
-# Databases
-*.db
-*.sqlite3
-*.sqlite
-instance/
-# Environment
-.env
-
-# --- VSCode ---
-.vscode/
-
-# --- OS/Editor/System ---
-.DS_Store
-Thumbs.db
+# ===============================
+# Logs & Temporary Files
+# ===============================
 *.log
+logs/
+*.tmp
+*.temp
 
-# --- Miscellaneous ---
-*.bak
-*.swp
-*.swo
-
-# --- Jupyter Notebooks ---
-.ipynb_checkpoints/
-
-# --- Coverage ---
-htmlcov/
-.coverage
-coverage.xml
-
-# --- Test ---
-pytest_cache/
-
-# --- Exported files ---
+# ===============================
+# Project Specific
+# ===============================
+# Generated reports and exports
+reports/
 *.csv
 *.xlsx
 *.xls
-*.json
-
-# End of .gitignore
-/frontend/dist
-/backend/.env
-/extras
