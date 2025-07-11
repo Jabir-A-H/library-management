@@ -1,11 +1,12 @@
 # ===================================
-# Personal Library Management System
+# ছোটপাতা পাঠাগার
 # ===================================
 
 # ===============================
 # Assets (Private)
 # ===============================
 extras/
+/.github/instructions/general.instructions.md
 
 # ===============================
 # Environment & Configuration
@@ -60,6 +61,7 @@ backend/alembic/versions/*.py
 # ===============================
 node_modules/
 frontend/node_modules/
+frontend\node_modules\
 
 # Next.js build outputs
 .next/
