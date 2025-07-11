@@ -131,3 +131,6 @@ pytest_cache/
 *.json
 
 # End of .gitignore
+/frontend/dist
+/backend/.env
+/extras
