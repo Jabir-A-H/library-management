@@ -1,0 +1,631 @@
+
+f:\WebDev\library-management\frontend>npx tsc --noEmit 2>&1 | head -n 30
+'head' is not recognized as an internal or external command,
+operable program or batch file.
+
+f:\WebDev\library-management\frontend>npx tsc --noEmit > typecheck-output.txt 2>&1
+
+f:\WebDev\library-management\frontend>npx tsc --noEmit | findstr /C:"error TS"
+components/books/BookCard.tsx(42,18): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookCard.tsx(46,28): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookCard.tsx(47,23): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookCard.tsx(53,45): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookCard.tsx(120,17): error TS2322: Type 'Tag' is not assignable to type 'ReactNode'.
+components/books/BookCard.tsx(135,23): error TS2551: Property 'publicationYear' does not exist on type 'Book'. Did you mean 'publication_year'?
+components/books/BookDetails.tsx(360,61): error TS2339: Property 'status' does not exist on type 'Book'.
+components/books/BookDetails.tsx(361,31): error TS2339: Property 'status' does not exist on type 'Book'.
+components/books/BookDetails.tsx(436,25): error TS2339: Property 'edition' does not exist on type 'Book'.
+components/books/BookDetails.tsx(439,60): error TS2339: Property 'edition' does not exist on type 'Book'.
+components/books/BookDetails.tsx(472,24): error TS2339: Property 'source' does not exist on type 'Book'.
+components/books/BookDetails.tsx(472,39): error TS2339: Property 'donor' does not exist on type 'Book'.
+components/books/BookDetails.tsx(472,53): error TS2339: Property 'acquisition_date' does not exist on type 'Book'.
+components/books/BookDetails.tsx(472,78): error TS2339: Property 'acquisition_cost' does not exist on type 'Book'.
+components/books/BookDetails.tsx(479,29): error TS2339: Property 'source' does not exist on type 'Book'.
+components/books/BookDetails.tsx(481,78): error TS2339: Property 'source' does not exist on type 'Book'.
+components/books/BookDetails.tsx(484,29): error TS2339: Property 'donor' does not exist on type 'Book'.
+components/books/BookDetails.tsx(486,77): error TS2339: Property 'donor' does not exist on type 'Book'.
+components/books/BookDetails.tsx(489,29): error TS2339: Property 'acquisition_date' does not exist on type 'Book'.
+components/books/BookDetails.tsx(491,89): error TS2339: Property 'acquisition_date' does not exist on type 'Book'.
+components/books/BookDetails.tsx(494,29): error TS2339: Property 'acquisition_cost' does not exist on type 'Book'.
+components/books/BookDetails.tsx(496,77): error TS2339: Property 'acquisition_cost' does not exist on type 'Book'.
+components/books/BookDetails.tsx(516,38): error TS2339: Property 'color' does not exist on type 'Tag'.
+components/books/BookDetails.tsx(516,69): error TS2339: Property 'color' does not exist on type 'Tag'.
+components/books/BookForm.tsx(259,9): error TS2322: Type 'string | Category' is not assignable to type 'string'.
+components/books/BookForm.tsx(260,31): error TS2551: Property 'publicationYear' does not exist on type 'Book'. Did you mean 'publication_year'?
+components/books/BookForm.tsx(261,24): error TS2339: Property 'numPages' does not exist on type 'Book'.
+components/books/BookForm.tsx(263,9): error TS2322: Type 'Tag[]' is not assignable to type 'string[]'.
+components/books/BookForm.tsx(264,26): error TS2551: Property 'coverImage' does not exist on type 'Book'. Did you mean 'cover_image'?
+components/books/BookForm.tsx(265,29): error TS2551: Property 'previewImages' does not exist on type 'Book'. Did you mean 'preview_images'?
+components/books/BookForm.tsx(266,26): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookForm.tsx(267,22): error TS2339: Property 'status' does not exist on type 'Book'.
+components/books/BookForm.tsx(268,26): error TS2551: Property 'readStatus' does not exist on type 'Book'. Did you mean 'read_status'?
+components/books/BookForm.tsx(413,7): error TS2322: Type 'string' is not assignable to type 'Category'.
+components/books/BookForm.tsx(417,7): error TS2322: Type 'string[]' is not assignable to type 'Tag[]'.
+components/books/BookList.tsx(39,47): error TS2339: Property 'toLowerCase' does not exist on type 'Tag'.
+components/books/BookList.tsx(51,19): error TS2339: Property 'toLowerCase' does not exist on type 'Tag'.
+components/books/BookList.tsx(70,39): error TS2551: Property 'publicationYear' does not exist on type 'Book'. Did you mean 'publication_year'?
+components/books/BookList.tsx(70,66): error TS2551: Property 'publicationYear' does not exist on type 'Book'. Did you mean 'publication_year'?
+components/books/BookList.tsx(73,39): error TS2551: Property 'publicationYear' does not exist on type 'Book'. Did you mean 'publication_year'?
+components/books/BookList.tsx(73,66): error TS2551: Property 'publicationYear' does not exist on type 'Book'. Did you mean 'publication_year'?
+components/books/BookList.tsx(76,36): error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+components/books/BookList.tsx(76,47): error TS2551: Property 'createdAt' does not exist on type 'Book'. Did you mean 'created_at'?
+components/books/BookList.tsx(76,60): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+components/books/BookList.tsx(76,71): error TS2551: Property 'createdAt' does not exist on type 'Book'. Did you mean 'created_at'?
+components/books/BookList.tsx(79,36): error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+components/books/BookList.tsx(79,47): error TS2551: Property 'createdAt' does not exist on type 'Book'. Did you mean 'created_at'?
+components/books/BookList.tsx(79,60): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+components/books/BookList.tsx(79,71): error TS2551: Property 'createdAt' does not exist on type 'Book'. Did you mean 'created_at'?
+components/books/BookList.tsx(82,39): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookList.tsx(82,64): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookList.tsx(85,36): error TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+components/books/BookList.tsx(85,47): error TS2551: Property 'createdAt' does not exist on type 'Book'. Did you mean 'created_at'?
+components/books/BookList.tsx(85,60): error TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+components/books/BookList.tsx(85,71): error TS2551: Property 'createdAt' does not exist on type 'Book'. Did you mean 'created_at'?
+components/books/BookList.tsx(92,27): error TS2783: 'id' is specified more than once, so this usage will be overwritten.
+components/books/BookList.tsx(92,48): error TS2353: Object literal may only specify known properties, and 'isFavorite' does not exist in type 'Book'.
+components/books/BookList.tsx(92,66): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookList.tsx(105,59): error TS2339: Property 'isFavorite' does not exist on type 'Book'.
+components/books/BookList.tsx(178,23): error TS2304: Cannot find name 'onEditBook'.
+components/books/BookList.tsx(179,15): error TS2322: Type '(bookId: string | number) => void' is not assignable to type '(book: Book) => void'.
+components/borrowers/BorrowerForm.tsx(112,24): error TS2339: Property 'name' does not exist on type 'Borrower'.
+components/borrowers/BorrowerForm.tsx(114,32): error TS2339: Property 'contact_info' does not exist on type 'Borrower'.
+components/borrowers/BorrowerForm.tsx(115,25): error TS2339: Property 'notes' does not exist on type 'Borrower'.
+components/borrowers/BorrowerForm.tsx(116,29): error TS2339: Property 'is_active' does not exist on type 'Borrower'.
+components/borrowers/BorrowerForm.tsx(116,64): error TS2339: Property 'is_active' does not exist on type 'Borrower'.
+components/borrowers/BorrowerForm.tsx(193,39): error TS2345: Argument of type 'BorrowerFormData' is not assignable to parameter of type 'Omit<Borrower, "id">'.
+components/borrowers/BorrowerList.tsx(65,18): error TS2339: Property 'name' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(67,19): error TS2339: Property 'contact_info' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(67,44): error TS2339: Property 'contact_info' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(69,54): error TS2339: Property 'is_active' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(76,65): error TS2339: Property 'is_active' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(77,68): error TS2339: Property 'is_active' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(92,68): error TS2339: Property 'name' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(276,95): error TS2339: Property 'is_active' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(282,33): error TS2339: Property 'name' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(283,34): error TS2339: Property 'is_active' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(320,27): error TS2339: Property 'contact_info' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(323,31): error TS2339: Property 'contact_info' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(335,27): error TS2339: Property 'notes' does not exist on type 'Borrower'.
+components/borrowers/BorrowerList.tsx(337,31): error TS2339: Property 'notes' does not exist on type 'Borrower'.
+components/common/Documentation.tsx(20,24): error TS2307: Cannot find module './ui/button' or its corresponding type declarations.
+components/common/Documentation.tsx(21,75): error TS2307: Cannot find module './ui/card' or its corresponding type declarations.
+components/common/Documentation.tsx(22,23): error TS2307: Cannot find module './ui/badge' or its corresponding type declarations.
+components/common/ExportDropdown.tsx(12,24): error TS2307: Cannot find module './ui/button' or its corresponding type declarations.
+components/common/ExportDropdown.tsx(20,8): error TS2307: Cannot find module './ui/dropdown-menu' or its corresponding type declarations.
+components/common/ExportDropdown.tsx(21,27): error TS2307: Cannot find module '../lib/exportUtils' or its corresponding type declarations.
+components/common/ExportDropdown.tsx(74,20): error TS18047: 'e.target' is possibly 'null'.
+components/common/ExportDropdown.tsx(74,29): error TS2339: Property 'files' does not exist on type 'EventTarget'.
+components/common/ExportDropdown.tsx(74,38): error TS18047: 'e.target' is possibly 'null'.
+components/common/ExportDropdown.tsx(74,47): error TS2339: Property 'files' does not exist on type 'EventTarget'.
+components/common/ExportMenu.tsx(10,24): error TS2307: Cannot find module './ui/button' or its corresponding type declarations.
+components/common/ExportMenu.tsx(18,8): error TS2307: Cannot find module './ui/dropdown-menu' or its corresponding type declarations.
+components/common/ExportMenu.tsx(20,10): error TS2614: Module '"@/lib/api"' has no exported member 'exportAPI'. Did you mean to use 'import exportAPI from "@/lib/api"' instead?
+components/common/ExportMenu.tsx(27,10): error TS2451: Cannot redeclare block-scoped variable 'isExporting'.
+components/common/ExportMenu.tsx(54,9): error TS2451: Cannot redeclare block-scoped variable 'isExporting'.
+components/common/ExportMenu.tsx(74,26): error TS7006: Parameter 'format' implicitly has an 'any' type.
+components/common/SearchAndFilter.tsx(206,47): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+components/common/SearchAndFilter.tsx(222,27): error TS2322: Type 'Tag' is not assignable to type 'Key | null | undefined'.
+components/common/SearchAndFilter.tsx(223,74): error TS2345: Argument of type 'Tag' is not assignable to parameter of type 'string'.
+components/common/SearchAndFilter.tsx(225,58): error TS2345: Argument of type 'Tag' is not assignable to parameter of type 'string'.
+components/common/SearchAndFilter.tsx(226,79): error TS2345: Argument of type 'Tag' is not assignable to parameter of type 'string'.
+components/common/SearchAndFilter.tsx(227,77): error TS2345: Argument of type 'Tag' is not assignable to parameter of type 'string'.
+components/common/SearchAndFilter.tsx(229,27): error TS2322: Type 'Tag' is not assignable to type 'ReactNode'.
+components/layout/Header.tsx(5,28): error TS2307: Cannot find module './ExportDropdown' or its corresponding type declarations.
+components/lending/LendingForm.tsx(166,65): error TS2339: Property 'is_active' does not exist on type 'Borrower'.
+components/lending/LendingForm.tsx(193,21): error TS2551: Property 'coverImage' does not exist on type 'Book'. Did you mean 'cover_image'?
+components/lending/LendingForm.tsx(195,29): error TS2551: Property 'coverImage' does not exist on type 'Book'. Did you mean 'cover_image'?
+components/lending/LendingForm.tsx(227,41): error TS2339: Property 'name' does not exist on type 'Borrower'.
+components/ui/accordion.tsx(10,20): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/accordion.tsx(18,26): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/accordion.tsx(20,6): error TS2741: Property 'value' is missing in type '{ "data-slot": string; className: string; }' but required in type 'AccordionItemProps'.
+components/ui/accordion.tsx(32,29): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/accordion.tsx(32,40): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/accordion.tsx(57,29): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/accordion.tsx(57,40): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(6,10): error TS2459: Module '"@/components/ui/button"' declares 'buttonVariants' locally, but it is not exported.
+components/ui/alert-dialog.tsx(11,22): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(18,29): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(25,28): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(32,31): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(48,31): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(51,8): error TS2741: Property 'className' is missing in type '{}' but required in type '{ [x: string]: any; className: any; }'.
+components/ui/alert-dialog.tsx(67,30): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(80,30): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(93,29): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(106,35): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(119,30): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert-dialog.tsx(131,30): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert.tsx(31,18): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert.tsx(31,29): error TS7031: Binding element 'variant' implicitly has an 'any' type.
+components/ui/alert.tsx(48,23): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/alert.tsx(64,29): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/aspect-ratio.tsx(9,22): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/avatar.tsx(13,19): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/avatar.tsx(29,24): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/avatar.tsx(45,27): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(9,21): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(16,27): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(32,27): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(45,27): error TS7031: Binding element 'asChild' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(45,36): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(59,27): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(75,32): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(75,42): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/breadcrumb.tsx(92,31): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/calendar.tsx(15,21): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/calendar.tsx(15,32): error TS7031: Binding element 'classNames' implicitly has an 'any' type.
+components/ui/carousel.tsx(29,3): error TS7031: Binding element 'opts' implicitly has an 'any' type.
+components/ui/carousel.tsx(30,3): error TS7031: Binding element 'setApi' implicitly has an 'any' type.
+components/ui/carousel.tsx(31,3): error TS7031: Binding element 'plugins' implicitly has an 'any' type.
+components/ui/carousel.tsx(32,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/carousel.tsx(33,3): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/carousel.tsx(46,39): error TS7006: Parameter 'api' implicitly has an 'any' type.
+components/ui/carousel.tsx(61,6): error TS7006: Parameter 'event' implicitly has an 'any' type.
+components/ui/carousel.tsx(92,7): error TS2322: Type '{ carouselRef: EmblaViewportRefType; api: EmblaCarouselType | undefined; opts: any; orientation: string; scrollPrev: () => void; scrollNext: () => void; canScrollPrev: boolean; canScrollNext: boolean; }' is not assignable to type 'null'.
+components/ui/carousel.tsx(121,28): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/carousel.tsx(145,25): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/carousel.tsx(166,29): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/carousel.tsx(171,7): error TS2322: Type 'string' is not assignable to type '"link" | "default" | "secondary" | "destructive" | "outline" | "ghost" | undefined'.
+components/ui/carousel.tsx(172,7): error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | "icon" | undefined'.
+components/ui/carousel.tsx(195,25): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/carousel.tsx(200,7): error TS2322: Type 'string' is not assignable to type '"link" | "default" | "secondary" | "destructive" | "outline" | "ghost" | undefined'.
+components/ui/carousel.tsx(201,7): error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | "icon" | undefined'.
+components/ui/chart.tsx(25,3): error TS7031: Binding element 'id' implicitly has an 'any' type.
+components/ui/chart.tsx(26,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/chart.tsx(27,3): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/chart.tsx(28,3): error TS7031: Binding element 'config' implicitly has an 'any' type.
+components/ui/chart.tsx(35,28): error TS2322: Type '{ config: any; }' is not assignable to type 'null'.
+components/ui/chart.tsx(56,23): error TS7031: Binding element 'id' implicitly has an 'any' type.
+components/ui/chart.tsx(56,27): error TS7031: Binding element 'config' implicitly has an 'any' type.
+components/ui/chart.tsx(57,66): error TS18046: 'cfg' is of type 'unknown'.
+components/ui/chart.tsx(57,79): error TS18046: 'cfg' is of type 'unknown'.
+components/ui/chart.tsx(68,31): error TS18046: 'itemConfig' is of type 'unknown'.
+components/ui/chart.tsx(68,60): error TS18046: 'itemConfig' is of type 'unknown'.
+components/ui/chart.tsx(84,3): error TS7031: Binding element 'active' implicitly has an 'any' type.
+components/ui/chart.tsx(85,3): error TS7031: Binding element 'payload' implicitly has an 'any' type.
+components/ui/chart.tsx(86,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/chart.tsx(90,3): error TS7031: Binding element 'label' implicitly has an 'any' type.
+components/ui/chart.tsx(91,3): error TS7031: Binding element 'labelFormatter' implicitly has an 'any' type.
+components/ui/chart.tsx(92,3): error TS7031: Binding element 'labelClassName' implicitly has an 'any' type.
+components/ui/chart.tsx(93,3): error TS7031: Binding element 'formatter' implicitly has an 'any' type.
+components/ui/chart.tsx(94,3): error TS7031: Binding element 'color' implicitly has an 'any' type.
+components/ui/chart.tsx(95,3): error TS7031: Binding element 'nameKey' implicitly has an 'any' type.
+components/ui/chart.tsx(96,3): error TS7031: Binding element 'labelKey' implicitly has an 'any' type.
+components/ui/chart.tsx(110,26): error TS2339: Property 'label' does not exist on type 'never'.
+components/ui/chart.tsx(150,23): error TS7006: Parameter 'item' implicitly has an 'any' type.
+components/ui/chart.tsx(150,29): error TS7006: Parameter 'index' implicitly has an 'any' type.
+components/ui/chart.tsx(180,29): error TS2353: Object literal may only specify known properties, and '"--color-bg"' does not exist in type 'Properties<string | number, string & {}>'.
+components/ui/chart.tsx(216,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/chart.tsx(218,3): error TS7031: Binding element 'payload' implicitly has an 'any' type.
+components/ui/chart.tsx(220,3): error TS7031: Binding element 'nameKey' implicitly has an 'any' type.
+components/ui/chart.tsx(235,21): error TS7006: Parameter 'item' implicitly has an 'any' type.
+components/ui/chart.tsx(264,3): error TS7006: Parameter 'config' implicitly has an 'any' type.
+components/ui/chart.tsx(265,3): error TS7006: Parameter 'payload' implicitly has an 'any' type.
+components/ui/chart.tsx(266,3): error TS7006: Parameter 'key' implicitly has an 'any' type.
+components/ui/checkbox.tsx(14,21): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/collapsible.tsx(7,22): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/collapsible.tsx(14,29): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/collapsible.tsx(21,29): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/command.tsx(19,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/command.tsx(24,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/command.tsx(39,3): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/command.tsx(44,8): error TS2322: Type '{ children: Element[]; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/command.tsx(45,10): error TS2559: Type '{ children: string; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/command.tsx(46,10): error TS2559: Type '{ children: string; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/command.tsx(48,8): error TS2322: Type '{ children: Element; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/command.tsx(49,10): error TS2322: Type '{ children: any; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/command.tsx(61,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/command.tsx(71,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+components/ui/command.tsx(85,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/command.tsx(90,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/command.tsx(105,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/command.tsx(115,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/command.tsx(120,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/command.tsx(133,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/command.tsx(138,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/command.tsx(148,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/command.tsx(153,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/command.tsx(166,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/command.tsx(171,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+components/ui/context-menu.tsx(17,35): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+components/ui/context-menu.tsx(22,38): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/context-menu.tsx(32,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/context-menu.tsx(32,16): error TS2339: Property 'inset' does not exist on type '{}'.
+components/ui/context-menu.tsx(32,23): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/context-menu.tsx(37,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/context-menu.tsx(53,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/context-menu.tsx(58,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/context-menu.tsx(70,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/context-menu.tsx(87,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/context-menu.tsx(88,3): error TS7031: Binding element 'inset' implicitly has an 'any' type.
+components/ui/context-menu.tsx(106,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/context-menu.tsx(107,3): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/context-menu.tsx(108,3): error TS7031: Binding element 'checked' implicitly has an 'any' type.
+components/ui/context-menu.tsx(132,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/context-menu.tsx(133,3): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/context-menu.tsx(137,6): error TS2741: Property 'value' is missing in type '{ children: any[]; "data-slot": string; className: string; }' but required in type 'Omit<MenuRadioItemProps & RefAttributes<HTMLDivElement>, "ref">'.
+components/ui/context-menu.tsx(156,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/context-menu.tsx(157,3): error TS7031: Binding element 'inset' implicitly has an 'any' type.
+components/ui/context-menu.tsx(173,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/context-menu.tsx(185,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/dialog.tsx(12,35): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/dialog.tsx(20,33): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/dialog.tsx(25,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dialog.tsx(30,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dialog.tsx(43,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dialog.tsx(43,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/dialog.tsx(50,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dialog.tsx(71,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dialog.tsx(76,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dialog.tsx(86,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dialog.tsx(91,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dialog.tsx(101,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dialog.tsx(106,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLHeadingElement> | undefined'.
+components/ui/dialog.tsx(116,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dialog.tsx(121,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+components/ui/drawer.tsx(11,35): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/drawer.tsx(19,33): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/drawer.tsx(24,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/drawer.tsx(29,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/drawer.tsx(42,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/drawer.tsx(42,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/drawer.tsx(49,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/drawer.tsx(71,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/drawer.tsx(76,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/drawer.tsx(86,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/drawer.tsx(91,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/drawer.tsx(101,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/drawer.tsx(106,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLHeadingElement> | undefined'.
+components/ui/drawer.tsx(116,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/drawer.tsx(121,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+components/ui/dropdown-menu.tsx(19,52): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(19,63): error TS2339: Property 'inset' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(19,70): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(21,5): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dropdown-menu.tsx(35,52): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(37,5): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dropdown-menu.tsx(47,49): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(47,60): error TS2339: Property 'sideOffset' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(50,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dropdown-menu.tsx(61,46): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(61,57): error TS2339: Property 'inset' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(63,5): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dropdown-menu.tsx(73,54): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(73,65): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(73,75): error TS2339: Property 'checked' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(75,5): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dropdown-menu.tsx(93,51): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(93,62): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(95,5): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dropdown-menu.tsx(111,47): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(111,58): error TS2339: Property 'inset' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(113,5): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dropdown-menu.tsx(123,51): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(125,5): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/dropdown-menu.tsx(133,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/dropdown-menu.tsx(138,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+components/ui/form.tsx(11,20): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/form.tsx(13,32): error TS2322: Type '{ name: any; }' is not assignable to type 'undefined'.
+components/ui/form.tsx(23,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/form.tsx(28,31): error TS2322: Type '{ id: string; }' is not assignable to type 'undefined'.
+components/ui/form.tsx(29,12): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/form.tsx(37,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/form.tsx(43,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLLabelElement> | undefined'.
+components/ui/form.tsx(62,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+components/ui/form.tsx(79,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/form.tsx(85,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+components/ui/form.tsx(97,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/form.tsx(97,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/form.tsx(107,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+components/ui/hover-card.tsx(11,38): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+components/ui/hover-card.tsx(16,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/hover-card.tsx(16,16): error TS2339: Property 'align' does not exist on type '{}'.
+components/ui/hover-card.tsx(16,34): error TS2339: Property 'sideOffset' does not exist on type '{}'.
+components/ui/hover-card.tsx(22,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/input-otp.tsx(11,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/input-otp.tsx(11,16): error TS2339: Property 'containerClassName' does not exist on type '{}'.
+components/ui/input-otp.tsx(16,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+components/ui/input-otp.tsx(27,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/input-otp.tsx(32,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/input-otp.tsx(42,5): error TS2339: Property 'index' does not exist on type '{}'.
+components/ui/input-otp.tsx(42,12): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/input-otp.tsx(49,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/input-otp.tsx(74,10): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/input.tsx(28,10): error TS2300: Duplicate identifier 'Input'.
+components/ui/input.tsx(31,10): error TS2300: Duplicate identifier 'Input'.
+components/ui/menubar.tsx(15,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(20,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(34,33): error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & MenubarMenuProps & { __scopeMenubar?: Scope; }'.
+components/ui/menubar.tsx(40,34): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(49,39): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(55,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(60,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/menubar.tsx(74,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(74,16): error TS2339: Property 'align' does not exist on type '{}'.
+components/ui/menubar.tsx(74,33): error TS2339: Property 'alignOffset' does not exist on type '{}'.
+components/ui/menubar.tsx(74,51): error TS2339: Property 'sideOffset' does not exist on type '{}'.
+components/ui/menubar.tsx(80,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(98,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(98,16): error TS2339: Property 'inset' does not exist on type '{}'.
+components/ui/menubar.tsx(98,23): error TS2339: Property 'variant' does not exist on type '{}'.
+components/ui/menubar.tsx(103,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(119,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(119,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/menubar.tsx(119,26): error TS2339: Property 'checked' does not exist on type '{}'.
+components/ui/menubar.tsx(124,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(146,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(146,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/menubar.tsx(151,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(172,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(172,16): error TS2339: Property 'inset' does not exist on type '{}'.
+components/ui/menubar.tsx(177,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(189,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(194,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(205,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(210,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+components/ui/menubar.tsx(221,32): error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & MenubarSubProps'.
+components/ui/menubar.tsx(227,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(227,16): error TS2339: Property 'inset' does not exist on type '{}'.
+components/ui/menubar.tsx(227,23): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/menubar.tsx(232,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/menubar.tsx(250,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/menubar.tsx(255,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/navigation-menu.tsx(20,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(20,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(20,26): error TS2339: Property 'viewport' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(25,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+components/ui/navigation-menu.tsx(45,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(50,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
+components/ui/navigation-menu.tsx(63,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(68,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
+components/ui/navigation-menu.tsx(82,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(82,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(87,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/navigation-menu.tsx(106,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(111,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/navigation-menu.tsx(129,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(135,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/navigation-menu.tsx(152,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(157,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+components/ui/navigation-menu.tsx(173,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/navigation-menu.tsx(178,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/pagination.tsx(9,10): error TS2459: Module '"@/components/ui/button"' declares 'buttonVariants' locally, but it is not exported.
+components/ui/pagination.tsx(20,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx(25,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+components/ui/pagination.tsx(41,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx(46,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
+components/ui/pagination.tsx(63,14): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
+components/ui/pagination.tsx(76,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx(76,16): error TS2339: Property 'isActive' does not exist on type '{}'.
+components/ui/pagination.tsx(76,26): error TS2339: Property 'size' does not exist on type '{}'.
+components/ui/pagination.tsx(81,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+components/ui/pagination.tsx(103,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx(107,6): error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/pagination.tsx(126,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx(130,6): error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/pagination.tsx(149,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx(154,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+components/ui/popover.tsx(16,33): error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & PopoverProps'.
+components/ui/popover.tsx(27,36): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/popover.tsx(41,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/popover.tsx(41,16): error TS2339: Property 'align' does not exist on type '{}'.
+components/ui/popover.tsx(41,34): error TS2339: Property 'sideOffset' does not exist on type '{}'.
+components/ui/popover.tsx(47,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/popover.tsx(69,35): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/progress.tsx(16,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/progress.tsx(16,16): error TS2339: Property 'value' does not exist on type '{}'.
+components/ui/progress.tsx(21,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/radio-group.tsx(18,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/radio-group.tsx(23,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/radio-group.tsx(41,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/radio-group.tsx(46,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/resizable.tsx(16,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/resizable.tsx(21,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<ImperativePanelGroupHandle> | undefined'.
+components/ui/resizable.tsx(44,36): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<ImperativePanelHandle> | undefined'.
+components/ui/resizable.tsx(58,5): error TS2339: Property 'withHandle' does not exist on type '{}'.
+components/ui/resizable.tsx(58,17): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/resizable.tsx(63,7): error TS2322: Type '{ children: any; ref: ForwardedRef<unknown>; "data-slot": string; className: string; }' is not assignable to type 'IntrinsicAttributes & Omit<HTMLAttributes<keyof HTMLElementTagNameMap>, "id" | "onFocus" | "onBlur" | "onClick" | "onPointerDown" | "onPointerUp"> & { ...; } & { ...; }'.
+components/ui/scroll-area.tsx(18,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/scroll-area.tsx(18,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/scroll-area.tsx(23,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/scroll-area.tsx(51,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/scroll-area.tsx(51,16): error TS2339: Property 'orientation' does not exist on type '{}'.
+components/ui/scroll-area.tsx(56,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/separator.tsx(19,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/separator.tsx(19,16): error TS2339: Property 'orientation' does not exist on type '{}'.
+components/ui/separator.tsx(19,44): error TS2339: Property 'decorative' does not exist on type '{}'.
+components/ui/separator.tsx(24,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/sheet.tsx(12,31): error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & DialogProps'.
+components/ui/sheet.tsx(20,34): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/sheet.tsx(28,32): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/sheet.tsx(36,33): error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & DialogPortalProps'.
+components/ui/sheet.tsx(44,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/sheet.tsx(49,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/sheet.tsx(65,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/sheet.tsx(65,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/sheet.tsx(65,26): error TS2339: Property 'side' does not exist on type '{}'.
+components/ui/sheet.tsx(69,6): error TS2559: Type '{ children: Element[]; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sheet.tsx(72,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/sheet.tsx(105,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/sheet.tsx(110,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/sheet.tsx(123,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/sheet.tsx(128,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/sheet.tsx(141,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/sheet.tsx(146,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLHeadingElement> | undefined'.
+components/ui/sheet.tsx(159,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/sheet.tsx(164,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+components/ui/sidebar.tsx(51,9): error TS7031: Binding element 'openProp' implicitly has an 'any' type.
+components/ui/sidebar.tsx(52,17): error TS7031: Binding element 'setOpenProp' implicitly has an 'any' type.
+components/ui/sidebar.tsx(53,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(54,3): error TS7031: Binding element 'style' implicitly has an 'any' type.
+components/ui/sidebar.tsx(55,3): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/sidebar.tsx(63,38): error TS7006: Parameter 'value' implicitly has an 'any' type.
+components/ui/sidebar.tsx(76,65): error TS7006: Parameter 'open' implicitly has an 'any' type.
+components/ui/sidebar.tsx(81,28): error TS7006: Parameter 'event' implicitly has an 'any' type.
+components/ui/sidebar.tsx(118,30): error TS2322: Type '{ state: string; open: any; setOpen: (value: any) => void; isMobile: boolean; openMobile: boolean; setOpenMobile: React.Dispatch<React.SetStateAction<boolean>>; toggleSidebar: () => void; }' is not assignable to type 'null'.
+components/ui/sidebar.tsx(144,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(145,3): error TS7031: Binding element 'children' implicitly has an 'any' type.
+components/ui/sidebar.tsx(166,8): error TS2322: Type '{ children: Element; open: never; onOpenChange: never; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sidebar.tsx(167,10): error TS2322: Type '{ children: Element[]; "data-sidebar": string; "data-slot": string; "data-mobile": string; className: string; style: { "--sidebar-width": string; }; side: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sidebar.tsx(178,12): error TS2322: Type '{ children: Element[]; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sidebar.tsx(179,14): error TS2559: Type '{ children: string; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sidebar.tsx(180,14): error TS2559: Type '{ children: string; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sidebar.tsx(233,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(234,3): error TS7031: Binding element 'onClick' implicitly has an 'any' type.
+components/ui/sidebar.tsx(248,9): error TS2349: This expression is not callable.
+components/ui/sidebar.tsx(258,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(285,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(301,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(314,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(327,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(340,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(347,7): error TS2322: Type '{ "data-slot": string; "data-sidebar": string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sidebar.tsx(353,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(369,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(382,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(402,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(424,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(437,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(450,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(489,3): error TS7031: Binding element 'tooltip' implicitly has an 'any' type.
+components/ui/sidebar.tsx(490,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(502,49): error TS2322: Type 'string' is not assignable to type '"default" | "outline" | null | undefined'.
+components/ui/sidebar.tsx(502,58): error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | null | undefined'.
+components/ui/sidebar.tsx(517,6): error TS2559: Type '{ children: Element[]; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sidebar.tsx(518,8): error TS2322: Type '{ children: Element; asChild: true; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/sidebar.tsx(529,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(557,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(578,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(601,13): error TS2353: Object literal may only specify known properties, and '"--skeleton-width"' does not exist in type 'Properties<string | number, string & {}>'.
+components/ui/sidebar.tsx(609,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(626,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/sidebar.tsx(642,3): error TS7031: Binding element 'className' implicitly has an 'any' type.
+components/ui/slider.tsx(21,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/slider.tsx(21,16): error TS2339: Property 'defaultValue' does not exist on type '{}'.
+components/ui/slider.tsx(21,30): error TS2339: Property 'value' does not exist on type '{}'.
+components/ui/slider.tsx(21,37): error TS2339: Property 'min' does not exist on type '{}'.
+components/ui/slider.tsx(21,46): error TS2339: Property 'max' does not exist on type '{}'.
+components/ui/slider.tsx(37,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+components/ui/sonner.tsx(11,25): error TS7006: Parameter 'props' implicitly has an 'any' type.
+components/ui/switch.tsx(17,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/switch.tsx(22,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/table.tsx(14,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/table.tsx(20,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableElement> | undefined'.
+components/ui/table.tsx(35,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/table.tsx(40,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+components/ui/table.tsx(54,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/table.tsx(59,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+components/ui/table.tsx(73,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/table.tsx(78,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+components/ui/table.tsx(92,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/table.tsx(97,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableRowElement> | undefined'.
+components/ui/table.tsx(114,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/table.tsx(119,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableHeaderCellElement> | undefined'.
+components/ui/table.tsx(136,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/table.tsx(141,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableDataCellElement> | undefined'.
+components/ui/table.tsx(158,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/table.tsx(163,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+components/ui/tabs.tsx(15,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/tabs.tsx(20,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/tabs.tsx(35,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/tabs.tsx(40,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/tabs.tsx(55,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/tabs.tsx(60,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/toggle-group.tsx(30,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/toggle-group.tsx(30,16): error TS2339: Property 'variant' does not exist on type '{}'.
+components/ui/toggle-group.tsx(30,37): error TS2339: Property 'size' does not exist on type '{}'.
+components/ui/toggle-group.tsx(30,55): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/toggle-group.tsx(35,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/toggle-group.tsx(65,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/toggle-group.tsx(65,16): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/toggle-group.tsx(65,26): error TS2339: Property 'variant' does not exist on type '{}'.
+components/ui/toggle-group.tsx(65,35): error TS2339: Property 'size' does not exist on type '{}'.
+components/ui/toggle-group.tsx(73,7): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/tooltip.tsx(16,4): error TS2741: Property 'children' is missing in type '{ "data-slot": string; delayDuration: number; }' but required in type 'TooltipProviderProps'.
+components/ui/tooltip.tsx(36,48): error TS2322: Type '{ "data-slot": string; ref: ForwardedRef<unknown>; }' is not assignable to type 'IntrinsicAttributes & TooltipProps'.
+components/ui/tooltip.tsx(53,36): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+components/ui/tooltip.tsx(68,5): error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/tooltip.tsx(68,16): error TS2339: Property 'sideOffset' does not exist on type '{}'.
+components/ui/tooltip.tsx(68,32): error TS2339: Property 'children' does not exist on type '{}'.
+components/ui/tooltip.tsx(74,9): error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+components/ui/use-form-field.tsx(28,55): error TS2339: Property 'name' does not exist on type 'never'.
+components/ui/use-form-field.tsx(29,49): error TS2339: Property 'name' does not exist on type 'never'.
+components/ui/use-form-field.tsx(30,27): error TS2339: Property 'id' does not exist on type 'never'.
+components/ui/use-form-field.tsx(33,24): error TS2339: Property 'name' does not exist on type 'never'.
+pages/books/[id].tsx(78,32): error TS2551: Property 'publication_date' does not exist on type 'Book'. Did you mean 'publication_year'?
+pages/books/[id].tsx(78,65): error TS2551: Property 'publication_date' does not exist on type 'Book'. Did you mean 'publication_year'?
+pages/books/[id].tsx(79,32): error TS2339: Property 'acquisition_date' does not exist on type 'Book'.
+pages/books/[id].tsx(79,65): error TS2339: Property 'acquisition_date' does not exist on type 'Book'.
+pages/books/[id].tsx(118,25): error TS2551: Property 'cover_image_url' does not exist on type 'Book'. Did you mean 'cover_image'?
+pages/books/[id].tsx(120,33): error TS2551: Property 'cover_image_url' does not exist on type 'Book'. Did you mean 'cover_image'?
+pages/books/[id].tsx(135,42): error TS2339: Property 'status' does not exist on type 'Book'.
+pages/books/[id].tsx(136,29): error TS2339: Property 'status' does not exist on type 'Book'.
+pages/books/[id].tsx(141,52): error TS2339: Property 'condition' does not exist on type 'Book'.
+pages/books/[id].tsx(163,16): error TS2322: Type '{ children: Element[]; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id].tsx(164,18): error TS2322: Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id].tsx(165,18): error TS2322: Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id].tsx(166,18): error TS2322: Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id].tsx(169,16): error TS2322: Type '{ children: (false | Element | undefined)[]; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id].tsx(250,29): error TS2339: Property 'edition' does not exist on type 'Book'.
+pages/books/[id].tsx(253,36): error TS2339: Property 'edition' does not exist on type 'Book'.
+pages/books/[id].tsx(288,29): error TS2339: Property 'position' does not exist on type 'Book'.
+pages/books/[id].tsx(291,36): error TS2339: Property 'position' does not exist on type 'Book'.
+pages/books/[id].tsx(320,16): error TS2322: Type '{ children: any[]; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id].tsx(336,23): error TS2339: Property 'summary' does not exist on type 'Book'.
+pages/books/[id].tsx(343,66): error TS2339: Property 'summary' does not exist on type 'Book'.
+pages/books/[id].tsx(349,23): error TS2339: Property 'notes' does not exist on type 'Book'.
+pages/books/[id].tsx(356,66): error TS2339: Property 'notes' does not exist on type 'Book'.
+pages/books/[id].tsx(363,16): error TS2322: Type '{ children: Element[]; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id].tsx(376,29): error TS2339: Property 'acquisition_cost' does not exist on type 'Book'.
+pages/books/[id].tsx(379,37): error TS2339: Property 'acquisition_cost' does not exist on type 'Book'.
+pages/books/[id].tsx(382,29): error TS2339: Property 'source' does not exist on type 'Book'.
+pages/books/[id].tsx(385,36): error TS2339: Property 'source' does not exist on type 'Book'.
+pages/books/[id].tsx(388,29): error TS2339: Property 'donor' does not exist on type 'Book'.
+pages/books/[id].tsx(391,36): error TS2339: Property 'donor' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(78,32): error TS2551: Property 'publication_date' does not exist on type 'Book'. Did you mean 'publication_year'?
+pages/books/[id]_new.tsx(78,65): error TS2551: Property 'publication_date' does not exist on type 'Book'. Did you mean 'publication_year'?
+pages/books/[id]_new.tsx(79,32): error TS2339: Property 'acquisition_date' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(79,65): error TS2339: Property 'acquisition_date' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(118,25): error TS2551: Property 'cover_image_url' does not exist on type 'Book'. Did you mean 'cover_image'?
+pages/books/[id]_new.tsx(120,33): error TS2551: Property 'cover_image_url' does not exist on type 'Book'. Did you mean 'cover_image'?
+pages/books/[id]_new.tsx(135,42): error TS2339: Property 'status' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(136,29): error TS2339: Property 'status' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(141,52): error TS2339: Property 'condition' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(163,16): error TS2322: Type '{ children: Element[]; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id]_new.tsx(164,18): error TS2322: Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id]_new.tsx(165,18): error TS2322: Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id]_new.tsx(166,18): error TS2322: Type '{ children: string; value: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id]_new.tsx(169,16): error TS2322: Type '{ children: (false | Element | undefined)[]; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id]_new.tsx(250,29): error TS2339: Property 'edition' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(253,36): error TS2339: Property 'edition' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(288,29): error TS2339: Property 'position' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(291,36): error TS2339: Property 'position' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(320,16): error TS2322: Type '{ children: any[]; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id]_new.tsx(336,23): error TS2339: Property 'summary' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(343,66): error TS2339: Property 'summary' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(349,23): error TS2339: Property 'notes' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(356,66): error TS2339: Property 'notes' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(363,16): error TS2322: Type '{ children: Element[]; value: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+pages/books/[id]_new.tsx(376,29): error TS2339: Property 'acquisition_cost' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(379,37): error TS2339: Property 'acquisition_cost' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(382,29): error TS2339: Property 'source' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(385,36): error TS2339: Property 'source' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(388,29): error TS2339: Property 'donor' does not exist on type 'Book'.
+pages/books/[id]_new.tsx(391,36): error TS2339: Property 'donor' does not exist on type 'Book'.
+pages/books/add.tsx(134,9): error TS2322: Type '{ id: number; name: string; }[] | undefined' is not assignable to type 'Tag[] | undefined'.
+pages/books/add.tsx(144,41): error TS2345: Argument of type 'Omit<Book, "id" | "created_at" | "updated_at">' is not assignable to parameter of type 'Omit<Book, "id" | "createdAt" | "updatedAt">'.
+npm notice
+npm notice New major version of npm available! 10.9.2 -> 11.4.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+npm notice To update run: npm install -g npm@11.4.2
+npm notice
+pages/borrowers/index.tsx(53,48): error TS2339: Property 'status' does not exist on type 'Borrower'.
+pages/borrowers/index.tsx(54,50): error TS2339: Property 'status' does not exist on type 'Borrower'.
+pages/borrowers/index.tsx(206,50): error TS2339: Property 'status' does not exist on type 'Borrower'.
+pages/borrowers/index.tsx(207,37): error TS2339: Property 'status' does not exist on type 'Borrower'.
+pages/lending/[id].tsx(181,36): error TS2339: Property 'category' does not exist on type 'BookSummary'.
+pages/lending/[id].tsx(184,42): error TS2339: Property 'category' does not exist on type 'BookSummary'.
+pages/lending/[id].tsx(217,40): error TS2339: Property 'address' does not exist on type 'BorrowerSummary'.
+pages/lending/[id].tsx(220,46): error TS2339: Property 'address' does not exist on type 'BorrowerSummary'.
+
+f:\WebDev\library-management\frontend>
