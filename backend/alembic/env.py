@@ -11,11 +11,30 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-# Add src directory to path
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+# Add src directory to path for imports
+src_path = os.path.join(os.path.dirname(__file__), '..', 'src')
+sys.path.insert(0, src_path)
 
-# Import all models to ensure they are registered
-from models import *
+# Import the database configuration
+import database_async
+
+# Set target metadata from Base
+target_metadata = database_async.Base.metadata
+
+# Import all models to ensure they are registered with SQLAlchemy
+try:
+    import models.user_async  # noqa: F401
+    import models.book_async  # noqa: F401
+    import models.borrower_async  # noqa: F401
+    import models.lending_record_async  # noqa: F401
+    import models.category_async  # noqa: F401
+    import models.tag_async  # noqa: F401
+    import models.book_tag_async  # noqa: F401
+    import models.book_preview_image_async  # noqa: F401
+    import models.user_favorite_async  # noqa: F401
+except ImportError as e:
+    print(f"Warning: Could not import some models: {e}")
+    # Continue anyway, models might be imported elsewhere
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -26,19 +45,14 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-from database_async import Base
-target_metadata = Base.metadata
-
-# other values from the config, defined by the needs of env.py,
-# can be acquired:
-# my_important_option = config.get_main_option("my_important_option")
-# ... etc.
 
 def get_database_url():
     """Get database URL from environment variables."""
-    return os.getenv("DATABASE_URL", "postgresql+asyncpg://username:password@localhost:5432/library_catalog")
+    return os.getenv(
+        "DATABASE_URL", 
+        "postgresql+asyncpg://username:password@localhost:5432/library_catalog"
+    )
+
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
