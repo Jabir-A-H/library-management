@@ -44,26 +44,7 @@
 
 ## 🏗️ Architecture
 
-```
-library-management/
-├── backend/                     # FastAPI Backend
-│   ├── src/
-│   │   ├── main_fastapi.py     # Main application entry point
-│   │   ├── database_async.py   # Database configuration
-│   │   ├── models/             # SQLAlchemy models
-│   │   ├── schemas/            # Pydantic schemas
-│   │   ├── routes/             # API route handlers
-│   │   └── dependencies/       # FastAPI dependencies
-│   ├── alembic/                # Database migrations
-│   └── requirements.txt        # Python dependencies
-├── frontend/                   # Next.js Frontend
-│   ├── components/             # React components
-│   ├── pages/                  # Next.js pages
-│   ├── lib/                    # Utilities and API client
-│   ├── types/                  # TypeScript type definitions
-│   └── styles/                 # CSS and styling
-└── docs/                       # Documentation
-```
+library-management/ ├── backend/ # FastAPI Backend │ ├── src/ │ │ ├── main_fastapi.py # Main application entry point │ │ ├── database_async.py # Database configuration │ │ ├── models/ # SQLAlchemy models │ │ ├── schemas/ # Pydantic schemas │ │ ├── routes/ # API route handlers │ │ └── dependencies/ # FastAPI dependencies │ ├── alembic/ # Database migrations │ └── requirements.txt # Python dependencies ├── frontend/ # Next.js Frontend │ ├── components/ # React components │ ├── pages/ # Next.js pages │ ├── lib/ # Utilities and API client │ ├── types/ # TypeScript type definitions │ └── styles/ # CSS and styling └── docs/ # Documentation
 
 ## 🛠️ Tech Stack
 
@@ -85,7 +66,7 @@ library-management/
 
 ## ⚡ Quick Start
 
-See our detailed [Setup Guide](./FINAL_SETUP_GUIDE.md) for comprehensive installation instructions.
+See our detailed [Setup Guide](./SETUP_GUIDE.md) for comprehensive installation instructions.
 
 ### **Prerequisites**
 - Python 3.13+
@@ -100,7 +81,7 @@ See our detailed [Setup Guide](./FINAL_SETUP_GUIDE.md) for comprehensive install
 git clone https://github.com/yourusername/library-management.git
 cd library-management
 
-# Set up backend (detailed steps in FINAL_SETUP_GUIDE.md)
+# Set up backend (detailed steps in SETUP_GUIDE.md)
 cd backend
 python -m venv venv
 venv\Scripts\activate
@@ -113,39 +94,29 @@ npm install
 npm run dev
 ```
 
-### **Access Application**
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:8000
-- **API Documentation**: http://localhost:8000/docs
-
-## 📚 Documentation
-
-- [Setup Guide](./FINAL_SETUP_GUIDE.md) - Detailed installation instructions
-- [Migration Plan](./FINAL_MIGRATION_PLAN.md) - Strategy for system improvements
-- [Project Analysis Prompts](./PROJECT_ANALYSIS_PROMPTS.md) - Tools for codebase improvement
-- API Documentation - Available at `/docs` when server is running
-
-## 🔧 Development
-
+Access Application
+Frontend: http://localhost:3000
+Backend API: http://localhost:8000
+API Documentation: http://localhost:8000/docs
+📚 Documentation
+Setup Guide - Detailed installation instructions
+Migration Plan - Strategy for system improvements
+Project Analysis Prompts - Tools for codebase improvement
+API Documentation - Available at /docs when server is running
+🔧 Development
 See the Setup Guide for development workflow details.
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
+🤝 Contributing
+Fork the repository
+Create a feature branch (git checkout -b feature/amazing-feature)
+Commit your changes (git commit -m 'Add amazing feature')
+Push to the branch (git push origin feature/amazing-feature)
+Open a Pull Request
+📄 License
 This project is licensed under the MIT License.
 
-## 👨‍💻 Author
+👨‍💻 Author
+Jabir A. H.
 
-**Jabir A. H.**
-- GitHub: [@Jabir-A-H](https://github.com/Jabir-A-H)
-
----
-
-**Built with ❤️ for book lovers and library enthusiasts**
+GitHub: @Jabir-A-H
+Built with ❤️ for book lovers and library enthusiasts
