@@ -1,66 +1,86 @@
-# Migration Plan: ছোটপাতা পাঠাগার
-## একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম
+# Migration Plan: Personal Library Catalog
 
-This document outlines a step-by-step plan to migrate the Chotopata Pathagar system to a modern, industry-standard tech stack.
+This document outlines a step-by-step plan to migrate the Library Management System to a modern, industry-standard tech stack.
 
 ---
 
-## Phase 1: Backend Stabilization (FastAPI + PostgreSQL) ✅ COMPLETED
+## Phase 1: Backend Stabilization (FastAPI + PostgreSQL)
 
-### Step 1: Database Setup ✅ COMPLETED
+### Step 1: Fix PostgreSQL Connection
 
-✅ **PostgreSQL database has been manually created using the SQL file:**
-   - Database structure created with all required tables
-   - Enhanced schema includes multilingual support (Bangla fields)
-   - Proper indexing and relationships established
-   - Sample data inserted for testing
+1. **Install PostgreSQL locally:**
 
-✅ **Database includes the following enhanced features:**
-   - **Books table**: Enhanced with Bangla fields, physical location tracking, copy management
-   - **Borrowers table**: Enhanced with Bangla fields, relationship tracking, book count management
-   - **Categories table**: Hierarchical categorization system
-   - **Tags table**: Flexible tagging with multilingual support
-   - **Preview images**: Multiple images per book with captions
-   - **User favorites**: User preference tracking
-   - **Comprehensive indexing**: Optimized for common queries
+   **Option A: Using Docker (Recommended)**
 
-**Database Schema Summary:**
-- `users` - System users with role-based access
-- `books` - Enhanced book records with location and multilingual support
-- `borrowers` - Enhanced borrower records with relationship tracking
-- `lending_records` - Book lending transaction history
-- `categories` - Hierarchical book categorization
-- `tags` - Flexible book tagging system
-- `book_tags` - Many-to-many book-tag relationships
-- `book_preview_images` - Multiple images per book
-- `user_favorites` - User book preferences
+   ```sh
+   # Create and run PostgreSQL container
+   docker run --name postgres-lib -e POSTGRES_PASSWORD=securepassword -p 5432:5432 -d postgres
+   
+   # Verify container is running
+   docker ps
+   
+   # Connect to database (optional)
+   docker exec -it postgres-lib psql -U postgres
+   ```
 
-**Updated SQLAlchemy Models:**
-✅ **All models have been updated to match the PostgreSQL schema:**
-   - `book_async.py` - Enhanced with Bangla fields, location tracking, inventory management
-   - `borrower_async.py` - Enhanced with Bangla fields, relationship tracking
-   - `user_async.py` - Updated with role-based access and comments
-   - `lending_record_async.py` - Enhanced with proper field naming and status tracking
-   - `category_async.py` - New hierarchical categorization model
-   - `tag_async.py` - New flexible tagging model with Bangla support
-   - `book_tag_async.py` - Many-to-many relationship table
-   - `book_preview_image_async.py` - Multiple images per book with captions
-   - `user_favorite_async.py` - User preference tracking
+   **Option B: Native Installation**
 
-**Key Model Enhancements:**
-- **Multilingual Support**: Bangla (_bn) fields for title, author, description, etc.
-- **Physical Location**: Room, shelf, column, row tracking for books
-- **Inventory Management**: total_copies and available_copies tracking
-- **Relationship Tracking**: Borrower relationship field (friend, family, colleague, etc.)
-- **Hierarchical Categories**: Parent-child category relationships
-- **Flexible Tagging**: Many-to-many book-tag relationships
-- **Image Management**: Multiple preview images with captions and display order
-- **Role-based Access**: User roles (admin, librarian, user)
+   ```sh
+   # Download from postgresql.org
+   # Install with default settings
+   # Remember the password you set during installation
+   ```
 
-**Next Steps:**
-1. ✅ Update SQLAlchemy models to match the new database schema
-2. ✅ Test database connectivity and model synchronization
-3. ✅ Update API endpoints to use the enhanced schema
+2. **Create database:**
+
+   ```sh
+   # If using Docker
+   docker exec -it postgres-lib createdb -U postgres library
+   
+   # If using native PostgreSQL
+   createdb -U postgres library
+   
+   # Verify database exists
+   psql -U postgres -l
+   ```
+
+3. **Update connection configuration:**
+
+   Create `backend/.env` file:
+
+   ```env
+   DATABASE_URL=postgresql+asyncpg://postgres:securepassword@localhost/library
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=securepassword
+   POSTGRES_DB=library
+   POSTGRES_HOST=localhost
+   POSTGRES_PORT=5432
+   ```
+
+   Update `backend/alembic.ini`:
+
+   ```ini
+   sqlalchemy.url = postgresql+psycopg2://postgres:securepassword@localhost:5432/library
+   ```
+
+4. **Fix Alembic migrations:**
+
+   ```sh
+   # Navigate to backend directory
+   cd backend
+   
+   # Install required packages
+   pip install psycopg2-binary alembic asyncpg
+   
+   # Generate initial migration
+   alembic revision --autogenerate -m "initial migration"
+   
+   # Apply migration to database
+   alembic upgrade head
+   
+   # Verify migration worked
+   alembic current
+   ```
 
 ### Step 2: Finalize FastAPI Models & Routes
 
@@ -139,27 +159,6 @@ This document outlines a step-by-step plan to migrate the Chotopata Pathagar sys
    # Check if tables were created
    psql -U postgres -d library -c "\dt"
    ```
-
-4. **Test Database Connectivity ✅ READY FOR TESTING**
-
-**Database Test Script:**
-A comprehensive test script has been created to verify:
-- PostgreSQL connection
-- Table existence validation
-- Sample data verification
-- SQLAlchemy model queries
-
-**To run the test:**
-```sh
-cd backend
-python test_db_connection.py
-```
-
-**Expected test results:**
-- ✅ Database connection successful
-- ✅ All 9 tables exist and accessible
-- ✅ Sample data can be read
-- ✅ SQLAlchemy models work correctly
 
 ---
 
@@ -1457,8 +1456,9 @@ python test_db_connection.py
 
    Create `README.md`:
 
-   ```markdown   # ছোটপাতা পাঠাগার
-
+   ```markdown
+   # Personal Library Catalog
+   
    A modern, full-stack library management system built with Next.js, FastAPI, and PostgreSQL.
    
    ## 🚀 Features
@@ -1761,9 +1761,6 @@ python test_db_connection.py
       
       # Run migrations
       alembic upgrade head
-      
-      # Start the server
-      uvicorn src.main_fastapi:app --host 0.0.0.0 --port 8000
       ```
 
    3. **Setup systemd service:**
@@ -1771,7 +1768,7 @@ python test_db_connection.py
       ```sh
       # Create /etc/systemd/system/library-api.service
       [Unit]
-      Description=ছোটপাতা পাঠাগার API
+      Description=Library Management API
       After=network.target
       
       [Service]
@@ -1829,6 +1826,52 @@ python test_db_connection.py
 
    ```[]
    NEXT_PUBLIC_API_URL=https://your-api-domain.com
+   NEXTAUTH_URL=https://your-frontend-domain.com
+   NEXTAUTH_SECRET=your-nextauth-secret
+   ```
+
+   ## SSL/HTTPS Setup
+
+   Use Let's Encrypt for free SSL certificates:
+
+   ```sh
+   sudo apt install certbot python3-certbot-nginx
+   sudo certbot --nginx -d your-domain.com
+   ```
+
+   ## Monitoring and Logging
+
+   ### Application Logs
+
+   ```sh
+   journalctl -u library-api -f
+   ```
+
+   ### Database Monitoring
+
+   ```sh
+   # Monitor PostgreSQL
+   sudo -u postgres psql -c "SELECT * FROM pg_stat_activity;"
+   ```
+
+   ## Backup Strategy
+
+   ### Database Backup
+
+   ```sh
+   # Daily backup script
+   pg_dump -U postgres library > backup_$(date +%Y%m%d).sql
+   ```
+
+   ### Automated Backups
+
+   ```sh
+   # Add to crontab
+   0 2 * * * /path/to/backup-script.sh
+   ```
+
+### Step 3: Enhanced Development Tools
+
 1. **Create development scripts:**
 
    Create `backend/scripts/dev.py`:

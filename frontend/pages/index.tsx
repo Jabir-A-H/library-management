@@ -34,7 +34,7 @@ export default function Home() {
     <>
       <Head>
         <title>ছোটপাতা পাঠাগার</title>
-        <meta name="description" content="ছোটপাতা পাঠাগার - একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম" />
+        <meta name="description" content="Personal Library Management System" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -46,7 +46,7 @@ export default function Home() {
               ছোটপাতা পাঠাগার
             </h1>
             <p className="text-xl text-muted-foreground mb-6">
-              একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম
+              Personal Library Management System
             </p>
             
             {/* Connection Status */}

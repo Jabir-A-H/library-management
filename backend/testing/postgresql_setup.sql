@@ -1,4 +1,4 @@
--- PostgreSQL setup script for ছোটপাতা পাঠাগার (Chotopata Pathagar)
+-- PostgreSQL setup script for Library Management System
 -- Run this script as a PostgreSQL superuser
 
 -- Create database

@@ -1,70 +1,73 @@
-# Core Framework (Critical - Fixed versions)
-fastapi>=0.116.0,<0.117.0
-uvicorn>=0.35.0
-starlette>=0.47.0,<0.48.0
+# Core Framework
+fastapi>=0.100.0
+uvicorn
+gunicorn
+starlette
 
-# Database (Critical - Fixed versions) 
-asyncpg>=0.30.0
-sqlalchemy>=2.0.41,<3.0.0
-alembic>=1.16.0
-psycopg2-binary>=2.9.0
+# Database
+asyncpg
+sqlalchemy>=2.0.0
+alembic
+psycopg2-binary
 
-# Authentication and Security (Critical - Fixed versions)
-python-jose[cryptography]>=3.5.0
-passlib[bcrypt]>=1.7.4
-python-multipart>=0.0.20
+# Authentication and Security
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
 
 # Environment and Configuration
-python-dotenv>=1.1.0
-pydantic-settings>=2.10.0
+python-dotenv
+pydantic-settings
 
-# Data Validation (Critical - Fixed versions)
-pydantic>=2.11.0,<3.0.0
-pydantic-extra-types>=2.10.0
-email-validator>=2.2.0
+# Data Validation
+pydantic>=2.0.0
+pydantic-extra-types
+email-validator
 
 # HTTP Client
-httpx>=0.28.0
+httpx
 
 # Date/Time
-python-dateutil>=2.9.0
-pytz>=2025.0
+python-dateutil
+pytz
 
 # File Operations
-aiofiles>=24.1.0
+aiofiles
 
-# JSON Processing (Performance)
-orjson>=3.10.0
-ujson>=5.10.0
+# JSON Processing
+orjson
+ujson
 
 # Image Processing
-pillow>=11.3.0
+pillow
 
-# Data Processing & Export (Excel/PDF - Future Features)
-pandas>=2.3.0
-numpy>=2.3.0
-openpyxl>=3.1.0
-reportlab>=4.4.0
+# Data Processing
+pandas
+numpy
+openpyxl
 
 # Caching and Redis
-aioredis>=1.3.1
-redis>=6.2.0
-fastapi-cache>=0.1.0
+aioredis
+redis
+fastapi-cache
 
-# API Utilities
-fastapi-pagination>=0.13.0
-fastapi-utils>=0.8.0
+# Pagination and Utils
+fastapi-pagination
+fastapi-utils
 
 # Logging and Monitoring
-loguru>=0.7.0
-sentry-sdk>=2.32.0
+loguru
+sentry-sdk
 
 # Task Scheduling
-apscheduler>=3.11.0
+apscheduler
 
-# Cloud Deployment (Future Hosting)
-fastapi-cloud-cli>=0.1.4
+# Environment Management
+environs
+
+# Report Generation
+reportlab
 
 # Development dependencies (optional)
-pytest>=8.4.0
-pytest-asyncio>=1.0.0
+pytest
+pytest-asyncio
