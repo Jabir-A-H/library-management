@@ -1,0 +1,74 @@
+<!--
+  COPILOT MIGRATION PROMPT:
+
+  This is currently a monorepo with two top‑level folders:
+    • `frontend` (frontend)
+    • `backend` (backend)
+  Rename these to the more conventional:
+    • `frontend`
+    • `backend`
+
+  Current stack in those folders:
+    • Frontend: React (JavaScript/JSX), Vite, Tailwind CSS, Lucide React, custom UI components in src/components/ui/, ESLint, pnpm
+    • Backend: Python 3, Flask + Flask-CORS, SQLAlchemy, SQLite, custom Flask-RESTful endpoints for books, borrowers, lending, export, users
+    • No local storage; all data flows through the backend API
+
+  I want to migrate this project to:
+
+    • Frontend:
+      – TypeScript + Next.js (pages/ directory, SSR support)
+      – Tailwind CSS (reuse existing config)
+      – Lucide React (keep icons)
+      – React Query for data fetching & mutations
+      – ESLint + TypeScript rules
+      – pnpm as package manager
+
+    • Backend:
+      – Python 3, FastAPI (async, Pydantic schemas, OpenAPI)
+      – SQLAlchemy → PostgreSQL (connection via DATABASE_URL env var)
+      – Alembic for migrations
+      – Auth router: simple username/password signup & login (bcrypt/passlib + JWT or secure cookies)
+      – CRUD routers for books, borrowers, lending, export, users under /api/
+
+  Migration tasks:
+  forget everything below and follow the MIGRATION_PLAN.md instructions.
+
+  0. Monorepo Folder Rename
+     – Search & replace all occurrences of the old names in:
+       • package.json / scripts  
+       • ESLint, Prettier, Vite configs  
+       • Flask/uvicorn startup commands (FLASK_APP, uvicorn paths)  
+       • Imports in code (`import ... from '../frontend/...`)
+     – Manully rename the top-level folder names. Ask the user to do it after replacing the reference in evry other place.
+
+  1. Rename & Convert
+     – Rename all `*.js`/`*.jsx` in frontend to `*.tsx`, migrate components to TSX with prop interfaces.
+     – Update import paths and ESLint config for TS.
+
+  2. Next.js Setup
+     – Scaffold `frontend/pages/_app.tsx` with `<QueryClientProvider>`.
+     – Create `frontend/pages/index.tsx` using `getServerSideProps` to fetch `/api/books`.
+     – Move UI routes to `pages/books/index.tsx` and `pages/books/[id].tsx`.
+
+  3. React Query
+     – Replace existing `fetch`/`axios` calls in components with `useQuery`/`useMutation`.
+     – Initialize `queryClient` in `_app.tsx`.
+
+  4. FastAPI Backend
+     – Create `backend/app/main.py` with FastAPI app and include routers.
+     – Under `backend/app/routers`, convert each Flask blueprint/endpoint to FastAPI router:
+       • `/api/auth` for signup/login
+       • `/api/books`, `/api/borrowers`, `/api/lendings`, `/api/export`, `/api/users`
+     – Define Pydantic schemas in `backend/app/schemas/` and SQLAlchemy models in `backend/app/models/`.
+     – Implement dependency for async DB session using `async_sessionmaker`.
+
+  5. PostgreSQL & Migrations
+     – Replace SQLite URI with `postgresql+asyncpg://` using `DATABASE_URL`.
+     – Add Alembic config for migrations.
+
+  6. Update Documentation & Scripts
+     – Update root `README.md` with new dev commands (e.g., `pnpm install`, `pnpm dev`, `uvicorn app.main:app --reload`).
+     – Add or update script entries in `package.json` and backend `Makefile` or `requirements.txt` for migrations and running the app.
+
+  Use these instructions to guide Copilot in generating and refactoring code.
+-->
