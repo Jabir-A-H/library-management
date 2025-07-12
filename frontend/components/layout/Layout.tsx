@@ -30,7 +30,7 @@ const navigation = [
   { name: 'Lending', href: '/lending', icon: Calendar },
 ];
 
-export default function Layout({ children, title = 'ছোটপাতা পাঠাগার', description = 'Personal Library Management System' }: LayoutProps) {
+export default function Layout({ children, title = 'ছোটপাতা পাঠাগার', description = 'একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম' }: LayoutProps) {
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   

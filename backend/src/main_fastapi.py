@@ -36,8 +36,8 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="ছোটপাতা পাঠাগার API",
-    description="A comprehensive library management system with multilingual support",
+    title="Chotopata Pathagar API",
+    description="Book management system with multilingual support",
     version="2.0.0",
     docs_url="/docs",
     redoc_url="/redoc",

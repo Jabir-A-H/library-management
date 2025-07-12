@@ -27,7 +27,7 @@
         "group": "servers"
       },
       "problemMatcher": [],
-      "detail": "Start Next.js frontend for Chotopata Pathagar library management system"
+      "detail": "Start Next.js frontend for ছোটপাতা পাঠাগার (Chotopata Pathagar) system"
     },
     {
       "label": "Start Full System",
@@ -37,7 +37,7 @@
         "Start Frontend Server"
       ],
       "group": "build",
-      "detail": "Start both backend and frontend servers for complete library system"
+      "detail": "Start both backend and frontend servers for complete ছোটপাতা পাঠাগার system"
     },
     {
       "label": "Run Backend Tests",
@@ -57,7 +57,7 @@
       "type": "shell",
       "command": "echo Starting Chotopata Pathagar API testing... && echo Open Thunder Client to test: http://localhost:8000/docs && echo Available endpoints: /api/books, /api/borrowers, /api/lending && timeout /t 3",
       "group": "test",
-      "detail": "Guide for testing library management API endpoints"
+      "detail": "Guide for testing ছোটপাতা পাঠাগার API endpoints"
     },
     {
       "label": "Format Python Code",
@@ -73,7 +73,7 @@
     {
       "label": "Install Backend Dependencies",
       "type": "shell",
-      "command": "cd backend && venv\\Scripts\\activate && pip install -r requirements.txt && echo Backend dependencies installed for Chotopata Pathagar",
+      "command": "cd backend && venv\\Scripts\\activate && pip install -r requirements.txt && echo Backend dependencies installed for ছোটপাতা পাঠাগার",
       "group": "build",
       "detail": "Install Python packages for Chotopata Pathagar backend"
     },
@@ -97,9 +97,9 @@
     {
       "label": "Check Database Connection",
       "type": "shell",
-      "command": "cd backend && venv\\Scripts\\activate && python -c \"import asyncio; from src.database_async import test_connection; asyncio.run(test_connection())\" && echo Chotopata Pathagar database connection successful",
+      "command": "cd backend && venv\\Scripts\\activate && python -c \"import asyncio; from src.database_async import test_connection; asyncio.run(test_connection())\" && echo ছোটপাতা পাঠাগার database connection successful",
       "group": "test",
-      "detail": "Verify PostgreSQL database connection for library system"
+      "detail": "Verify PostgreSQL database connection for ছোটপাতা পাঠাগার system"
     },
     {
       "label": "Run Database Migration",

@@ -1,6 +1,7 @@
 # Migration Plan: ছোটপাতা পাঠাগার
+## একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম
 
-This document outlines a step-by-step plan to migrate the Library Management System to a modern, industry-standard tech stack.
+This document outlines a step-by-step plan to migrate the Chotopata Pathagar system to a modern, industry-standard tech stack.
 
 ---
 

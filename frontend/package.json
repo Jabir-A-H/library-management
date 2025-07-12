@@ -2,7 +2,7 @@
   "name": "chotopata-pathagar-frontend",
   "private": true,
   "version": "1.0.0",
-  "description": "ছোটপাতা পাঠাগার - Personal Library Management System Frontend",
+  "description": "Chotopata Pathagar - A Library Management System frontend",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

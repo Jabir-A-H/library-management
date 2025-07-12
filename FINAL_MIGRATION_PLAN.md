@@ -1,6 +1,7 @@
 # Migration Plan: ছোটপাতা পাঠাগার
+## একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম
 
-This document outlines a step-by-step plan to migrate and improve the Library Management System to address current issues and create a robust, maintainable codebase.
+This document outlines a step-by-step plan to migrate and improve the Chotopata Pathagar system to address current issues and create a robust, maintainable codebase.
 
 ## Current Issues Assessment
 

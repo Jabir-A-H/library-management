@@ -1,5 +1,8 @@
 # ছোটপাতা পাঠাগার - Complete Setup Guide
 
+*একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম*  
+*Chotopata Pathagar - A System Setup Guide*
+
 ## 📋 Prerequisites Check
 
 Before starting, ensure you have these installed:

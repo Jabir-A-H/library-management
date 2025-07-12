@@ -1,4 +1,5 @@
-# ছোটপাতা পাঠাগার - Complete Setup Guide
+# ছোটপাতা পাঠাগার
+## একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম - Complete Setup Guide
 
 ## 📋 Prerequisites Check
 

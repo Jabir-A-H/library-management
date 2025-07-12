@@ -1,6 +1,7 @@
-# ছোটপাতা পাঠাগার (Chotopata Pathagar)
+# ছোটপাতা পাঠাগার
 
-> A modern, full-stack library management application with FastAPI backend and Next.js frontend, featuring JWT authentication, async operations, and comprehensive book tracking.
+> একটি পাঠাগার ম্যানেজমেন্ট সিস্টেম  
+> Chotopata Pathagar - A modern, full-stack system with FastAPI backend and Next.js frontend, featuring JWT authentication, async operations, and comprehensive book tracking.
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.116.0-green)
