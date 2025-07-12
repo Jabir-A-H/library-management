@@ -3,7 +3,7 @@ User schemas for API requests and responses - Updated to match existing database
 """
 from typing import Optional, List
 from datetime import datetime
-from pydantic import BaseModel, Field, EmailStr, validator
+from pydantic import BaseModel, Field, EmailStr, field_validator
 
 # Base schema matching your database structure
 class UserBase(BaseModel):
@@ -13,13 +13,15 @@ class UserBase(BaseModel):
     role: str = Field("user", max_length=50, description="User role")
     is_active: bool = Field(True, description="Active status")
 
-    @validator('username')
+    @field_validator('username')
+    @classmethod
     def validate_username(cls, v):
         if not v.replace('_', '').replace('-', '').isalnum():
             raise ValueError('Username can only contain letters, numbers, underscores, and hyphens')
         return v
 
-    @validator('role')
+    @field_validator('role')
+    @classmethod
     def validate_role(cls, v):
         allowed_roles = ['admin', 'librarian', 'user']
         if v not in allowed_roles:
@@ -28,9 +30,12 @@ class UserBase(BaseModel):
 
 # User creation schema (includes password)
 class UserCreate(UserBase):
-    password: str = Field(..., min_length=6, description="Password (min 6 characters)")
+    password: str = Field(
+        ..., min_length=6, description="Password (min 6 characters)"
+    )
 
-    @validator('password')
+    @field_validator('password')
+    @classmethod
     def validate_password(cls, v):
         if len(v) < 6:
             raise ValueError('Password must be at least 6 characters long')
@@ -40,6 +45,7 @@ class UserCreate(UserBase):
             raise ValueError('Password must contain at least one letter')
         return v
 
+
 # User update schema
 class UserUpdate(BaseModel):
     email: Optional[EmailStr] = None
@@ -47,20 +53,26 @@ class UserUpdate(BaseModel):
     role: Optional[str] = Field(None, max_length=50)
     is_active: Optional[bool] = None
 
-    @validator('role')
+    @field_validator('role')
+    @classmethod
     def validate_role(cls, v):
         if v is not None:
             allowed_roles = ['admin', 'librarian', 'user']
             if v not in allowed_roles:
-                raise ValueError(f'Role must be one of: {", ".join(allowed_roles)}')
+                msg = f'Role must be one of: {", ".join(allowed_roles)}'
+                raise ValueError(msg)
         return v
+
 
 # Password update schema
 class UserPasswordUpdate(BaseModel):
     current_password: str = Field(..., description="Current password")
-    new_password: str = Field(..., min_length=6, description="New password (min 6 characters)")
+    new_password: str = Field(
+        ..., min_length=6, description="New password (min 6 characters)"
+    )
 
-    @validator('new_password')
+    @field_validator('new_password')
+    @classmethod
     def validate_new_password(cls, v):
         if len(v) < 6:
             raise ValueError('Password must be at least 6 characters long')
@@ -69,6 +81,7 @@ class UserPasswordUpdate(BaseModel):
         if not any(c.isalpha() for c in v):
             raise ValueError('Password must contain at least one letter')
         return v
+
 
 # Response schema
 class UserResponse(UserBase):

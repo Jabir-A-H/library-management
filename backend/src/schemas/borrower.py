@@ -3,7 +3,7 @@ Borrower schemas for API requests and responses - Updated to match existing data
 """
 from typing import Optional, List
 from datetime import datetime, date
-from pydantic import BaseModel, Field, EmailStr, validator
+from pydantic import BaseModel, Field, EmailStr, field_validator
 
 # Base schema matching your database structure
 class BorrowerBase(BaseModel):
@@ -17,7 +17,8 @@ class BorrowerBase(BaseModel):
     is_active: bool = Field(True, description="Active status")
     comments: Optional[str] = Field(None, description="Additional comments")
 
-    @validator('phone')
+    @field_validator('phone')
+    @classmethod
     def validate_phone(cls, v):
         if v and not v.replace('+', '').replace('-', '').replace(' ', '').isdigit():
             raise ValueError('Invalid phone number format')

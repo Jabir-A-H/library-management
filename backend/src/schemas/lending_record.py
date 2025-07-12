@@ -3,7 +3,7 @@ Lending Record schemas for API requests and responses - Updated to match existin
 """
 from typing import Optional, List
 from datetime import datetime, date
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, model_validator, field_validator
 
 # Base schema matching your database structure
 class LendingRecordBase(BaseModel):
@@ -16,17 +16,17 @@ class LendingRecordBase(BaseModel):
     fine_amount: Optional[float] = Field(0.0, ge=0, description="Fine amount")
     comments: Optional[str] = Field(None, description="Additional comments")
 
-    @validator('due_date')
-    def validate_due_date(cls, v, values):
-        if 'checkout_date' in values and v <= values['checkout_date']:
+    @model_validator(mode='after')
+    def validate_dates(self):
+        if (self.due_date and self.checkout_date and 
+            self.due_date <= self.checkout_date):
             raise ValueError('Due date must be after checkout date')
-        return v
-
-    @validator('return_date')
-    def validate_return_date(cls, v, values):
-        if v and 'checkout_date' in values and v < values['checkout_date']:
+        
+        if (self.return_date and self.checkout_date and 
+            self.return_date < self.checkout_date):
             raise ValueError('Return date cannot be before checkout date')
-        return v
+        
+        return self
 
 # Create schema
 class LendingRecordCreate(LendingRecordBase):
@@ -51,7 +51,8 @@ class BookRenew(BaseModel):
     new_due_date: date = Field(..., description="New due date")
     comments: Optional[str] = None
 
-    @validator('new_due_date')
+    @field_validator('new_due_date')
+    @classmethod
     def validate_new_due_date(cls, v):
         if v <= date.today():
             raise ValueError('New due date must be in the future')

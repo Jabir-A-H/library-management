@@ -3,7 +3,7 @@ Book schemas for API requests and responses - Updated to match existing database
 """
 from typing import Optional, List
 from datetime import datetime
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 # Base schema matching your database structure
 class BookBase(BaseModel):
@@ -33,12 +33,13 @@ class BookBase(BaseModel):
     available_copies: Optional[int] = Field(1, ge=0, description="Available copies")
     comments: Optional[str] = Field(None, description="Additional comments")
 
-    @validator('available_copies')
-    def validate_available_copies(cls, v, values):
-        if 'total_copies' in values and v is not None and values['total_copies'] is not None:
-            if v > values['total_copies']:
-                raise ValueError('Available copies cannot exceed total copies')
-        return v
+    @model_validator(mode='after')
+    def validate_available_copies(self):
+        if (self.available_copies is not None and 
+            self.total_copies is not None and 
+            self.available_copies > self.total_copies):
+            raise ValueError('Available copies cannot exceed total copies')
+        return self
 
 # Create schema
 class BookCreate(BookBase):
