@@ -1,0 +1,119 @@
+{
+  // === PYTHON BACKEND SETTINGS ===
+  "python.defaultInterpreterPath": "./backend/venv/Scripts/python.exe",
+  "python.terminal.activateEnvironment": true,
+  "python.analysis.extraPaths": ["./backend/src"],
+  
+  // === FORMATTING SETTINGS ===
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  
+  // === ESLINT SETTINGS ===
+  "eslint.workingDirectories": ["./frontend"],
+  "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+  
+  // === PRETTIER SETTINGS ===
+  "prettier.requireConfig": false,
+  "prettier.tabWidth": 2,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  
+  // === COPILOT SETTINGS ===
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false
+  },
+  
+  // === THUNDER CLIENT SETTINGS ===
+  "thunder-client.workspaceRelativePath": "api-tests",
+  "thunder-client.saveRequestOnSend": true,
+  
+  // === FRONTEND SETTINGS ===
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  
+  // === TAILWIND CSS SETTINGS ===
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "html": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    "tw`([^`]*)",
+    "tw=\"([^\"]*)",
+    "tw={\"([^\"}]*)",
+    "tw\\.\\w+`([^`]*)",
+    "tw\\(.*?\\)`([^`]*)"
+  ],
+  
+  // === FILE ASSOCIATIONS ===
+  "files.associations": {
+    "*.py": "python",
+    "*.jsx": "javascriptreact",
+    "*.tsx": "typescriptreact",
+    "*.env": "properties"
+  },
+  
+  // === TERMINAL PROFILES ===
+  "terminal.integrated.cwd": "./",
+  "terminal.integrated.profiles.windows": {
+    "Backend Dev": {
+      "path": "cmd.exe",
+      "args": ["/k", "cd backend && venv\\Scripts\\activate && echo Chotopata Pathagar Backend ready"]
+    },
+    "Frontend Dev": {
+      "path": "cmd.exe",
+      "args": ["/k", "cd frontend && echo Chotopata Pathagar Frontend ready"]
+    },
+    "Root": {
+      "path": "cmd.exe",
+      "args": ["/k", "echo Chotopata Pathagar Development Environment ready"]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Root",
+  
+  // === FILE EXPLORER ===
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.py": "${capture}.pyc, ${capture}.pyo",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml",
+    "*.js": "${capture}.js.map, ${capture}.min.js",
+    "*.css": "${capture}.css.map, ${capture}.min.css",
+    ".env": ".env.*",
+    "*.component.ts": "${capture}.component.html, ${capture}.component.scss, ${capture}.component.css"
+  },
+  
+  // === DATABASE TOOLS ===
+  "sqltools.connections": [
+    {
+      "name": "Chotopata Pathagar Database",
+      "driver": "PostgreSQL",
+      "hostname": "localhost",
+      "port": 5432,
+      "database": "library_db",
+      "username": "postgres",
+      "password": "postgressadmin",
+      "previewLimit": 50
+    }
+  ]
+}

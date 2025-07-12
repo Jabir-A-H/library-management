@@ -1,0 +1,60 @@
+[
+  // === CHOTOPATA PATHAGAR QUICK TASKS ===
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Start Backend Server"
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.tasks.runTask", 
+    "args": "Start Frontend Server"
+  },
+  {
+    "key": "ctrl+shift+s",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Start Full System"
+  },
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run Backend Tests"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Check Database Connection"
+  },
+  
+  // === TERMINAL SHORTCUTS ===
+  {
+    "key": "ctrl+shift+`",
+    "command": "workbench.action.terminal.newWithProfile",
+    "args": {
+      "profileName": "Backend Dev"
+    }
+  },
+  {
+    "key": "ctrl+alt+`",
+    "command": "workbench.action.terminal.newWithProfile",
+    "args": {
+      "profileName": "Frontend Dev"
+    }
+  },
+  
+  // === DEVELOPMENT SHORTCUTS ===
+  {
+    "key": "ctrl+shift+p",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "f5",
+    "command": "workbench.action.debug.start",
+    "when": "!inDebugMode"
+  },
+  {
+    "key": "ctrl+f5",
+    "command": "workbench.action.debug.run",
+    "when": "!inDebugMode"
+  }
+]
