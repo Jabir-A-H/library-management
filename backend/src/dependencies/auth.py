@@ -11,9 +11,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 import os
 
-from database_async import get_db
-from models.user_async import User
-from schemas.user import TokenData
+from ..database_async import get_db
+from ..models.user_async import User
+from ..schemas.user import TokenData
 
 # Configuration
 SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-here")

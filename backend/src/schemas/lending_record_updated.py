@@ -66,9 +66,9 @@ class LendingRecordResponse(LendingRecordBase):
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
     
-    # Nested relationships - using simple dict to avoid circular imports
-    book: Optional[dict] = None
-    borrower: Optional[dict] = None
+    # Nested relationships
+    book: Optional['BookSummaryResponse'] = None
+    borrower: Optional['BorrowerSummaryResponse'] = None
 
     class Config:
         from_attributes = True
@@ -108,8 +108,8 @@ class OverdueBooksResponse(BaseModel):
     total_overdue: int
     total_fine_amount: float
 
-# Forward references for nested models - using string references to avoid circular imports
-# from .book import BookSummaryResponse
-# from .borrower import BorrowerSummaryResponse
+# Forward references for nested models
+from .book import BookSummaryResponse
+from .borrower import BorrowerSummaryResponse
 
-# LendingRecordResponse.model_rebuild()
+LendingRecordResponse.model_rebuild()

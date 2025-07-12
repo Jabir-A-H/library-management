@@ -7,12 +7,12 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, and_, or_
 import math
 
-from database_async import get_db
-from models.user_async import User
-from schemas.user import (
+from ..database_async import get_db
+from ..models.user_async import User
+from ..schemas.user import (
     UserUpdate, UserResponse, UserListResponse
 )
-from dependencies.auth import (
+from ..dependencies.auth import (
     get_current_active_user, get_current_admin_user, 
     get_password_hash
 )

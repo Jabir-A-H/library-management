@@ -2,7 +2,7 @@
 Book-Tag association table
 """
 from sqlalchemy import Table, Column, Integer, ForeignKey
-from database_async import Base
+from ..database_async import Base
 
 # Many-to-Many relationship table between books and tags
 book_tags = Table(

@@ -8,12 +8,12 @@ from sqlalchemy import select, func, and_, or_
 from sqlalchemy.orm import selectinload
 import math
 
-from database_async import get_db
-from models.borrower_async import Borrower
-from schemas.borrower import (
+from ..database_async import get_db
+from ..models.borrower_async import Borrower
+from ..schemas.borrower import (
     BorrowerCreate, BorrowerUpdate, BorrowerResponse, BorrowerListResponse
 )
-from dependencies.auth import get_current_active_user, get_current_admin_user
+from ..dependencies.auth import get_current_active_user, get_current_admin_user
 
 router = APIRouter()
 

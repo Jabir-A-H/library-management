@@ -9,15 +9,15 @@ from sqlalchemy import select, func, and_, or_, update
 from sqlalchemy.orm import selectinload
 import math
 
-from database_async import get_db
-from models.lending_record_async import LendingRecord
-from models.book_async import Book
-from models.borrower_async import Borrower
-from schemas.lending_record import (
+from ..database_async import get_db
+from ..models.lending_record_async import LendingRecord
+from ..models.book_async import Book
+from ..models.borrower_async import Borrower
+from ..schemas.lending_record import (
     LendingRecordCreate, LendingRecordUpdate, 
     LendingRecordResponse, LendingRecordListResponse
 )
-from dependencies.auth import get_current_active_user
+from ..dependencies.auth import get_current_active_user
 
 router = APIRouter()
 

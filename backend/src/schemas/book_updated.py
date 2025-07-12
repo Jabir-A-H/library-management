@@ -81,9 +81,9 @@ class BookResponse(BookBase):
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
     
-    # Simple nested relationships without circular imports
-    category: Optional[dict] = None
-    tags: List[dict] = []
+    # Nested relationships
+    category: Optional['CategoryResponse'] = None
+    tags: List['TagResponse'] = []
 
     class Config:
         from_attributes = True
@@ -104,18 +104,8 @@ class BookAvailabilityResponse(BaseModel):
     available_copies: int
     total_copies: int
 
-# Summary response schema (for nested responses)
-class BookSummaryResponse(BaseModel):
-    id: int
-    title: str
-    author: str
-    isbn: Optional[str]
-    is_available: bool
-    available_copies: int
-    total_copies: int
+# Forward references for nested models
+from .category import CategoryResponse
+from .tag import TagResponse
 
-    class Config:
-        from_attributes = True
-
-# Forward references for nested models - using string references to avoid circular imports
-# These will be handled at runtime through FastAPI's response models
+BookResponse.model_rebuild()

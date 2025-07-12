@@ -46,15 +46,16 @@ class BorrowerUpdate(BaseModel):
 # Response schema with computed fields
 class BorrowerResponse(BorrowerBase):
     id: int
+    full_name: str
     total_borrowed: int
     current_borrowed: int
     overdue_books: int
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
     
-    # Related data - using simple dict to avoid circular imports
-    current_lending_records: List[dict] = []
-    favorites: List[dict] = []
+    # Related data
+    current_lending_records: List['LendingRecordResponse'] = []
+    favorites: List['UserFavoriteResponse'] = []
 
     class Config:
         from_attributes = True
@@ -86,8 +87,8 @@ class BorrowerStatsResponse(BaseModel):
     borrowers_with_overdue: int
     membership_types: dict
 
-# Forward references for nested models - using string references to avoid circular imports
-# from .lending_record import LendingRecordResponse
-# from .user_favorite import UserFavoriteResponse
+# Forward references for nested models
+from .lending_record import LendingRecordResponse
+from .user_favorite import UserFavoriteResponse
 
-# BorrowerResponse.model_rebuild()
+BorrowerResponse.model_rebuild()

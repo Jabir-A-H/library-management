@@ -10,11 +10,11 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from sqlalchemy.orm import selectinload
 
-from database_async import get_db
-from models.book_async import Book
-from models.borrower_async import Borrower
-from models.lending_record_async import LendingRecord
-from dependencies.auth import get_current_active_user
+from ..database_async import get_db
+from ..models.book_async import Book
+from ..models.borrower_async import Borrower
+from ..models.lending_record_async import LendingRecord
+from ..dependencies.auth import get_current_active_user
 
 router = APIRouter()
 

@@ -8,16 +8,16 @@ from sqlalchemy import select, func, and_, or_
 from sqlalchemy.orm import selectinload
 import math
 
-from database_async import get_db
-from models.book_async import Book
-from models.category_async import Category
-from models.tag_async import Tag
-from schemas.book import (
+from ..database_async import get_db
+from ..models.book_async import Book
+from ..models.category_async import Category
+from ..models.tag_async import Tag
+from ..schemas.book import (
     BookCreate, BookUpdate, BookResponse, 
     BookListResponse, BookAvailabilityResponse
 )
-from dependencies.auth import get_current_admin_user
-from schemas.user import UserResponse
+from ..dependencies.auth import get_current_admin_user
+from ..schemas.user import UserResponse
 
 router = APIRouter()
 

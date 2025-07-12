@@ -4,7 +4,7 @@ User Favorite model for tracking user's favorite books
 from sqlalchemy import Column, Integer, DateTime, ForeignKey, UniqueConstraint
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from database_async import Base
+from ..database_async import Base
 
 class UserFavorite(Base):
     __tablename__ = "user_favorites"

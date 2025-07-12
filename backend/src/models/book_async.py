@@ -5,7 +5,7 @@ from typing import Dict, Any, Optional, List
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, SmallInteger
 from sqlalchemy.orm import relationship
 from sqlalchemy.sql import func
-from database_async import Base
+from ..database_async import Base
 from .book_tag_async import book_tags
 
 
