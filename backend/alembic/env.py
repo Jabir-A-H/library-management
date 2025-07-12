@@ -15,7 +15,13 @@ load_dotenv()
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 # Import all models to ensure they are registered
-from models import *
+from models.book_async import Book  # noqa: F401
+from models.borrower_async import Borrower  # noqa: F401
+from models.lending_record_async import LendingRecord  # noqa: F401
+from models.user_async import User  # noqa: F401
+
+# Import database base
+from database_async import Base
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -28,7 +34,6 @@ if config.config_file_name is not None:
 
 # add your model's MetaData object here
 # for 'autogenerate' support
-from database_async import Base
 target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -36,9 +41,15 @@ target_metadata = Base.metadata
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
+
 def get_database_url():
     """Get database URL from environment variables."""
-    return os.getenv("DATABASE_URL", "postgresql+asyncpg://username:password@localhost:5432/library_catalog")
+    default_url = (
+        "postgresql+asyncpg://postgres:postgressadmin@"
+        "localhost:5432/library_db"
+    )
+    return os.getenv("DATABASE_URL", default_url)
+
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
