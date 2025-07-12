@@ -48,13 +48,15 @@ def test_simple_imports():
         print("✓ FastAPI app imported")
         
         print("\n🎉 All basic imports successful!")
-        return True
+        # Use assertion instead of return for pytest
+        assert True
         
     except Exception as e:
         print(f"❌ Import failed: {e}")
         import traceback
         traceback.print_exc()
-        return False
+        assert False, f"Import failed: {e}"
+
 
 if __name__ == "__main__":
     success = test_simple_imports()

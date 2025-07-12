@@ -3,7 +3,7 @@ Borrower schemas for API requests and responses - Updated to match existing data
 """
 from typing import Optional, List
 from datetime import datetime, date
-from pydantic import BaseModel, Field, EmailStr, field_validator
+from pydantic import BaseModel, Field, EmailStr, field_validator, ConfigDict
 
 # Base schema matching your database structure
 class BorrowerBase(BaseModel):
@@ -57,8 +57,7 @@ class BorrowerResponse(BorrowerBase):
     current_lending_records: List[dict] = []
     favorites: List[dict] = []
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 # List response schema
 class BorrowerListResponse(BaseModel):

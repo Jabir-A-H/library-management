@@ -15,7 +15,7 @@ def test_imports():
     try:
         # Test database connection
         print("1. Testing database connection...")
-        from database_async import get_db_session, engine
+        from src.database_async import get_db, engine
         print("   ✓ Database imports successful")
         
         # Test models
@@ -48,14 +48,15 @@ def test_imports():
         print("   ✓ FastAPI app imported successfully")
         
         print("\n🎉 All imports successful! Your backend is ready to run.")
-        return True
+        # Use assertion instead of return for pytest
+        assert True
         
     except ImportError as e:
         print(f"   ❌ Import error: {e}")
-        return False
+        assert False, "Import test failed"
     except Exception as e:
         print(f"   ❌ Unexpected error: {e}")
-        return False
+        assert False, f"Unexpected error: {e}"
 
 if __name__ == "__main__":
     success = test_imports()

@@ -3,7 +3,7 @@ User schemas for API requests and responses - Updated to match existing database
 """
 from typing import Optional, List
 from datetime import datetime
-from pydantic import BaseModel, Field, EmailStr, field_validator
+from pydantic import BaseModel, Field, EmailStr, field_validator, ConfigDict
 
 # Base schema matching your database structure
 class UserBase(BaseModel):
@@ -94,8 +94,7 @@ class UserResponse(UserBase):
     is_admin: bool
     is_librarian: bool
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 # User summary schema (for nested responses)
 class UserSummaryResponse(BaseModel):
@@ -106,8 +105,7 @@ class UserSummaryResponse(BaseModel):
     role: str
     is_active: bool
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 # List response schema
 class UserListResponse(BaseModel):
@@ -148,8 +146,7 @@ class UserProfile(BaseModel):
     current_loans: int
     favorite_books: int
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 # User statistics schema
 class UserStatsResponse(BaseModel):
