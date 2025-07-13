@@ -1,42 +1,48 @@
-import type { Book } from '@/types/Book';
-import type { Borrower } from '@/types/Borrower';
+import type { 
+  Book, 
+  BookCreate,
+  BookUpdate,
+  BookListResponse,
+  BookSearchFilters,
+  SearchFilters
+} from '@/types/Book';
+import type {
+  Borrower,
+  BorrowerCreate,
+  BorrowerUpdate,
+  BorrowerSearchFilters
+} from '@/types/Borrower';
+import type {
+  LendingRecord,
+  LendingCreate,
+  LendingUpdate,
+  LendingSearchFilters
+} from '@/types/Lending';
+import { 
+  transformBackendBookToFrontend, 
+  transformFrontendBookToBackend, 
+  transformSearchFilters,
+  transformBackendBorrowerToFrontend,
+  transformFrontendBorrowerToBackend,
+  transformBorrowerSearchFilters,
+  transformBackendLendingToFrontend,
+  transformFrontendLendingToBackend,
+  transformLendingSearchFilters,
+  type BackendBook,
+  type BackendBookListResponse,
+  type BackendBorrower,
+  type BackendLendingRecord
+} from './api-types';
+
+// Legacy type aliases for backward compatibility
+export type BorrowerCreateData = BorrowerCreate;
+export type BorrowerUpdateData = BorrowerUpdate;
+export type LendingCreateData = LendingCreate;
 
 /**
  * API base URL for backend requests.
  */
 const API_BASE_URL: string = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
-
-// Additional types for API
-interface LendingRecord {
-  id: number;
-  book_id: number;
-  borrower_id: number;
-  borrow_date: string;
-  due_date: string;
-  return_date?: string;
-  status: string;
-  notes?: string;
-}
-
-interface SearchFilters {
-  author?: string;
-  genre?: string;
-  category?: string;
-  tags?: string[];
-  status?: string;
-}
-
-interface BookCreateData extends Omit<Book, 'id' | 'createdAt' | 'updatedAt'> {}
-interface BookUpdateData extends Partial<BookCreateData> {}
-interface BorrowerCreateData extends Omit<Borrower, 'id'> {}
-interface BorrowerUpdateData extends Partial<BorrowerCreateData> {}
-
-interface LendingCreateData {
-  book_id: number;
-  borrower_id: number;
-  due_date: string;
-  notes?: string;
-}
 
 /**
  * Helper to handle API responses, throwing on error.
@@ -90,53 +96,111 @@ const buildQueryParams = (filters: Record<string, any>): string => {
 // Book API functions
 export const bookAPI = {
   /**
-   * Get all books with optional filters.
+   * Get all books with optional filters and pagination.
    */
-  getBooks: async (filters: SearchFilters = {}): Promise<Book[]> => {
-    const queryString = buildQueryParams(filters);
+  getBooks: async (
+    filters: BookSearchFilters = {}, 
+    skip: number = 0, 
+    limit: number = 50
+  ): Promise<Book[]> => {
+    const params = {
+      ...transformSearchFilters(filters),
+      skip,
+      limit
+    };
+    const queryString = buildQueryParams(params);
     const endpoint = queryString ? `/books?${queryString}` : '/books';
-    return apiRequest(endpoint);
+    
+    const response: BackendBookListResponse = await apiRequest(endpoint);
+    
+    // Transform backend response to frontend format
+    return response.books.map(transformBackendBookToFrontend);
   },
 
   /**
    * Get a single book by ID.
    */
-  getBook: async (id: number | string): Promise<Book> => apiRequest(`/books/${id}`),
+  getBook: async (id: number | string): Promise<Book> => {
+    const backendBook: BackendBook = await apiRequest(`/books/${id}`);
+    return transformBackendBookToFrontend(backendBook);
+  },
 
   /**
    * Create a new book.
    */
-  createBook: async (bookData: BookCreateData): Promise<Book> => apiRequest('/books', {
-    method: 'POST',
-    body: JSON.stringify(bookData),
-  }),
+  createBook: async (bookData: Partial<Book>): Promise<Book> => {
+    const backendData = transformFrontendBookToBackend(bookData);
+    const backendBook: BackendBook = await apiRequest('/books', {
+      method: 'POST',
+      body: JSON.stringify(backendData),
+    });
+    return transformBackendBookToFrontend(backendBook);
+  },
 
   /**
    * Update an existing book.
    */
-  updateBook: async (id: number | string, bookData: BookUpdateData): Promise<Book> => apiRequest(`/books/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify(bookData),
-  }),
+  updateBook: async (id: number | string, bookData: Partial<Book>): Promise<Book> => {
+    const backendData = transformFrontendBookToBackend(bookData);
+    const backendBook: BackendBook = await apiRequest(`/books/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(backendData),
+    });
+    return transformBackendBookToFrontend(backendBook);
+  },
 
   /**
    * Delete a book.
    */
-  deleteBook: async (id: number | string): Promise<void> => apiRequest(`/books/${id}`, {
-    method: 'DELETE',
-  }),
+  deleteBook: async (id: number | string): Promise<void> => {
+    await apiRequest(`/books/${id}`, {
+      method: 'DELETE',
+    });
+  },
 
   /**
    * Search books by query.
    */
-  searchBooks: async (query: string): Promise<Book[]> => apiRequest(`/books/search?q=${encodeURIComponent(query)}`),
+  searchBooks: async (query: string): Promise<Book[]> => {
+    const response: BackendBookListResponse = await apiRequest(`/books?search=${encodeURIComponent(query)}`);
+    return response.books.map(transformBackendBookToFrontend);
+  },
 
   /**
-   * Toggle book favorite status.
+   * Toggle book favorite status (frontend-only feature).
    */
-  toggleFavorite: async (id: number | string): Promise<Book> => apiRequest(`/books/${id}/favorite`, {
-    method: 'POST',
-  }),
+  toggleFavorite: async (id: number | string): Promise<Book> => {
+    // This would need to be implemented as user preferences in the backend
+    // For now, just return the book unchanged
+    return await bookAPI.getBook(id);
+  },
+
+  /**
+   * Get books with full pagination info
+   */
+  getBooksWithPagination: async (
+    filters: BookSearchFilters = {}, 
+    skip: number = 0, 
+    limit: number = 10
+  ): Promise<{ books: Book[]; total: number; page: number; size: number; pages: number }> => {
+    const params = {
+      ...transformSearchFilters(filters),
+      skip,
+      limit
+    };
+    const queryString = buildQueryParams(params);
+    const endpoint = queryString ? `/books?${queryString}` : '/books';
+    
+    const response: BackendBookListResponse = await apiRequest(endpoint);
+    
+    return {
+      books: response.books.map(transformBackendBookToFrontend),
+      total: response.total,
+      page: response.page,
+      size: response.size,
+      pages: response.pages
+    };
+  },
 };
 
 // Borrower API functions
@@ -144,53 +208,74 @@ export const borrowerAPI = {
   /**
    * Get all borrowers with optional filters.
    */
-  getBorrowers: async (filters: SearchFilters = {}): Promise<Borrower[]> => {
-    const queryString = buildQueryParams(filters);
+  getBorrowers: async (filters: BorrowerSearchFilters = {}): Promise<Borrower[]> => {
+    const backendFilters = transformBorrowerSearchFilters(filters);
+    const queryString = buildQueryParams(backendFilters);
     const endpoint = queryString ? `/borrowers?${queryString}` : '/borrowers';
-    return apiRequest(endpoint);
+    const backendBorrowers: BackendBorrower[] = await apiRequest(endpoint);
+    return backendBorrowers.map(transformBackendBorrowerToFrontend);
   },
 
   /**
    * Get a single borrower by ID.
    */
-  getBorrower: async (id: number | string): Promise<Borrower> => apiRequest(`/borrowers/${id}`),
+  getBorrower: async (id: number | string): Promise<Borrower> => {
+    const backendBorrower: BackendBorrower = await apiRequest(`/borrowers/${id}`);
+    return transformBackendBorrowerToFrontend(backendBorrower);
+  },
 
   /**
    * Create a new borrower.
    */
-  createBorrower: async (borrowerData: BorrowerCreateData): Promise<Borrower> => apiRequest('/borrowers', {
-    method: 'POST',
-    body: JSON.stringify(borrowerData),
-  }),
+  createBorrower: async (borrowerData: BorrowerCreateData): Promise<Borrower> => {
+    const backendData = transformFrontendBorrowerToBackend(borrowerData);
+    const backendBorrower: BackendBorrower = await apiRequest('/borrowers', {
+      method: 'POST',
+      body: JSON.stringify(backendData),
+    });
+    return transformBackendBorrowerToFrontend(backendBorrower);
+  },
 
   /**
    * Update an existing borrower.
    */
-  updateBorrower: async (id: number | string, borrowerData: BorrowerUpdateData): Promise<Borrower> => apiRequest(`/borrowers/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify(borrowerData),
-  }),
+  updateBorrower: async (id: number | string, borrowerData: BorrowerUpdateData): Promise<Borrower> => {
+    const backendData = transformFrontendBorrowerToBackend(borrowerData);
+    const backendBorrower: BackendBorrower = await apiRequest(`/borrowers/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(backendData),
+    });
+    return transformBackendBorrowerToFrontend(backendBorrower);
+  },
 
   /**
    * Delete a borrower.
    */
-  deleteBorrower: async (id: number | string): Promise<void> => apiRequest(`/borrowers/${id}`, {
-    method: 'DELETE',
-  }),
+  deleteBorrower: async (id: number | string): Promise<void> => {
+    await apiRequest(`/borrowers/${id}`, {
+      method: 'DELETE',
+    });
+  },
 
   /**
    * Deactivate a borrower.
    */
-  deactivateBorrower: async (id: number | string): Promise<Borrower> => apiRequest(`/borrowers/${id}/deactivate`, {
-    method: 'POST',
-  }),
+  deactivateBorrower: async (id: number | string): Promise<Borrower> => {
+    const backendBorrower: BackendBorrower = await apiRequest(`/borrowers/${id}/deactivate`, {
+      method: 'POST',
+    });
+    return transformBackendBorrowerToFrontend(backendBorrower);
+  },
 
   /**
    * Activate a borrower.
    */
-  activateBorrower: async (id: number | string): Promise<Borrower> => apiRequest(`/borrowers/${id}/activate`, {
-    method: 'POST',
-  }),
+  activateBorrower: async (id: number | string): Promise<Borrower> => {
+    const backendBorrower: BackendBorrower = await apiRequest(`/borrowers/${id}/activate`, {
+      method: 'POST',
+    });
+    return transformBackendBorrowerToFrontend(backendBorrower);
+  },
 };
 
 // Lending API functions
@@ -198,47 +283,65 @@ export const lendingAPI = {
   /**
    * Get all lending records with optional filters.
    */
-  getLendingRecords: async (filters: SearchFilters = {}): Promise<LendingRecord[]> => {
-    const queryString = buildQueryParams(filters);
+  getLendingRecords: async (filters: LendingSearchFilters = {}): Promise<LendingRecord[]> => {
+    const backendFilters = transformLendingSearchFilters(filters);
+    const queryString = buildQueryParams(backendFilters);
     const endpoint = queryString ? `/lending?${queryString}` : '/lending';
-    return apiRequest(endpoint);
+    const backendRecords: BackendLendingRecord[] = await apiRequest(endpoint);
+    return backendRecords.map(transformBackendLendingToFrontend);
   },
 
   /**
    * Create a new lending record (lend a book).
    */
-  lendBook: async (lendingData: LendingCreateData): Promise<LendingRecord> => apiRequest('/lending', {
-    method: 'POST',
-    body: JSON.stringify(lendingData),
-  }),
+  lendBook: async (lendingData: LendingCreateData): Promise<LendingRecord> => {
+    const backendData = transformFrontendLendingToBackend(lendingData);
+    const backendRecord: BackendLendingRecord = await apiRequest('/lending', {
+      method: 'POST',
+      body: JSON.stringify(backendData),
+    });
+    return transformBackendLendingToFrontend(backendRecord);
+  },
 
   /**
    * Return a book.
    */
-  returnBook: async (recordId: number | string, returnData: Record<string, any> = {}): Promise<LendingRecord> => apiRequest(`/lending/${recordId}/return`, {
-    method: 'POST',
-    body: JSON.stringify(returnData),
-  }),
+  returnBook: async (recordId: number | string, returnData: Record<string, any> = {}): Promise<LendingRecord> => {
+    const backendRecord: BackendLendingRecord = await apiRequest(`/lending/${recordId}/return`, {
+      method: 'POST',
+      body: JSON.stringify(returnData),
+    });
+    return transformBackendLendingToFrontend(backendRecord);
+  },
 
   /**
    * Extend due date for a lending record.
    */
-  extendDueDate: async (recordId: number | string, newDueDate: string): Promise<LendingRecord> => apiRequest(`/lending/${recordId}/extend`, {
-    method: 'POST',
-    body: JSON.stringify({ due_date: newDueDate }),
-  }),
+  extendDueDate: async (recordId: number | string, newDueDate: string): Promise<LendingRecord> => {
+    const backendRecord: BackendLendingRecord = await apiRequest(`/lending/${recordId}/extend`, {
+      method: 'POST',
+      body: JSON.stringify({ due_date: newDueDate }),
+    });
+    return transformBackendLendingToFrontend(backendRecord);
+  },
 
   /**
    * Mark a book as lost.
    */
-  markBookLost: async (recordId: number | string): Promise<LendingRecord> => apiRequest(`/lending/${recordId}/mark-lost`, {
-    method: 'POST',
-  }),
+  markBookLost: async (recordId: number | string): Promise<LendingRecord> => {
+    const backendRecord: BackendLendingRecord = await apiRequest(`/lending/${recordId}/mark-lost`, {
+      method: 'POST',
+    });
+    return transformBackendLendingToFrontend(backendRecord);
+  },
 
   /**
    * Get overdue books.
    */
-  getOverdueBooks: async (): Promise<LendingRecord[]> => apiRequest('/lending/overdue'),
+  getOverdueBooks: async (): Promise<LendingRecord[]> => {
+    const backendRecords: BackendLendingRecord[] = await apiRequest('/lending/overdue');
+    return backendRecords.map(transformBackendLendingToFrontend);
+  },
 
   /**
    * Get lending statistics.
