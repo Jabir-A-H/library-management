@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 
-import type { Borrower } from '../types/Borrower';
+import type { Borrower } from '@/types/Borrower';
 import { useAddBorrower, useUpdateBorrower } from '@/lib/reactQueryHooks';
 
 interface BorrowerFormProps {

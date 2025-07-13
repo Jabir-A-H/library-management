@@ -8,8 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 
-import type { Book } from '../types/Book';
-import type { Borrower } from '../types/Borrower';
+import type { Book } from '@/types/Book';
+import type { Borrower } from '@/types/Borrower';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { lendingAPI } from '@/lib/api';
 

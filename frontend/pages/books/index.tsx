@@ -9,7 +9,7 @@ import { Badge } from '../../components/ui/badge';
 import { Input } from '../../components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../../components/ui/select';
 import { BookOpen, Plus, Search, Filter, Grid, List, AlertCircle } from 'lucide-react';
-import type { Book } from '../../types/Book';
+import type { Book } from '@/types/Book';
 
 /**
  * Books Index Page - Main book management interface

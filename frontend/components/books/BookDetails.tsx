@@ -3,10 +3,7 @@ import { X, Heart, Edit, Calendar, Tag, Image as ImageIcon, ChevronLeft, Chevron
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-
-
-
-import type { Book } from '../types/Book';
+import type { Book } from '@/types/Book';
 
 interface BookDetailsProps {
   book: Book | null;
@@ -26,7 +23,7 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
   const coverImageData = book.coverImage || null;
   const previewImages = book.previewImages ? book.previewImages.filter(Boolean) : [];
   // All images for the viewer (cover + previews)
-  const allImages = [coverImageData, ...previewImages].filter(Boolean);
+  const allImages: string[] = [coverImageData, ...previewImages].filter((img): img is string => Boolean(img));
 
   // SVG placeholder for missing/errored images
   const placeholderImage =
@@ -230,7 +227,7 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
 
             {/* Image */}
             <img
-              src={allImages[currentImageIndex]}
+              src={allImages[currentImageIndex] || placeholderImage}
               alt={`Image ${currentImageIndex + 1}`}
               className="max-w-full max-h-full object-contain"
             />

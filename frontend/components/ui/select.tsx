@@ -22,7 +22,10 @@ export const SelectValue = SelectPrimitive.Value;
 /**
  * Select trigger button. Wraps Radix Select.Trigger.
  */
-export const SelectTrigger = React.forwardRef(function SelectTrigger(
+export const SelectTrigger = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
+>(function SelectTrigger(
   { className, children, ...props },
   ref
 ) {
@@ -91,7 +94,10 @@ SelectScrollDownButton.displayName = "SelectScrollDownButton";
 /**
  * Select content dropdown. Wraps Radix Select.Content inside a Portal.
  */
-export const SelectContent = React.forwardRef(function SelectContent(
+export const SelectContent = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
+>(function SelectContent(
   { className, children, position = "popper", ...props },
   ref
 ) {
@@ -145,7 +151,10 @@ SelectLabel.displayName = "SelectLabel";
 /**
  * Select item (option). Wraps Radix Select.Item.
  */
-export const SelectItem = React.forwardRef(function SelectItem(
+export const SelectItem = React.forwardRef<
+  React.ElementRef<typeof SelectPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+>(function SelectItem(
   { className, children, ...props },
   ref
 ) {

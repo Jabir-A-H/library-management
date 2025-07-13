@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { borrowerAPI, lendingAPI, bookAPI } from './api';
-import type { Borrower } from '../types/Borrower';
-import type { Book } from '../types/Book';
+import type { Borrower } from '@/types/Borrower';
+import type { Book } from '@/types/Book';
 
 // --- Borrower hooks ---
 

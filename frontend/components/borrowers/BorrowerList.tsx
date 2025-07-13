@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 
-import type { Borrower } from '../types/Borrower';
+import type { Borrower } from '@/types/Borrower';
 
 
 interface BorrowerListProps {

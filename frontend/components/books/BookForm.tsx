@@ -1,13 +1,5 @@
-import type { Book } from '../types/Book';
+import type { Book } from '@/types/Book';
 import { useAddBook, useUpdateBook } from '@/lib/reactQueryHooks';
-
-interface BookFormProps {
-  book?: Book | null;
-  onSave: (bookData: Partial<Book>) => void;
-  onCancel: () => void;
-  isOpen: boolean;
-}
-
 import { useState, useEffect } from 'react';
 import { X, Upload, Image as ImageIcon, Trash2, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -18,6 +10,35 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from '@/components/ui/select';
 import { imageUtils } from '@/lib/imageUtils';
+
+interface BookFormProps {
+  book?: Book | null;
+  onSave: (bookData: Partial<Book>) => void;
+  onCancel: () => void;
+  isOpen: boolean;
+}
+
+interface FormData {
+  title: string;
+  author: string;
+  genre: string;
+  category: string;
+  publicationYear: string;
+  numPages: string;
+  description: string;
+  tags: string[];
+  coverImage: string | null;
+  previewImages: string[];
+  isFavorite: boolean;
+  status: string;
+  readStatus: string;
+}
+
+interface FormErrors {
+  title?: string;
+  author?: string;
+  publicationYear?: string;
+}
 
 
 /**
@@ -41,11 +62,12 @@ interface CategorySelectProps {
   value: string;
   onChange: (val: string) => void;
 }
+
 function CategorySelect({ value, onChange }: CategorySelectProps) {
   const [custom, setCustom] = useState<string>('');
   return (
     <div>
-      <Select value={value || ''} onValueChange={val => onChange(val)}>
+      <Select value={value || ''} onValueChange={(val: string) => onChange(val)}>
         <SelectTrigger>
           <SelectValue placeholder="Select or type category" />
         </SelectTrigger>
@@ -76,15 +98,19 @@ function CategorySelect({ value, onChange }: CategorySelectProps) {
 
 /**
  * TagInput component for entering multiple tags as chips.
- * @param {{ tags: string[], setTags: (tags: string[]) => void }} props
  */
-function TagInput({ tags, setTags }) {
-  const [input, setInput] = useState('');
-  const addTag = tag => {
+interface TagInputProps {
+  tags: string[];
+  setTags: (tags: string[]) => void;
+}
+
+function TagInput({ tags, setTags }: TagInputProps) {
+  const [input, setInput] = useState<string>('');
+  const addTag = (tag: string) => {
     tag = tag.trim();
     if (tag && !tags.includes(tag)) setTags([...tags, tag]);
   };
-  const handleKeyDown = e => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if ((e.key === 'Enter' || e.key === ',') && input.trim()) {
       addTag(input);
       setInput('');
@@ -95,10 +121,10 @@ function TagInput({ tags, setTags }) {
   };
   return (
     <div className="flex flex-wrap gap-2 border rounded-md px-2 py-1 bg-background">
-      {tags.map((tag, idx) => (
+      {tags.map((tag: string, idx: number) => (
         <Badge key={idx} variant="secondary" className="flex items-center gap-1">
           {tag}
-          <button type="button" onClick={() => setTags(tags.filter((t, i) => i !== idx))} className="ml-1 hover:text-red-500" aria-label={`Remove tag ${tag}`}> <X className="h-3 w-3" /> </button>
+          <button type="button" onClick={() => setTags(tags.filter((t: string, i: number) => i !== idx))} className="ml-1 hover:text-red-500" aria-label={`Remove tag ${tag}`}> <X className="h-3 w-3" /> </button>
         </Badge>
       ))}
       <input
@@ -115,7 +141,6 @@ function TagInput({ tags, setTags }) {
 
 /**
  * ReadStatusSelect component for selecting the reading status of a book.
- * @param {{ value: string, onChange: (val: string) => void }} props
  */
 const READ_STATUS_OPTIONS = [
   'Not Started',
@@ -125,7 +150,13 @@ const READ_STATUS_OPTIONS = [
   'Dropped',
   'Plan to Read',
 ];
-function ReadStatusSelect({ value, onChange }) {
+
+interface ReadStatusSelectProps {
+  value: string;
+  onChange: (val: string) => void;
+}
+
+function ReadStatusSelect({ value, onChange }: ReadStatusSelectProps) {
   return (
     <Select value={value || ''} onValueChange={onChange}>
       <SelectTrigger>
@@ -166,19 +197,12 @@ function createBookTemplate() {
 
 /**
  * BookForm component for adding or editing a book, including cover, preview images, and tags.
- *
- * @param {object} props
- * @param {object} [props.book] - Book object to edit (if any)
- * @param {function} props.onSave - Callback to save the book
- * @param {function} props.onCancel - Callback to cancel/close the form
- * @param {boolean} props.isOpen - Whether the form modal is open
- * @returns {JSX.Element|null}
  */
-function BookForm({ book, onSave, onCancel, isOpen }) {
-  const [formData, setFormData] = useState(createBookTemplate());
-  const [coverImagePreview, setCoverImagePreview] = useState(null);
-  const [previewImages, setPreviewImages] = useState([]);
-  const [errors, setErrors] = useState({});
+function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
+  const [formData, setFormData] = useState<FormData>(createBookTemplate());
+  const [coverImagePreview, setCoverImagePreview] = useState<string | null>(null);
+  const [previewImages, setPreviewImages] = useState<Array<{id: string, data: string}>>([]);
+  const [errors, setErrors] = useState<FormErrors>({});
   const addBook = useAddBook();
   const updateBook = useUpdateBook();
   const isEdit = !!book;
@@ -187,7 +211,21 @@ function BookForm({ book, onSave, onCancel, isOpen }) {
   // Initialize form data and images when book prop changes
   useEffect(() => {
     if (book) {
-      setFormData(book);
+      setFormData({
+        title: book.title || '',
+        author: book.author || '',
+        genre: book.genre || '',
+        category: book.category || '',
+        publicationYear: book.publicationYear ? String(book.publicationYear) : '',
+        numPages: book.numPages ? String(book.numPages) : '',
+        description: book.description || '',
+        tags: book.tags || [],
+        coverImage: book.coverImage || null,
+        previewImages: book.previewImages || [],
+        isFavorite: book.isFavorite || false,
+        status: book.status || 'available',
+        readStatus: book.readStatus || 'Not Started',
+      });
       // TODO: Load cover image and preview images from backend if/when supported
       setCoverImagePreview(null);
       setPreviewImages([]);
@@ -199,24 +237,23 @@ function BookForm({ book, onSave, onCancel, isOpen }) {
   }, [book]);
 
   // Handle input changes for text fields
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }));
     // Clear error when user starts typing
-    if (errors[field]) {
+    if (errors[field as keyof FormErrors]) {
       setErrors(prev => ({
         ...prev,
-        [field]: null
+        [field]: undefined
       }));
     }
   };
 
   // Handle cover image upload
-  // Cover image upload (stub: backend integration needed)
-  const handleCoverImageUpload = async (event) => {
-    const file = event.target.files[0];
+  const handleCoverImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (!file) return;
     if (!imageUtils.isValidImageFile(file)) {
       alert('Please select a valid image file (JPEG, PNG, GIF, WebP) under 5MB');
@@ -226,8 +263,8 @@ function BookForm({ book, onSave, onCancel, isOpen }) {
       // TODO: Upload image to backend and get URL or ID
       // For now, just preview locally
       const dataURL = await imageUtils.fileToDataURL(file);
-      setCoverImagePreview(dataURL);
-      setFormData(prev => ({ ...prev, coverImage: dataURL }));
+      setCoverImagePreview(dataURL as string);
+      setFormData(prev => ({ ...prev, coverImage: dataURL as string }));
     } catch (error) {
       console.error('Error uploading cover image:', error);
       alert('Error uploading image. Please try again.');
@@ -235,19 +272,18 @@ function BookForm({ book, onSave, onCancel, isOpen }) {
   };
 
   // Handle preview images upload (multiple)
-  // Preview images upload (stub: backend integration needed)
-  const handlePreviewImageUpload = async (event) => {
-    const files = Array.from(event.target.files);
+  const handlePreviewImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(event.target.files || []);
     if (files.length === 0) return;
     const validFiles = files.filter(file => imageUtils.isValidImageFile(file));
     if (validFiles.length !== files.length) {
       alert('Some files were skipped. Please select valid image files (JPEG, PNG, GIF, WebP) under 5MB');
     }
     try {
-      const newPreviews = [];
+      const newPreviews: Array<{id: string, data: string}> = [];
       for (const file of validFiles) {
         const dataURL = await imageUtils.fileToDataURL(file);
-        newPreviews.push({ id: dataURL, data: dataURL });
+        newPreviews.push({ id: dataURL as string, data: dataURL as string });
       }
       setPreviewImages(prev => [...prev, ...newPreviews]);
       setFormData(prev => ({
@@ -270,7 +306,7 @@ function BookForm({ book, onSave, onCancel, isOpen }) {
   };
 
   // Remove a preview image
-  const removePreviewImage = (imageId) => {
+  const removePreviewImage = (imageId: string) => {
     setPreviewImages(prev => prev.filter(img => img.id !== imageId));
     setFormData(prev => ({
       ...prev,
@@ -282,7 +318,7 @@ function BookForm({ book, onSave, onCancel, isOpen }) {
 
   // Validate form fields
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: FormErrors = {};
 
     if (!formData.title.trim()) {
       newErrors.title = 'Title is required';
@@ -294,9 +330,9 @@ function BookForm({ book, onSave, onCancel, isOpen }) {
 
     if (
       formData.publicationYear &&
-      (isNaN(formData.publicationYear) ||
-        formData.publicationYear < 0 ||
-        formData.publicationYear > new Date().getFullYear())
+      (isNaN(Number(formData.publicationYear)) ||
+        Number(formData.publicationYear) < 0 ||
+        Number(formData.publicationYear) > new Date().getFullYear())
     ) {
       newErrors.publicationYear = 'Please enter a valid year';
     }
@@ -306,40 +342,81 @@ function BookForm({ book, onSave, onCancel, isOpen }) {
   };
 
 
-  // Helper to convert camelCase to snake_case for backend compatibility
-  const toBackendFormat = (data) => {
+  // Helper to convert form data to Book format
+  const toBookFormat = (data: FormData): Partial<Book> => {
     return {
-      ...data,
-      publication_year: data.publicationYear || null,
-      preview_images: data.previewImages || [],
-      read_status: data.readStatus || 'Not Started',
-      created_at: data.createdAt || undefined,
-      updated_at: data.updatedAt || undefined,
-      // Remove frontend-only/camelCase fields
-      publicationYear: undefined,
-      previewImages: undefined,
-      readStatus: undefined,
-      createdAt: undefined,
-      updatedAt: undefined,
+      title: data.title,
+      author: data.author,
+      genre: data.genre || undefined,
+      category: data.category || undefined,
+      publicationYear: data.publicationYear ? Number(data.publicationYear) : undefined,
+      numPages: data.numPages ? Number(data.numPages) : undefined,
+      description: data.description || undefined,
+      tags: data.tags,
+      coverImage: data.coverImage || undefined,
+      previewImages: data.previewImages,
+      isFavorite: data.isFavorite,
+      status: data.status as 'available' | 'checked_out' | 'lost' | 'damaged',
+      readStatus: data.readStatus || undefined,
+    };
+  };
+
+  // Helper to convert to backend snake_case format if needed
+  const toBackendFormat = (data: FormData) => {
+    return {
+      title: data.title,
+      author: data.author,
+      genre: data.genre || null,
+      category: data.category || null,
+      publication_year: data.publicationYear ? Number(data.publicationYear) : null,
+      num_pages: data.numPages ? Number(data.numPages) : null,
+      description: data.description || null,
+      tags: data.tags,
+      cover_image: data.coverImage,
+      preview_images: data.previewImages,
+      is_favorite: data.isFavorite,
+      status: data.status,
+      read_status: data.readStatus,
     };
   };
 
   // Handle form submit
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!validateForm()) return;
-    const isBackend = window.location.origin.includes('5173') || window.location.origin.includes('localhost');
-    const dataToSend = isBackend ? toBackendFormat(formData) : formData;
-    if (isEdit && book) {
-      updateBook.mutate({ ...book, ...dataToSend }, {
-        onSuccess: () => onCancel(),
-        onError: (error: any) => alert('Error updating book: ' + error.message),
-      });
-    } else {
-      addBook.mutate(dataToSend, {
-        onSuccess: () => onCancel(),
-        onError: (error: any) => alert('Error adding book: ' + error.message),
-      });
+
+    // Determine if we should use backend format (snake_case) or frontend format
+    const isBackendAPI = process.env.NODE_ENV === 'production' || window.location.href.includes('localhost:8000');
+    
+    try {
+      if (isEdit && book) {
+        const dataToSend = isBackendAPI ? toBackendFormat(formData) : toBookFormat(formData);
+        updateBook.mutate({ ...book, ...dataToSend } as Book, {
+          onSuccess: () => {
+            onSave(dataToSend);
+            onCancel();
+          },
+          onError: (error: any) => {
+            console.error('Error updating book:', error);
+            alert('Error updating book: ' + (error.message || 'Unknown error'));
+          },
+        });
+      } else {
+        const dataToSend = isBackendAPI ? toBackendFormat(formData) : toBookFormat(formData);
+        addBook.mutate(dataToSend as any, {
+          onSuccess: (newBook) => {
+            onSave(newBook || dataToSend);
+            onCancel();
+          },
+          onError: (error: any) => {
+            console.error('Error adding book:', error);
+            alert('Error adding book: ' + (error.message || 'Unknown error'));
+          },
+        });
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      alert('An unexpected error occurred. Please try again.');
     }
   };
 
