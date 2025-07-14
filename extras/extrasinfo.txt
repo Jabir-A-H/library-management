@@ -60,13 +60,14 @@ After fixing, confirm that the file is error-free and still functions as intende
 ---
 
 
-tree /f > extras\project_tree.txt
-code --list-extensions > vscode-extensions.txt
-powershell -ExecutionPolicy Bypass -File "F:\WebDev\library-management\Backup-LibraryDB.ps1"
-uvicorn src.main_fastapi:app --reload --host 0.0.0.0 --port 8000
-pnpm run build
 cd /d F:\WebDev\library-management
-venv\scripts\activate
+tree /f > extras\project_tree.txt
+code --list-extensions > extras\vscode-extensions.txt
+powershell -ExecutionPolicy Bypass -File "F:\WebDev\library-management\extras\Backup-LibraryDB.ps1"
+cd backend && venv\scripts\activate
+uvicorn src.main_fastapi:app --reload --host 0.0.0.0 --port 8000
+cd frontend
+pnpm run build
 
 
 

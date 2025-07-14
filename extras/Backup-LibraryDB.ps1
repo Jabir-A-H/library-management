@@ -5,6 +5,7 @@
     This script backs up the library database to F:\WebDev\library-management\database_backups
 .NOTES
     File Name      : Backup-LibraryDB.ps1
+    Prerequisite   : PostgreSQL installed, pg_dump available in PATH
 #>
 
 # Configuration variables
@@ -12,7 +13,7 @@ $hostname = "localhost"
 $port = "5432"
 $username = "postgres"
 $database = "library_db"
-$backupDir = "F:\WebDev\library-management\database_backups"  # Specific backup location
+$backupDir = "F:\WebDev\library-management\extras\database_backups"  # Specific backup location
 
 # Create backup directory if it doesn't exist
 if (-not (Test-Path -Path $backupDir)) {
