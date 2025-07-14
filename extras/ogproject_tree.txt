@@ -10433,7 +10433,6 @@
 │   ├── general.instructions.md (3.28 KB)
 │   ├── Github Copilot Prompt.txt (3.47 KB)
 │   ├── MIGRATION_PLAN.md (77.08 KB)
-│   ├── ogproject_tree.txt (14,276.47 KB)
 │   ├── ogtree.txt (777.28 KB)
 │   ├── PROJECT_ANALYSIS_PROMPTS.md (5.11 KB)
 │   ├── PROJECT_CONTEXT.md (3.74 KB)
