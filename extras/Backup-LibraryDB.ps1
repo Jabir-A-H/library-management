@@ -5,7 +5,6 @@
     This script backs up the library database to F:\WebDev\library-management\database_backups
 .NOTES
     File Name      : Backup-LibraryDB.ps1
-    Prerequisite   : PostgreSQL installed, pg_dump available in PATH
 #>
 
 # Configuration variables

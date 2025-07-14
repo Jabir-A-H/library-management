@@ -4,9 +4,12 @@ dbaeumer.vscode-eslint
 dsznajder.es7-react-js-snippets
 esbenp.prettier-vscode
 formulahendry.auto-rename-tag
+formulahendry.code-runner
 github.copilot
 github.copilot-chat
 gruntfuggly.todo-tree
+hediet.vscode-drawio
+illixion.vscode-vibrancy-continued
 ms-python.black-formatter
 ms-python.flake8
 ms-python.python
@@ -14,5 +17,13 @@ ms-python.vscode-pylance
 mtxr.sqltools
 mtxr.sqltools-driver-pg
 oderwat.indent-rainbow
+pkief.material-icon-theme
 rangav.vscode-thunder-client
+ritwickdey.liveserver
+steoates.autoimport
+usernamehw.errorlens
+whizkydee.material-palenight-theme
+wix.vscode-import-cost
+xabikos.javascriptsnippets
+yoavbls.pretty-ts-errors
 yzhang.markdown-all-in-one
