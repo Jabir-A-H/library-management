@@ -19,12 +19,12 @@
     "ms-python.flake8",                    // Python linting
     "christian-kohler.path-intellisense",  // Auto-complete file paths
     "formulahendry.auto-rename-tag",       // Auto-rename HTML/JSX tags
-    "eamodio.gitlens",                     // Enhanced Git features
+    //"eamodio.gitlens",                     // Enhanced Git features
     "gruntfuggly.todo-tree",              // Find TODO/FIXME comments
     "oderwat.indent-rainbow",             // Color-coded indentation
     "ms-vscode.vscode-json",              // Enhanced JSON support
-    "redhat.vscode-yaml",                 // YAML language support
-    "ms-vscode.vscode-typescript-next"     // Latest TypeScript features
+    //"redhat.vscode-yaml",                 // YAML language support
+    //"ms-vscode.vscode-typescript-next"     // Latest TypeScript features
   ],
   "unwantedRecommendations": [
     // Extensions to avoid for this project
