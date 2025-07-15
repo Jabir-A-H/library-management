@@ -1,23 +1,36 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import * as SliderPrimitive from "@radix-ui/react-slider"
+import * as React from 'react';
+import * as SliderPrimitive from '@radix-ui/react-slider';
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
+/**
+ * Props for the Slider component.
+ * @property {string} [className] - Additional class names for styling.
+ * @property {number[]} [defaultValue] - Default slider value(s).
+ * @property {number[]} [value] - Controlled slider value(s).
+ * @property {number} [min=0] - Minimum value.
+ * @property {number} [max=100] - Maximum value.
+ * @property {string} [aria-label] - Accessible label for the slider.
+ * @property {...SliderPrimitive.SliderProps} [props] - Any other Radix slider props.
+ */
+export interface SliderProps extends SliderPrimitive.SliderProps {
+  className?: string;
+  'aria-label'?: string;
+}
 
 /**
  * Slider component. Wraps Radix Slider.Root, Track, Range, and Thumb.
+ * Provides a customizable, accessible slider for forms and controls.
  *
- * @param {object} props - React props
- * @param {string} [props.className] - Additional class names
- * @param {number[]} [props.defaultValue] - Default slider value(s)
- * @param {number[]} [props.value] - Controlled slider value(s)
- * @param {number} [props.min=0] - Minimum value
- * @param {number} [props.max=100] - Maximum value
- * @returns {JSX.Element}
+ * @example
+ * <Slider defaultValue={[50]} min={0} max={100} aria-label="Volume" />
  */
-export const Slider = React.forwardRef(function Slider(
+export const Slider = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.Root>,
+  SliderProps
+>(function Slider(
   { className, defaultValue, value, min = 0, max = 100, ...props },
   ref
 ) {
@@ -41,7 +54,7 @@ export const Slider = React.forwardRef(function Slider(
       min={min}
       max={max}
       className={cn(
-        "relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col",
+        'relative flex w-full touch-none items-center select-none data-[disabled]:opacity-50 data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col',
         className
       )}
       {...props}
@@ -49,13 +62,13 @@ export const Slider = React.forwardRef(function Slider(
       <SliderPrimitive.Track
         data-slot="slider-track"
         className={cn(
-          "bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-1.5 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5"
+          'bg-muted relative grow overflow-hidden rounded-full data-[orientation=horizontal]:h-1.5 data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-1.5'
         )}
       >
         <SliderPrimitive.Range
           data-slot="slider-range"
           className={cn(
-            "bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"
+            'bg-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full'
           )}
         />
       </SliderPrimitive.Track>
@@ -69,4 +82,4 @@ export const Slider = React.forwardRef(function Slider(
     </SliderPrimitive.Root>
   );
 });
-Slider.displayName = "Slider";
+Slider.displayName = 'Slider';

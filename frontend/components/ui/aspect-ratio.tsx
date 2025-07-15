@@ -1,17 +1,13 @@
-import * as React from 'react';
-import * as AspectRatioPrimitive from '@radix-ui/react-aspect-ratio';
+import * as React from "react";
+import * as AspectRatioPrimitive from "@radix-ui/react-aspect-ratio";
 
 /**
  * AspectRatio component for maintaining a consistent aspect ratio for content.
+ * @param {AspectRatioPrimitive.AspectRatioProps} props
+ * @returns {JSX.Element}
  */
-const AspectRatio = React.forwardRef<
-  React.ElementRef<typeof AspectRatioPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof AspectRatioPrimitive.Root>
->((props, ref) => {
-  return (
-    <AspectRatioPrimitive.Root ref={ref} data-slot="aspect-ratio" {...props} />
-  );
-});
-AspectRatio.displayName = 'AspectRatio';
+function AspectRatio(props) {
+  return <AspectRatioPrimitive.Root data-slot="aspect-ratio" {...props} />;
+}
 
 export { AspectRatio };

@@ -1,28 +1,65 @@
+import * as React from 'react';
+import { useFormContext, useFormState } from 'react-hook-form';
 
-import * as React from "react";
-import { useFormContext, useFormState } from "react-hook-form";
+/**
+ * Context value for the current form field.
+ */
+export interface FormFieldContextValue {
+  name: string;
+}
 
 /**
  * Context for the current form field (provided by <FormField />).
- * @type {React.Context<{ name: string } | undefined>}
+ * Provides the field name for useFormField.
  */
-export const FormFieldContext = React.createContext(undefined);
+export const FormFieldContext = React.createContext<
+  FormFieldContextValue | undefined
+>(undefined);
+
+/**
+ * Context value for the current form item.
+ */
+export interface FormItemContextValue {
+  id: string;
+}
 
 /**
  * Context for the current form item (provided by <FormItem />).
- * @type {React.Context<{ id: string } | undefined>}
+ * Provides the item id for useFormField.
  */
-export const FormItemContext = React.createContext(undefined);
+export const FormItemContext = React.createContext<
+  FormItemContextValue | undefined
+>(undefined);
+
+/**
+ * Return value for useFormField hook.
+ */
+export interface UseFormFieldResult {
+  id?: string;
+  name: string;
+  formItemId?: string;
+  formDescriptionId?: string;
+  formMessageId?: string;
+  isTouched?: boolean;
+  isDirty?: boolean;
+  invalid?: boolean;
+  error?: any;
+}
 
 /**
  * Custom hook to access field and item context, field state, and accessibility IDs.
  * Throws if not used within a <FormField>.
+ *
+ * @returns {UseFormFieldResult} Form field state and accessibility IDs.
+ * @throws Error if not used within a <FormField>.
  */
-export function useFormField() {
+export function useFormField(): UseFormFieldResult {
   const fieldContext = React.useContext(FormFieldContext);
   const itemContext = React.useContext(FormItemContext);
   if (!fieldContext) {
-    throw new Error("useFormField should be used within <FormField>");
+    throw new Error(
+      'useFormField must be used within a <FormField> component.'
+    );
   }
   const { getFieldState } = useFormContext();
   const formState = useFormState({ name: fieldContext.name });

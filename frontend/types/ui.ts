@@ -12,19 +12,37 @@ export interface ComponentProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 // Button component types
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
-  size?: 'default' | 'sm' | 'lg' | 'icon';
+
+/**
+ * Button component types.
+ */
+export type ButtonVariant =
+  | 'default'
+  | 'destructive'
+  | 'outline'
+  | 'secondary'
+  | 'ghost'
+  | 'link';
+export type ButtonSize = 'default' | 'sm' | 'lg' | 'icon';
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Button visual variant. */
+  variant?: ButtonVariant;
+  /** Button size. */
+  size?: ButtonSize;
+  /** Render as child element. */
   asChild?: boolean;
 }
 
 // Input component types
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string;
 }
 
 // Textarea component types
-export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   className?: string;
 }
 
@@ -37,7 +55,8 @@ export interface SelectProps {
   children: React.ReactNode;
 }
 
-export interface SelectTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface SelectTriggerProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   children?: React.ReactNode;
 }
@@ -208,15 +227,23 @@ export interface SeparatorProps extends ComponentProps {
   decorative?: boolean;
 }
 
-// Accordion component types
+/**
+ * Accordion component types.
+ */
+export type AccordionType = 'single' | 'multiple';
 export interface AccordionProps extends ComponentProps {
-  type?: 'single' | 'multiple';
+  /** Accordion selection type. */
+  type?: AccordionType;
+  /** Whether the accordion is collapsible. */
   collapsible?: boolean;
+  /** Selected value(s). */
   value?: string | string[];
+  /** Change handler for selected value(s). */
   onValueChange?: (value: string | string[]) => void;
 }
 
 export interface AccordionItemProps extends ComponentProps {
+  /** Value for the accordion item. */
   value: string;
 }
 
@@ -232,13 +259,16 @@ export interface AvatarImageProps extends ComponentProps {
 export interface AvatarFallbackProps extends ComponentProps {}
 
 // Switch component types
-export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface SwitchProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   checked?: boolean;
   onCheckedChange?: (checked: boolean) => void;
 }
 
 // Slider component types
-export interface SliderProps extends ComponentProps {
+export interface SliderProps {
+  className?: string;
+  children?: React.ReactNode;
   value?: number[];
   onValueChange?: (value: number[]) => void;
   defaultValue?: number[];
@@ -250,12 +280,15 @@ export interface SliderProps extends ComponentProps {
 }
 
 // Calendar component types
-export interface CalendarProps extends ComponentProps {
+export interface CalendarProps {
   mode?: 'single' | 'multiple' | 'range';
   selected?: Date | Date[] | { from: Date; to: Date };
-  onSelect?: (date: Date | Date[] | { from: Date; to: Date } | undefined) => void;
+  onSelect?: (
+    date: Date | Date[] | { from: Date; to: Date } | undefined
+  ) => void;
   disabled?: boolean | ((date: Date) => boolean);
   showOutsideDays?: boolean;
   className?: string;
   classNames?: Record<string, string>;
+  children?: React.ReactNode;
 }

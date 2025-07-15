@@ -1,30 +1,6 @@
 
 f:\WebDev\library-management\frontend>npx tsc --noEmit --pretty  2>&1 | findstr /C:"Found" /C:"error" /C:"warning"
-components/ui/alert-dialog.tsx:15:53 - error TS1434: Unexpected keyword or identifier.
-components/ui/alert-dialog.tsx:15:56 - error TS1434: Unexpected keyword or identifier.
-Found 2 errors in the same file, starting at: components/ui/alert-dialog.tsx:15
-
-f:\WebDev\library-management\frontend>npx tsc --noEmit --pretty  2>&1 | findstr /C:"Found" /C:"error" /C:"warning"
-components/ui/alert-dialog.tsx:3:1 - error TS2304: Cannot find name 'im'.
-components/ui/alert-dialog.tsx:7:7 - error TS2451: Cannot redeclare block-scoped variable 'AlertDialogPortal'.
-components/ui/alert-dialog.tsx:33:7 - error TS2451: Cannot redeclare block-scoped variable 'AlertDialogPortal'.
-components/ui/alert-dialog.tsx:38:5 - error TS2322: Type '{ children?: ReactNode; container?: Element | DocumentFragment | null | undefined; forceMount?: true | undefined; ref: ForwardedRef<never>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & AlertDialogPortalProps'.
-components/ui/carousel.tsx:29:3 - error TS7031: Binding element 'opts' implicitly has an 'any' type.
-components/ui/carousel.tsx:30:3 - error TS7031: Binding element 'setApi' implicitly has an 'any' type.
-components/ui/carousel.tsx:31:3 - error TS7031: Binding element 'plugins' implicitly has an 'any' type.
-components/ui/carousel.tsx:32:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-components/ui/carousel.tsx:33:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
-components/ui/carousel.tsx:46:39 - error TS7006: Parameter 'api' implicitly has an 'any' type.
-components/ui/carousel.tsx:61:6 - error TS7006: Parameter 'event' implicitly has an 'any' type.
-components/ui/carousel.tsx:92:7 - error TS2322: Type '{ carouselRef: EmblaViewportRefType; api: EmblaCarouselType | undefined; opts: any; orientation: string; scrollPrev: () => void; scrollNext: () => void; canScrollPrev: boolean; canScrollNext: boolean; }' is not assignable to type 'null'.
-components/ui/carousel.tsx:121:28 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-components/ui/carousel.tsx:145:25 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-components/ui/carousel.tsx:166:29 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-components/ui/carousel.tsx:171:7 - error TS2322: Type 'string' is not assignable to type '"link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | undefined'.
-components/ui/carousel.tsx:172:7 - error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | "icon" | undefined'.
-components/ui/carousel.tsx:195:25 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-components/ui/carousel.tsx:200:7 - error TS2322: Type 'string' is not assignable to type '"link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | undefined'.
-components/ui/carousel.tsx:201:7 - error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | "icon" | undefined'.
+components/ui/carousel.tsx:101:9 - error TS2322: Type '{ carouselRef: EmblaViewportRefType; api: EmblaCarouselType | undefined; opts: any; orientation: "horizontal" | "vertical"; scrollPrev: () => void; scrollNext: () => void; canScrollPrev: boolean; canScrollNext: boolean; }' is not assignable to type 'null'.
 components/ui/chart.tsx:25:3 - error TS7031: Binding element 'id' implicitly has an 'any' type.
 components/ui/chart.tsx:26:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
 components/ui/chart.tsx:27:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
@@ -176,22 +152,16 @@ components/ui/navigation-menu.tsx:152:5 - error TS2339: Property 'className' doe
 components/ui/navigation-menu.tsx:157:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
 components/ui/navigation-menu.tsx:173:5 - error TS2339: Property 'className' does not exist on type '{}'.
 components/ui/navigation-menu.tsx:178:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
-components/ui/pagination.tsx:9:10 - error TS2459: Module '"@/components/ui/button"' declares 'buttonVariants' locally, but it is not exported.
-components/ui/pagination.tsx:20:5 - error TS2339: Property 'className' does not exist on type '{}'.
-components/ui/pagination.tsx:25:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
-components/ui/pagination.tsx:41:5 - error TS2339: Property 'className' does not exist on type '{}'.
-components/ui/pagination.tsx:46:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
-components/ui/pagination.tsx:63:14 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
-components/ui/pagination.tsx:76:5 - error TS2339: Property 'className' does not exist on type '{}'.
-components/ui/pagination.tsx:76:16 - error TS2339: Property 'isActive' does not exist on type '{}'.
-components/ui/pagination.tsx:76:26 - error TS2339: Property 'size' does not exist on type '{}'.
-components/ui/pagination.tsx:81:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
-components/ui/pagination.tsx:103:5 - error TS2339: Property 'className' does not exist on type '{}'.
-components/ui/pagination.tsx:107:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
-components/ui/pagination.tsx:126:5 - error TS2339: Property 'className' does not exist on type '{}'.
-components/ui/pagination.tsx:130:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
-components/ui/pagination.tsx:149:5 - error TS2339: Property 'className' does not exist on type '{}'.
-components/ui/pagination.tsx:154:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+components/ui/pagination.tsx:68:5 - error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx:68:16 - error TS2339: Property 'isActive' does not exist on type '{}'.
+components/ui/pagination.tsx:68:26 - error TS2339: Property 'size' does not exist on type '{}'.
+components/ui/pagination.tsx:73:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+components/ui/pagination.tsx:94:5 - error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx:98:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/pagination.tsx:116:5 - error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx:120:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/pagination.tsx:138:5 - error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx:143:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
 components/ui/popover.tsx:16:33 - error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & PopoverProps'.
 components/ui/popover.tsx:27:36 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
 components/ui/popover.tsx:41:5 - error TS2339: Property 'className' does not exist on type '{}'.
@@ -343,6 +313,6 @@ components/ui/use-form-field.tsx:30:27 - error TS2339: Property 'id' does not ex
 components/ui/use-form-field.tsx:33:24 - error TS2339: Property 'name' does not exist on type 'never'.
 types/ui.ts:241:18 - error TS2430: Interface 'SliderProps' incorrectly extends interface 'ComponentProps'.
 types/ui.ts:253:18 - error TS2430: Interface 'CalendarProps' incorrectly extends interface 'ComponentProps'.
-Found 338 errors in 28 files.
+Found 313 errors in 27 files.
 
 f:\WebDev\library-management\frontend>

@@ -1,145 +1,14 @@
 
 f:\WebDev\library-management\frontend>npx tsc --noEmit --pretty
-components/ui/alert-dialog.tsx:15:53 - error TS1434: Unexpected keyword or identifier.
+components/ui/carousel.tsx:101:9 - error TS2322: Type '{ carouselRef: EmblaViewportRefType; api: EmblaCarouselType | undefined; opts: any; orientation: "horizontal" | "vertical"; scrollPrev: () => void; scrollNext: () => void; canScrollPrev: boolean; canScrollNext: boolean; }' is not assignable to type 'null'.
 
-15 AlertDialogPortal.displayName = "AlertDialogPortal";ct from 'react';
-                                                       ~~
-
-components/ui/alert-dialog.tsx:15:56 - error TS1434: Unexpected keyword or identifier.
-
-15 AlertDialogPortal.displayName = "AlertDialogPortal";ct from 'react';
-                                                          ~~~~
-
-
-Found 2 errors in the same file, starting at: components/ui/alert-dialog.tsx:15
-
-
-f:\WebDev\library-management\frontend>npx tsc --noEmit --pretty
-components/ui/alert-dialog.tsx:3:1 - error TS2304: Cannot find name 'im'.
-
-3 im;
-  ~~
-
-components/ui/alert-dialog.tsx:7:7 - error TS2451: Cannot redeclare block-scoped variable 'AlertDialogPortal'.
-
-7 const AlertDialogPortal = React.forwardRef<
-        ~~~~~~~~~~~~~~~~~
-
-components/ui/alert-dialog.tsx:33:7 - error TS2451: Cannot redeclare block-scoped variable 'AlertDialogPortal'.
-
-33 const AlertDialogPortal = React.forwardRef<
-         ~~~~~~~~~~~~~~~~~
-
-components/ui/alert-dialog.tsx:38:5 - error TS2322: Type '{ children?: ReactNode; container?: Element | DocumentFragment | null | undefined; forceMount?: true | undefined; ref: ForwardedRef<never>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & AlertDialogPortalProps'.
-  Property 'ref' does not exist on type 'IntrinsicAttributes & AlertDialogPortalProps'.
-
-38     ref={ref}
-       ~~~
-
-components/ui/carousel.tsx:29:3 - error TS7031: Binding element 'opts' implicitly has an 'any' type.
-
-29   opts,
-     ~~~~
-
-components/ui/carousel.tsx:30:3 - error TS7031: Binding element 'setApi' implicitly has an 'any' type.
-
-30   setApi,
-     ~~~~~~
-
-components/ui/carousel.tsx:31:3 - error TS7031: Binding element 'plugins' implicitly has an 'any' type.
-
-31   plugins,
-     ~~~~~~~
-
-components/ui/carousel.tsx:32:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-
-32   className,
-     ~~~~~~~~~
-
-components/ui/carousel.tsx:33:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
-
-33   children,
-     ~~~~~~~~
-
-components/ui/carousel.tsx:46:39 - error TS7006: Parameter 'api' implicitly has an 'any' type.
-
-46   const onSelect = React.useCallback((api) => {
-                                         ~~~
-
-components/ui/carousel.tsx:61:6 - error TS7006: Parameter 'event' implicitly has an 'any' type.
-
-61     (event) => {
-        ~~~~~
-
-components/ui/carousel.tsx:92:7 - error TS2322: Type '{ carouselRef: EmblaViewportRefType; api: EmblaCarouselType | undefined; opts: any; orientation: string; scrollPrev: () => void; scrollNext: () => void; canScrollPrev: boolean; canScrollNext: boolean; }' is not assignable to type 'null'.
-
-92       value={{
-         ~~~~~
+101         value={{
+            ~~~~~
 
   node_modules/@types/react/index.d.ts:617:9
     617         value: T;
                 ~~~~~
     The expected type comes from property 'value' which is declared here on type 'IntrinsicAttributes & ProviderProps<null>'
-
-components/ui/carousel.tsx:121:28 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-
-121 function CarouselContent({ className, ...props }) {
-                               ~~~~~~~~~
-
-components/ui/carousel.tsx:145:25 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-
-145 function CarouselItem({ className, ...props }) {
-                            ~~~~~~~~~
-
-components/ui/carousel.tsx:166:29 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-
-166 function CarouselPrevious({ className, variant = "outline", size = "icon", ...props }) {
-                                ~~~~~~~~~
-
-components/ui/carousel.tsx:171:7 - error TS2322: Type 'string' is not assignable to type '"link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | undefined'.
-
-171       variant={variant}
-          ~~~~~~~
-
-  components/ui/button.tsx:7:3
-    7   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
-        ~~~~~~~
-    The expected type comes from property 'variant' which is declared here on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'
-
-components/ui/carousel.tsx:172:7 - error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | "icon" | undefined'.
-
-172       size={size}
-          ~~~~
-
-  components/ui/button.tsx:8:3
-    8   size?: "default" | "sm" | "lg" | "icon";
-        ~~~~
-    The expected type comes from property 'size' which is declared here on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'
-
-components/ui/carousel.tsx:195:25 - error TS7031: Binding element 'className' implicitly has an 'any' type.
-
-195 function CarouselNext({ className, variant = "outline", size = "icon", ...props }) {
-                            ~~~~~~~~~
-
-components/ui/carousel.tsx:200:7 - error TS2322: Type 'string' is not assignable to type '"link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | undefined'.
-
-200       variant={variant}
-          ~~~~~~~
-
-  components/ui/button.tsx:7:3
-    7   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
-        ~~~~~~~
-    The expected type comes from property 'variant' which is declared here on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'
-
-components/ui/carousel.tsx:201:7 - error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | "icon" | undefined'.
-
-201       size={size}
-          ~~~~
-
-  components/ui/button.tsx:8:3
-    8   size?: "default" | "sm" | "lg" | "icon";
-        ~~~~
-    The expected type comes from property 'size' which is declared here on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'
 
 components/ui/chart.tsx:25:3 - error TS7031: Binding element 'id' implicitly has an 'any' type.
 
@@ -1319,90 +1188,28 @@ components/ui/navigation-menu.tsx:178:7 - error TS2322: Type 'ForwardedRef<unkno
                 ~~~
     The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuIndicatorProps & RefAttributes<HTMLDivElement>'
 
-components/ui/pagination.tsx:9:10 - error TS2459: Module '"@/components/ui/button"' declares 'buttonVariants' locally, but it is not exported.
+components/ui/pagination.tsx:68:5 - error TS2339: Property 'className' does not exist on type '{}'.
 
-9 import { buttonVariants } from "@/components/ui/button";
-           ~~~~~~~~~~~~~~
-
-  components/ui/button.tsx:4:10
-    4 import { buttonVariants } from "./button-variants";
-               ~~~~~~~~~~~~~~
-    'buttonVariants' is declared here.
-
-components/ui/pagination.tsx:20:5 - error TS2339: Property 'className' does not exist on type '{}'.
-
-20   { className, ...props },
+68   { className, isActive, size = 'icon', ...props },
        ~~~~~~~~~
 
-components/ui/pagination.tsx:25:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
-  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
-    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLElement>'.
-      Types of property 'current' are incompatible.
-        Type 'unknown' is not assignable to type 'HTMLElement | null'.
+components/ui/pagination.tsx:68:16 - error TS2339: Property 'isActive' does not exist on type '{}'.
 
-25       ref={ref}
-         ~~~
-
-  node_modules/@types/react/index.d.ts:304:9
-    304         ref?: LegacyRef<T> | undefined;
-                ~~~
-    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>'
-
-components/ui/pagination.tsx:41:5 - error TS2339: Property 'className' does not exist on type '{}'.
-
-41   { className, ...props },
-       ~~~~~~~~~
-
-components/ui/pagination.tsx:46:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
-  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
-    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLUListElement>'.
-      Types of property 'current' are incompatible.
-        Type 'unknown' is not assignable to type 'HTMLUListElement | null'.
-
-46       ref={ref}
-         ~~~
-
-  node_modules/@types/react/index.d.ts:304:9
-    304         ref?: LegacyRef<T> | undefined;
-                ~~~
-    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>'
-
-components/ui/pagination.tsx:63:14 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
-  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
-    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLLIElement>'.
-      Types of property 'current' are incompatible.
-        Type 'unknown' is not assignable to type 'HTMLLIElement | null'.
-
-63   return <li ref={ref} data-slot="pagination-item" {...props} />;
-                ~~~
-
-  node_modules/@types/react/index.d.ts:304:9
-    304         ref?: LegacyRef<T> | undefined;
-                ~~~
-    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>'
-
-components/ui/pagination.tsx:76:5 - error TS2339: Property 'className' does not exist on type '{}'.
-
-76   { className, isActive, size = "icon", ...props },
-       ~~~~~~~~~
-
-components/ui/pagination.tsx:76:16 - error TS2339: Property 'isActive' does not exist on type '{}'.
-
-76   { className, isActive, size = "icon", ...props },
+68   { className, isActive, size = 'icon', ...props },
                   ~~~~~~~~
 
-components/ui/pagination.tsx:76:26 - error TS2339: Property 'size' does not exist on type '{}'.
+components/ui/pagination.tsx:68:26 - error TS2339: Property 'size' does not exist on type '{}'.
 
-76   { className, isActive, size = "icon", ...props },
+68   { className, isActive, size = 'icon', ...props },
                             ~~~~
 
-components/ui/pagination.tsx:81:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+components/ui/pagination.tsx:73:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
   Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
     Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLAnchorElement>'.
       Types of property 'current' are incompatible.
         Type 'unknown' is not assignable to type 'HTMLAnchorElement | null'.
 
-81       ref={ref}
+73       ref={ref}
          ~~~
 
   node_modules/@types/react/index.d.ts:304:9
@@ -1410,40 +1217,40 @@ components/ui/pagination.tsx:81:7 - error TS2322: Type 'ForwardedRef<unknown>' i
                 ~~~
     The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>'
 
-components/ui/pagination.tsx:103:5 - error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx:94:5 - error TS2339: Property 'className' does not exist on type '{}'.
 
-103   { className, ...props },
-        ~~~~~~~~~
+94   { className, ...props },
+       ~~~~~~~~~
 
-components/ui/pagination.tsx:107:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/pagination.tsx:98:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
   Property 'children' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
 
-107     <PaginationLink
-         ~~~~~~~~~~~~~~
+98     <PaginationLink
+        ~~~~~~~~~~~~~~
 
-components/ui/pagination.tsx:126:5 - error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx:116:5 - error TS2339: Property 'className' does not exist on type '{}'.
 
-126   { className, ...props },
+116   { className, ...props },
         ~~~~~~~~~
 
-components/ui/pagination.tsx:130:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+components/ui/pagination.tsx:120:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
   Property 'children' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
 
-130     <PaginationLink
+120     <PaginationLink
          ~~~~~~~~~~~~~~
 
-components/ui/pagination.tsx:149:5 - error TS2339: Property 'className' does not exist on type '{}'.
+components/ui/pagination.tsx:138:5 - error TS2339: Property 'className' does not exist on type '{}'.
 
-149   { className, ...props },
+138   { className, ...props },
         ~~~~~~~~~
 
-components/ui/pagination.tsx:154:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+components/ui/pagination.tsx:143:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
   Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
     Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLSpanElement>'.
       Types of property 'current' are incompatible.
         Type 'unknown' is not assignable to type 'HTMLSpanElement | null'.
 
-154       ref={ref}
+143       ref={ref}
           ~~~
 
   node_modules/@types/react/index.d.ts:304:9
@@ -1607,7 +1414,7 @@ components/ui/resizable.tsx:44:36 - error TS2322: Type 'ForwardedRef<unknown>' i
   node_modules/@types/react/index.d.ts:304:9
     304         ref?: LegacyRef<T> | undefined;
                 ~~~
-    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & Omit<HTMLAttributes<HTMLDivElement | HTMLElement | HTMLImageElement | HTMLButtonElement | ... 58 more ... | HTMLPictureElement>, "id" | "onResize"> & { ...; } & { ...; } & RefAttributes<...>'
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & Omit<HTMLAttributes<HTMLElement | HTMLButtonElement | HTMLInputElement | HTMLTextAreaElement | ... 58 more ... | HTMLPictureElement>, "id" | "onResize"> & { ...; } & { ...; } & RefAttributes<...>'
 
 components/ui/resizable.tsx:58:5 - error TS2339: Property 'withHandle' does not exist on type '{}'.
 
@@ -2576,11 +2383,10 @@ types/ui.ts:253:18 - error TS2430: Interface 'CalendarProps' incorrectly extends
                      ~~~~~~~~~~~~~
 
 
-Found 338 errors in 28 files.
+Found 313 errors in 27 files.
 
 Errors  Files
-     4  components/ui/alert-dialog.tsx:3
-    16  components/ui/carousel.tsx:29
+     1  components/ui/carousel.tsx:101
     32  components/ui/chart.tsx:25
     21  components/ui/context-menu.tsx:17
     15  components/ui/drawer.tsx:11
@@ -2589,7 +2395,7 @@ Errors  Files
      9  components/ui/input-otp.tsx:11
     37  components/ui/menubar.tsx:15
     19  components/ui/navigation-menu.tsx:20
-    16  components/ui/pagination.tsx:9
+    10  components/ui/pagination.tsx:68
      7  components/ui/popover.tsx:16
      3  components/ui/progress.tsx:16
      4  components/ui/radio-group.tsx:18
