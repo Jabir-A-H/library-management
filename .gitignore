@@ -108,3 +108,6 @@ reports/
 
 # Others
 frontend/*.tsbuildinfo
+/frontend/tsconfig.tsbuildinfo
+/frontend/terminal.txt
+/frontend/tsc_output.txt

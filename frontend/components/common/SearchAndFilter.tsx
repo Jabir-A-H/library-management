@@ -255,11 +255,13 @@ function SearchAndFilter({
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">All Genres</SelectItem>
-                    {uniqueGenres.map((genre: string) => (
-                      <SelectItem key={genre} value={genre}>
-                        {genre}
-                      </SelectItem>
-                    ))}
+                    {uniqueGenres
+                      .filter((genre): genre is string => Boolean(genre))
+                      .map((genre: string) => (
+                        <SelectItem key={genre} value={genre}>
+                          {genre}
+                        </SelectItem>
+                      ))}
                   </SelectContent>
                 </Select>
               </div>
