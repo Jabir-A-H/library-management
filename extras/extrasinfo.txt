@@ -69,6 +69,8 @@ uvicorn src.main_fastapi:app --reload --host 0.0.0.0 --port 8000
 cd frontend
 pnpm run build
 
+git fetch origin
+git reset --hard origin/main
 
 
 Review the entire project for correctness, readability, and best practices. Access required releted and relevant files to better understand the whole code to fix any bugs, improve the code structure, and optimize logic where needed. Add proper documentation on the code comments. Ensure it integrates properly with the rest of the project. Then, go ahead and apply the necessary changes directly to improve the file and the whole project as a whole.
