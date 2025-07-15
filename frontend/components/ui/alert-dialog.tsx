@@ -1,18 +1,18 @@
 'use client';
 
-im/**
+im;
+/**
  * Alert dialog portal for rendering content in a different part of the DOM tree.
  */
 const AlertDialogPortal = React.forwardRef<
   HTMLDivElement,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Portal>
 >((props, _ref) => (
-  <AlertDialogPrimitive.Portal
-    data-slot="alert-dialog-portal"
-    {...props}
-  />
+  <AlertDialogPrimitive.Portal data-slot="alert-dialog-portal" {...props} />
 ));
-AlertDialogPortal.displayName = "AlertDialogPortal";ct from 'react';
+AlertDialogPortal.displayName = 'AlertDialogPortal';
+
+import * as React from 'react';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button-variants';

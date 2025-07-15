@@ -14,4 +14,2598 @@ components/ui/alert-dialog.tsx:15:56 - error TS1434: Unexpected keyword or ident
 Found 2 errors in the same file, starting at: components/ui/alert-dialog.tsx:15
 
 
+f:\WebDev\library-management\frontend>npx tsc --noEmit --pretty
+components/ui/alert-dialog.tsx:3:1 - error TS2304: Cannot find name 'im'.
+
+3 im;
+  ~~
+
+components/ui/alert-dialog.tsx:7:7 - error TS2451: Cannot redeclare block-scoped variable 'AlertDialogPortal'.
+
+7 const AlertDialogPortal = React.forwardRef<
+        ~~~~~~~~~~~~~~~~~
+
+components/ui/alert-dialog.tsx:33:7 - error TS2451: Cannot redeclare block-scoped variable 'AlertDialogPortal'.
+
+33 const AlertDialogPortal = React.forwardRef<
+         ~~~~~~~~~~~~~~~~~
+
+components/ui/alert-dialog.tsx:38:5 - error TS2322: Type '{ children?: ReactNode; container?: Element | DocumentFragment | null | undefined; forceMount?: true | undefined; ref: ForwardedRef<never>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & AlertDialogPortalProps'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & AlertDialogPortalProps'.
+
+38     ref={ref}
+       ~~~
+
+components/ui/carousel.tsx:29:3 - error TS7031: Binding element 'opts' implicitly has an 'any' type.
+
+29   opts,
+     ~~~~
+
+components/ui/carousel.tsx:30:3 - error TS7031: Binding element 'setApi' implicitly has an 'any' type.
+
+30   setApi,
+     ~~~~~~
+
+components/ui/carousel.tsx:31:3 - error TS7031: Binding element 'plugins' implicitly has an 'any' type.
+
+31   plugins,
+     ~~~~~~~
+
+components/ui/carousel.tsx:32:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+32   className,
+     ~~~~~~~~~
+
+components/ui/carousel.tsx:33:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
+
+33   children,
+     ~~~~~~~~
+
+components/ui/carousel.tsx:46:39 - error TS7006: Parameter 'api' implicitly has an 'any' type.
+
+46   const onSelect = React.useCallback((api) => {
+                                         ~~~
+
+components/ui/carousel.tsx:61:6 - error TS7006: Parameter 'event' implicitly has an 'any' type.
+
+61     (event) => {
+        ~~~~~
+
+components/ui/carousel.tsx:92:7 - error TS2322: Type '{ carouselRef: EmblaViewportRefType; api: EmblaCarouselType | undefined; opts: any; orientation: string; scrollPrev: () => void; scrollNext: () => void; canScrollPrev: boolean; canScrollNext: boolean; }' is not assignable to type 'null'.
+
+92       value={{
+         ~~~~~
+
+  node_modules/@types/react/index.d.ts:617:9
+    617         value: T;
+                ~~~~~
+    The expected type comes from property 'value' which is declared here on type 'IntrinsicAttributes & ProviderProps<null>'
+
+components/ui/carousel.tsx:121:28 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+121 function CarouselContent({ className, ...props }) {
+                               ~~~~~~~~~
+
+components/ui/carousel.tsx:145:25 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+145 function CarouselItem({ className, ...props }) {
+                            ~~~~~~~~~
+
+components/ui/carousel.tsx:166:29 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+166 function CarouselPrevious({ className, variant = "outline", size = "icon", ...props }) {
+                                ~~~~~~~~~
+
+components/ui/carousel.tsx:171:7 - error TS2322: Type 'string' is not assignable to type '"link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | undefined'.
+
+171       variant={variant}
+          ~~~~~~~
+
+  components/ui/button.tsx:7:3
+    7   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+        ~~~~~~~
+    The expected type comes from property 'variant' which is declared here on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/carousel.tsx:172:7 - error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | "icon" | undefined'.
+
+172       size={size}
+          ~~~~
+
+  components/ui/button.tsx:8:3
+    8   size?: "default" | "sm" | "lg" | "icon";
+        ~~~~
+    The expected type comes from property 'size' which is declared here on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/carousel.tsx:195:25 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+195 function CarouselNext({ className, variant = "outline", size = "icon", ...props }) {
+                            ~~~~~~~~~
+
+components/ui/carousel.tsx:200:7 - error TS2322: Type 'string' is not assignable to type '"link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | undefined'.
+
+200       variant={variant}
+          ~~~~~~~
+
+  components/ui/button.tsx:7:3
+    7   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+        ~~~~~~~
+    The expected type comes from property 'variant' which is declared here on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/carousel.tsx:201:7 - error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | "icon" | undefined'.
+
+201       size={size}
+          ~~~~
+
+  components/ui/button.tsx:8:3
+    8   size?: "default" | "sm" | "lg" | "icon";
+        ~~~~
+    The expected type comes from property 'size' which is declared here on type 'IntrinsicAttributes & ButtonProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/chart.tsx:25:3 - error TS7031: Binding element 'id' implicitly has an 'any' type.
+
+25   id,
+     ~~
+
+components/ui/chart.tsx:26:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+26   className,
+     ~~~~~~~~~
+
+components/ui/chart.tsx:27:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
+
+27   children,
+     ~~~~~~~~
+
+components/ui/chart.tsx:28:3 - error TS7031: Binding element 'config' implicitly has an 'any' type.
+
+28   config,
+     ~~~~~~
+
+components/ui/chart.tsx:35:28 - error TS2322: Type '{ config: any; }' is not assignable to type 'null'.
+
+35     <ChartContext.Provider value={{ config }}>
+                              ~~~~~
+
+  node_modules/@types/react/index.d.ts:617:9
+    617         value: T;
+                ~~~~~
+    The expected type comes from property 'value' which is declared here on type 'IntrinsicAttributes & ProviderProps<null>'
+
+components/ui/chart.tsx:56:23 - error TS7031: Binding element 'id' implicitly has an 'any' type.
+
+56 function ChartStyle({ id, config }) {
+                         ~~
+
+components/ui/chart.tsx:56:27 - error TS7031: Binding element 'config' implicitly has an 'any' type.
+
+56 function ChartStyle({ id, config }) {
+                             ~~~~~~
+
+components/ui/chart.tsx:57:66 - error TS18046: 'cfg' is of type 'unknown'.
+
+57   const colorConfig = Object.entries(config).filter(([, cfg]) => cfg.theme || cfg.color);
+                                                                    ~~~
+
+components/ui/chart.tsx:57:79 - error TS18046: 'cfg' is of type 'unknown'.
+
+57   const colorConfig = Object.entries(config).filter(([, cfg]) => cfg.theme || cfg.color);
+                                                                                 ~~~
+
+components/ui/chart.tsx:68:31 - error TS18046: 'itemConfig' is of type 'unknown'.
+
+68                 const color = itemConfig.theme?.[theme] || itemConfig.color;
+                                 ~~~~~~~~~~
+
+components/ui/chart.tsx:68:60 - error TS18046: 'itemConfig' is of type 'unknown'.
+
+68                 const color = itemConfig.theme?.[theme] || itemConfig.color;
+                                                              ~~~~~~~~~~
+
+components/ui/chart.tsx:84:3 - error TS7031: Binding element 'active' implicitly has an 'any' type.
+
+84   active,
+     ~~~~~~
+
+components/ui/chart.tsx:85:3 - error TS7031: Binding element 'payload' implicitly has an 'any' type.
+
+85   payload,
+     ~~~~~~~
+
+components/ui/chart.tsx:86:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+86   className,
+     ~~~~~~~~~
+
+components/ui/chart.tsx:90:3 - error TS7031: Binding element 'label' implicitly has an 'any' type.
+
+90   label,
+     ~~~~~
+
+components/ui/chart.tsx:91:3 - error TS7031: Binding element 'labelFormatter' implicitly has an 'any' type.
+
+91   labelFormatter,
+     ~~~~~~~~~~~~~~
+
+components/ui/chart.tsx:92:3 - error TS7031: Binding element 'labelClassName' implicitly has an 'any' type.
+
+92   labelClassName,
+     ~~~~~~~~~~~~~~
+
+components/ui/chart.tsx:93:3 - error TS7031: Binding element 'formatter' implicitly has an 'any' type.
+
+93   formatter,
+     ~~~~~~~~~
+
+components/ui/chart.tsx:94:3 - error TS7031: Binding element 'color' implicitly has an 'any' type.
+
+94   color,
+     ~~~~~
+
+components/ui/chart.tsx:95:3 - error TS7031: Binding element 'nameKey' implicitly has an 'any' type.
+
+95   nameKey,
+     ~~~~~~~
+
+components/ui/chart.tsx:96:3 - error TS7031: Binding element 'labelKey' implicitly has an 'any' type.
+
+96   labelKey
+     ~~~~~~~~
+
+components/ui/chart.tsx:110:26 - error TS2339: Property 'label' does not exist on type 'never'.
+
+110         ? config[label]?.label || label
+                             ~~~~~
+
+components/ui/chart.tsx:150:23 - error TS7006: Parameter 'item' implicitly has an 'any' type.
+
+150         {payload.map((item, index) => {
+                          ~~~~
+
+components/ui/chart.tsx:150:29 - error TS7006: Parameter 'index' implicitly has an 'any' type.
+
+150         {payload.map((item, index) => {
+                                ~~~~~
+
+components/ui/chart.tsx:180:29 - error TS2353: Object literal may only specify known properties, and '"--color-bg"' does not exist in type 'Properties<string | number, string & {}>'.
+
+180                             "--color-bg": indicatorColor,
+                                ~~~~~~~~~~~~
+
+  node_modules/@types/react/index.d.ts:2927:9
+    2927         style?: CSSProperties | undefined;
+                 ~~~~~
+    The expected type comes from property 'style' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/chart.tsx:216:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+216   className,
+      ~~~~~~~~~
+
+components/ui/chart.tsx:218:3 - error TS7031: Binding element 'payload' implicitly has an 'any' type.
+
+218   payload,
+      ~~~~~~~
+
+components/ui/chart.tsx:220:3 - error TS7031: Binding element 'nameKey' implicitly has an 'any' type.
+
+220   nameKey
+      ~~~~~~~
+
+components/ui/chart.tsx:235:21 - error TS7006: Parameter 'item' implicitly has an 'any' type.
+
+235       {payload.map((item) => {
+                        ~~~~
+
+components/ui/chart.tsx:264:3 - error TS7006: Parameter 'config' implicitly has an 'any' type.
+
+264   config,
+      ~~~~~~
+
+components/ui/chart.tsx:265:3 - error TS7006: Parameter 'payload' implicitly has an 'any' type.
+
+265   payload,
+      ~~~~~~~
+
+components/ui/chart.tsx:266:3 - error TS7006: Parameter 'key' implicitly has an 'any' type.
+
+266   key
+      ~~~
+
+components/ui/context-menu.tsx:17:35 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLSpanElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLSpanElement | null'.
+
+17     <ContextMenuPrimitive.Trigger ref={ref} data-slot="context-menu-trigger" {...props} />
+                                     ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ContextMenuTriggerProps & RefAttributes<HTMLSpanElement>'
+
+components/ui/context-menu.tsx:22:38 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+22   return <ContextMenuPrimitive.Group ref={ref} data-slot="context-menu-group" {...props} />;
+                                        ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ContextMenuGroupProps & RefAttributes<HTMLDivElement>'
+
+components/ui/context-menu.tsx:32:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+32   { className, inset, children, ...props },
+       ~~~~~~~~~
+
+components/ui/context-menu.tsx:32:16 - error TS2339: Property 'inset' does not exist on type '{}'.
+
+32   { className, inset, children, ...props },
+                  ~~~~~
+
+components/ui/context-menu.tsx:32:23 - error TS2339: Property 'children' does not exist on type '{}'.
+
+32   { className, inset, children, ...props },
+                         ~~~~~~~~
+
+components/ui/context-menu.tsx:37:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+37       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ContextMenuSubTriggerProps & RefAttributes<HTMLDivElement>'
+
+components/ui/context-menu.tsx:53:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+53   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/context-menu.tsx:58:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+58       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ContextMenuSubContentProps & RefAttributes<HTMLDivElement>'
+
+components/ui/context-menu.tsx:70:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+70   className,
+     ~~~~~~~~~
+
+components/ui/context-menu.tsx:87:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+87   className,
+     ~~~~~~~~~
+
+components/ui/context-menu.tsx:88:3 - error TS7031: Binding element 'inset' implicitly has an 'any' type.
+
+88   inset,
+     ~~~~~
+
+components/ui/context-menu.tsx:106:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+106   className,
+      ~~~~~~~~~
+
+components/ui/context-menu.tsx:107:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
+
+107   children,
+      ~~~~~~~~
+
+components/ui/context-menu.tsx:108:3 - error TS7031: Binding element 'checked' implicitly has an 'any' type.
+
+108   checked,
+      ~~~~~~~
+
+components/ui/context-menu.tsx:132:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+132   className,
+      ~~~~~~~~~
+
+components/ui/context-menu.tsx:133:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
+
+133   children,
+      ~~~~~~~~
+
+components/ui/context-menu.tsx:137:6 - error TS2741: Property 'value' is missing in type '{ children: any[]; "data-slot": string; className: string; }' but required in type 'Omit<MenuRadioItemProps & RefAttributes<HTMLDivElement>, "ref">'.
+
+137     <ContextMenuPrimitive.RadioItem
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  node_modules/@radix-ui/react-menu/dist/index.d.ts:116:5
+    116     value: string;
+            ~~~~~
+    'value' is declared here.
+
+components/ui/context-menu.tsx:156:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+156   className,
+      ~~~~~~~~~
+
+components/ui/context-menu.tsx:157:3 - error TS7031: Binding element 'inset' implicitly has an 'any' type.
+
+157   inset,
+      ~~~~~
+
+components/ui/context-menu.tsx:173:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+173   className,
+      ~~~~~~~~~
+
+components/ui/context-menu.tsx:185:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+185   className,
+      ~~~~~~~~~
+
+components/ui/drawer.tsx:11:35 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+11   return <DrawerPrimitive.Trigger ref={ref} data-slot="drawer-trigger" {...props} />;
+                                     ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogTriggerProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/drawer.tsx:19:33 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+19   return <DrawerPrimitive.Close ref={ref} data-slot="drawer-close" {...props} />;
+                                   ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogCloseProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/drawer.tsx:24:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+24   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/drawer.tsx:29:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+29       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & Omit<DialogOverlayProps & RefAttributes<HTMLDivElement>, "ref"> & RefAttributes<...>'
+
+components/ui/drawer.tsx:42:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+42   { className, children, ...props },
+       ~~~~~~~~~
+
+components/ui/drawer.tsx:42:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+42   { className, children, ...props },
+                  ~~~~~~~~
+
+components/ui/drawer.tsx:49:9 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+49         ref={ref}
+           ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & Omit<DialogContentProps & RefAttributes<HTMLDivElement>, "ref"> & RefAttributes<...>'
+
+components/ui/drawer.tsx:71:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+71   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/drawer.tsx:76:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+76       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/drawer.tsx:86:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+86   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/drawer.tsx:91:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+91       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/drawer.tsx:101:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+101   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/drawer.tsx:106:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLHeadingElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLHeadingElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLHeadingElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLHeadingElement | null'.
+
+106       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogTitleProps & RefAttributes<HTMLHeadingElement>'
+
+components/ui/drawer.tsx:116:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+116   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/drawer.tsx:121:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLParagraphElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLParagraphElement | null'.
+
+121       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogDescriptionProps & RefAttributes<HTMLParagraphElement>'
+
+components/ui/form.tsx:11:20 - error TS7006: Parameter 'props' implicitly has an 'any' type.
+
+11 const FormField = (props) => {
+                      ~~~~~
+
+components/ui/form.tsx:13:32 - error TS2322: Type '{ name: any; }' is not assignable to type 'undefined'.
+
+13     <FormFieldContext.Provider value={{ name: props.name }}>
+                                  ~~~~~
+
+  node_modules/@types/react/index.d.ts:617:9
+    617         value: T;
+                ~~~~~
+    The expected type comes from property 'value' which is declared here on type 'IntrinsicAttributes & ProviderProps<undefined>'
+
+components/ui/form.tsx:23:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+23   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/form.tsx:28:31 - error TS2322: Type '{ id: string; }' is not assignable to type 'undefined'.
+
+28     <FormItemContext.Provider value={{ id }}>
+                                 ~~~~~
+
+  node_modules/@types/react/index.d.ts:617:9
+    617         value: T;
+                ~~~~~
+    The expected type comes from property 'value' which is declared here on type 'IntrinsicAttributes & ProviderProps<undefined>'
+
+components/ui/form.tsx:29:12 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+29       <div ref={ref} data-slot="form-item" className={cn("grid gap-2", className)} {...props} />
+              ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/form.tsx:37:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+37   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/form.tsx:43:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLLabelElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLLabelElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLLabelElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLLabelElement | null'.
+
+43       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & Omit<LabelProps & RefAttributes<HTMLLabelElement>, "ref"> & RefAttributes<HTMLLabelElement>'
+
+components/ui/form.tsx:62:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLElement | null'.
+
+62       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & SlotProps & RefAttributes<HTMLElement>'
+
+components/ui/form.tsx:79:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+79   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/form.tsx:85:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLParagraphElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLParagraphElement | null'.
+
+85       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>'
+
+components/ui/form.tsx:97:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+97   { className, children, ...props },
+       ~~~~~~~~~
+
+components/ui/form.tsx:97:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+97   { className, children, ...props },
+                  ~~~~~~~~
+
+components/ui/form.tsx:107:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLParagraphElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLParagraphElement | null'.
+
+107       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement>'
+
+components/ui/hover-card.tsx:11:38 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLAnchorElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLAnchorElement | null'.
+
+11   return <HoverCardPrimitive.Trigger ref={ref} data-slot="hover-card-trigger" {...props} />;
+                                        ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & HoverCardTriggerProps & RefAttributes<HTMLAnchorElement>'
+
+components/ui/hover-card.tsx:16:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+16   { className, align = "center", sideOffset = 4, ...props },
+       ~~~~~~~~~
+
+components/ui/hover-card.tsx:16:16 - error TS2339: Property 'align' does not exist on type '{}'.
+
+16   { className, align = "center", sideOffset = 4, ...props },
+                  ~~~~~
+
+components/ui/hover-card.tsx:16:34 - error TS2339: Property 'sideOffset' does not exist on type '{}'.
+
+16   { className, align = "center", sideOffset = 4, ...props },
+                                    ~~~~~~~~~~
+
+components/ui/hover-card.tsx:22:9 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+22         ref={ref}
+           ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & HoverCardContentProps & RefAttributes<HTMLDivElement>'
+
+components/ui/input-otp.tsx:11:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+11   { className, containerClassName, ...props },
+       ~~~~~~~~~
+
+components/ui/input-otp.tsx:11:16 - error TS2339: Property 'containerClassName' does not exist on type '{}'.
+
+11   { className, containerClassName, ...props },
+                  ~~~~~~~~~~~~~~~~~~
+
+components/ui/input-otp.tsx:16:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLInputElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLInputElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLInputElement | null'.
+
+16       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & (OTPInputProps & RefAttributes<HTMLInputElement>)'
+
+components/ui/input-otp.tsx:27:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+27   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/input-otp.tsx:32:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+32       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/input-otp.tsx:42:5 - error TS2339: Property 'index' does not exist on type '{}'.
+
+42   { index, className, ...props },
+       ~~~~~
+
+components/ui/input-otp.tsx:42:12 - error TS2339: Property 'className' does not exist on type '{}'.
+
+42   { index, className, ...props },
+              ~~~~~~~~~
+
+components/ui/input-otp.tsx:49:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+49       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/input-otp.tsx:74:10 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+74     <div ref={ref} data-slot="input-otp-separator" role="separator" {...props}>
+            ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/menubar.tsx:15:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+15   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/menubar.tsx:20:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+20       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:34:33 - error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & MenubarMenuProps & { __scopeMenubar?: Scope; }'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & MenubarMenuProps & { __scopeMenubar?: Scope; }'.
+
+34   return <MenubarPrimitive.Menu ref={ref} data-slot="menubar-menu" {...props} />;
+                                   ~~~
+
+components/ui/menubar.tsx:40:34 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+40   return <MenubarPrimitive.Group ref={ref} data-slot="menubar-group" {...props} />;
+                                    ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarGroupProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:49:39 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+49   return <MenubarPrimitive.RadioGroup ref={ref} data-slot="menubar-radio-group" {...props} />;
+                                         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarRadioGroupProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:55:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+55   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/menubar.tsx:60:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+60       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarTriggerProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/menubar.tsx:74:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+74   { className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
+       ~~~~~~~~~
+
+components/ui/menubar.tsx:74:16 - error TS2339: Property 'align' does not exist on type '{}'.
+
+74   { className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
+                  ~~~~~
+
+components/ui/menubar.tsx:74:33 - error TS2339: Property 'alignOffset' does not exist on type '{}'.
+
+74   { className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
+                                   ~~~~~~~~~~~
+
+components/ui/menubar.tsx:74:51 - error TS2339: Property 'sideOffset' does not exist on type '{}'.
+
+74   { className, align = "start", alignOffset = -4, sideOffset = 8, ...props },
+                                                     ~~~~~~~~~~
+
+components/ui/menubar.tsx:80:9 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+80         ref={ref}
+           ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarContentProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:98:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+98   { className, inset, variant = "default", ...props },
+       ~~~~~~~~~
+
+components/ui/menubar.tsx:98:16 - error TS2339: Property 'inset' does not exist on type '{}'.
+
+98   { className, inset, variant = "default", ...props },
+                  ~~~~~
+
+components/ui/menubar.tsx:98:23 - error TS2339: Property 'variant' does not exist on type '{}'.
+
+98   { className, inset, variant = "default", ...props },
+                         ~~~~~~~
+
+components/ui/menubar.tsx:103:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+103       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarItemProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:119:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+119   { className, children, checked, ...props },
+        ~~~~~~~~~
+
+components/ui/menubar.tsx:119:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+119   { className, children, checked, ...props },
+                   ~~~~~~~~
+
+components/ui/menubar.tsx:119:26 - error TS2339: Property 'checked' does not exist on type '{}'.
+
+119   { className, children, checked, ...props },
+                             ~~~~~~~
+
+components/ui/menubar.tsx:124:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+124       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarCheckboxItemProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:146:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+146   { className, children, ...props },
+        ~~~~~~~~~
+
+components/ui/menubar.tsx:146:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+146   { className, children, ...props },
+                   ~~~~~~~~
+
+components/ui/menubar.tsx:151:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+151       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarRadioItemProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:172:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+172   { className, inset, ...props },
+        ~~~~~~~~~
+
+components/ui/menubar.tsx:172:16 - error TS2339: Property 'inset' does not exist on type '{}'.
+
+172   { className, inset, ...props },
+                   ~~~~~
+
+components/ui/menubar.tsx:177:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+177       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarLabelProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:189:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+189   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/menubar.tsx:194:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+194       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarSeparatorProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:205:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+205   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/menubar.tsx:210:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLSpanElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLSpanElement | null'.
+
+210       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>'
+
+components/ui/menubar.tsx:221:32 - error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & MenubarSubProps'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & MenubarSubProps'.
+
+221   return <MenubarPrimitive.Sub ref={ref} data-slot="menubar-sub" {...props} />;
+                                   ~~~
+
+components/ui/menubar.tsx:227:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+227   { className, inset, children, ...props },
+        ~~~~~~~~~
+
+components/ui/menubar.tsx:227:16 - error TS2339: Property 'inset' does not exist on type '{}'.
+
+227   { className, inset, children, ...props },
+                   ~~~~~
+
+components/ui/menubar.tsx:227:23 - error TS2339: Property 'children' does not exist on type '{}'.
+
+227   { className, inset, children, ...props },
+                          ~~~~~~~~
+
+components/ui/menubar.tsx:232:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+232       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarSubTriggerProps & RefAttributes<HTMLDivElement>'
+
+components/ui/menubar.tsx:250:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+250   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/menubar.tsx:255:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+255       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & MenubarSubContentProps & RefAttributes<HTMLDivElement>'
+
+components/ui/navigation-menu.tsx:20:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+20   { className, children, viewport = true, ...props },
+       ~~~~~~~~~
+
+components/ui/navigation-menu.tsx:20:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+20   { className, children, viewport = true, ...props },
+                  ~~~~~~~~
+
+components/ui/navigation-menu.tsx:20:26 - error TS2339: Property 'viewport' does not exist on type '{}'.
+
+20   { className, children, viewport = true, ...props },
+                            ~~~~~~~~
+
+components/ui/navigation-menu.tsx:25:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLElement | null'.
+
+25       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuProps & RefAttributes<HTMLElement>'
+
+components/ui/navigation-menu.tsx:45:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+45   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/navigation-menu.tsx:50:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLUListElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLUListElement | null'.
+
+50       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuListProps & RefAttributes<HTMLUListElement>'
+
+components/ui/navigation-menu.tsx:63:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+63   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/navigation-menu.tsx:68:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLLIElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLLIElement | null'.
+
+68       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuItemProps & RefAttributes<HTMLLIElement>'
+
+components/ui/navigation-menu.tsx:82:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+82   { className, children, ...props },
+       ~~~~~~~~~
+
+components/ui/navigation-menu.tsx:82:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+82   { className, children, ...props },
+                  ~~~~~~~~
+
+components/ui/navigation-menu.tsx:87:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+87       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuTriggerProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/navigation-menu.tsx:106:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+106   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/navigation-menu.tsx:111:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+111       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuContentProps & RefAttributes<HTMLDivElement>'
+
+components/ui/navigation-menu.tsx:129:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+129   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/navigation-menu.tsx:135:9 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+135         ref={ref}
+            ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuViewportProps & RefAttributes<HTMLDivElement>'
+
+components/ui/navigation-menu.tsx:152:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+152   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/navigation-menu.tsx:157:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLAnchorElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLAnchorElement | null'.
+
+157       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuLinkProps & RefAttributes<HTMLAnchorElement>'
+
+components/ui/navigation-menu.tsx:173:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+173   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/navigation-menu.tsx:178:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+178       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & NavigationMenuIndicatorProps & RefAttributes<HTMLDivElement>'
+
+components/ui/pagination.tsx:9:10 - error TS2459: Module '"@/components/ui/button"' declares 'buttonVariants' locally, but it is not exported.
+
+9 import { buttonVariants } from "@/components/ui/button";
+           ~~~~~~~~~~~~~~
+
+  components/ui/button.tsx:4:10
+    4 import { buttonVariants } from "./button-variants";
+               ~~~~~~~~~~~~~~
+    'buttonVariants' is declared here.
+
+components/ui/pagination.tsx:20:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+20   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/pagination.tsx:25:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLElement | null'.
+
+25       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>'
+
+components/ui/pagination.tsx:41:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+41   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/pagination.tsx:46:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLUListElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLUListElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLUListElement | null'.
+
+46       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement>'
+
+components/ui/pagination.tsx:63:14 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLLIElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLLIElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLLIElement | null'.
+
+63   return <li ref={ref} data-slot="pagination-item" {...props} />;
+                ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>'
+
+components/ui/pagination.tsx:76:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+76   { className, isActive, size = "icon", ...props },
+       ~~~~~~~~~
+
+components/ui/pagination.tsx:76:16 - error TS2339: Property 'isActive' does not exist on type '{}'.
+
+76   { className, isActive, size = "icon", ...props },
+                  ~~~~~~~~
+
+components/ui/pagination.tsx:76:26 - error TS2339: Property 'size' does not exist on type '{}'.
+
+76   { className, isActive, size = "icon", ...props },
+                            ~~~~
+
+components/ui/pagination.tsx:81:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLAnchorElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLAnchorElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLAnchorElement | null'.
+
+81       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>'
+
+components/ui/pagination.tsx:103:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+103   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/pagination.tsx:107:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+107     <PaginationLink
+         ~~~~~~~~~~~~~~
+
+components/ui/pagination.tsx:126:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+126   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/pagination.tsx:130:6 - error TS2322: Type '{ children: Element[]; ref: ForwardedRef<unknown>; "aria-label": string; size: string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+130     <PaginationLink
+         ~~~~~~~~~~~~~~
+
+components/ui/pagination.tsx:149:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+149   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/pagination.tsx:154:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLSpanElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLSpanElement | null'.
+
+154       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>'
+
+components/ui/popover.tsx:16:33 - error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & PopoverProps'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & PopoverProps'.
+
+16   return <PopoverPrimitive.Root ref={ref} data-slot="popover" {...props} />;
+                                   ~~~
+
+components/ui/popover.tsx:27:36 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+27   return <PopoverPrimitive.Trigger ref={ref} data-slot="popover-trigger" {...props} />;
+                                      ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & PopoverTriggerProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/popover.tsx:41:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+41   { className, align = "center", sideOffset = 4, ...props },
+       ~~~~~~~~~
+
+components/ui/popover.tsx:41:16 - error TS2339: Property 'align' does not exist on type '{}'.
+
+41   { className, align = "center", sideOffset = 4, ...props },
+                  ~~~~~
+
+components/ui/popover.tsx:41:34 - error TS2339: Property 'sideOffset' does not exist on type '{}'.
+
+41   { className, align = "center", sideOffset = 4, ...props },
+                                    ~~~~~~~~~~
+
+components/ui/popover.tsx:47:9 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+47         ref={ref}
+           ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & PopoverContentProps & RefAttributes<HTMLDivElement>'
+
+components/ui/popover.tsx:69:35 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+69   return <PopoverPrimitive.Anchor ref={ref} data-slot="popover-anchor" {...props} />;
+                                     ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & PopoverAnchorProps & RefAttributes<HTMLDivElement>'
+
+components/ui/progress.tsx:16:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+16   { className, value, ...props },
+       ~~~~~~~~~
+
+components/ui/progress.tsx:16:16 - error TS2339: Property 'value' does not exist on type '{}'.
+
+16   { className, value, ...props },
+                  ~~~~~
+
+components/ui/progress.tsx:21:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+21       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ProgressProps & RefAttributes<HTMLDivElement>'
+
+components/ui/radio-group.tsx:18:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+18   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/radio-group.tsx:23:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+23       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & RadioGroupProps & RefAttributes<HTMLDivElement>'
+
+components/ui/radio-group.tsx:41:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+41   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/radio-group.tsx:46:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+46       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & RadioGroupItemProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/resizable.tsx:16:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+16   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/resizable.tsx:21:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<ImperativePanelGroupHandle> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<ImperativePanelGroupHandle> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<ImperativePanelGroupHandle>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'ImperativePanelGroupHandle | null'.
+
+21       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & Omit<HTMLAttributes<keyof HTMLElementTagNameMap>, "id"> & { autoSaveId?: string | null | undefined; ... 8 more ...; dir?: "auto" | ... 2 more ... | undefined; } & { ...; } & RefAttributes<...>'
+
+components/ui/resizable.tsx:44:36 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<ImperativePanelHandle> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<ImperativePanelHandle> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<ImperativePanelHandle>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'ImperativePanelHandle | null'.
+
+44   return <ResizablePrimitive.Panel ref={ref} data-slot="resizable-panel" {...props} />;
+                                      ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & Omit<HTMLAttributes<HTMLDivElement | HTMLElement | HTMLImageElement | HTMLButtonElement | ... 58 more ... | HTMLPictureElement>, "id" | "onResize"> & { ...; } & { ...; } & RefAttributes<...>'
+
+components/ui/resizable.tsx:58:5 - error TS2339: Property 'withHandle' does not exist on type '{}'.
+
+58   { withHandle, className, ...props },
+       ~~~~~~~~~~
+
+components/ui/resizable.tsx:58:17 - error TS2339: Property 'className' does not exist on type '{}'.
+
+58   { withHandle, className, ...props },
+                   ~~~~~~~~~
+
+components/ui/resizable.tsx:63:7 - error TS2322: Type '{ children: any; ref: ForwardedRef<unknown>; "data-slot": string; className: string; }' is not assignable to type 'IntrinsicAttributes & Omit<HTMLAttributes<keyof HTMLElementTagNameMap>, "id" | "onFocus" | "onBlur" | "onClick" | "onPointerDown" | "onPointerUp"> & { ...; } & { ...; }'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & Omit<HTMLAttributes<keyof HTMLElementTagNameMap>, "id" | "onFocus" | "onBlur" | "onClick" | "onPointerDown" | "onPointerUp"> & { ...; } & { ...; }'.
+
+63       ref={ref}
+         ~~~
+
+components/ui/scroll-area.tsx:18:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+18   { className, children, ...props },
+       ~~~~~~~~~
+
+components/ui/scroll-area.tsx:18:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+18   { className, children, ...props },
+                  ~~~~~~~~
+
+components/ui/scroll-area.tsx:23:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+23       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ScrollAreaProps & RefAttributes<HTMLDivElement>'
+
+components/ui/scroll-area.tsx:51:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+51   { className, orientation = "vertical", ...props },
+       ~~~~~~~~~
+
+components/ui/scroll-area.tsx:51:16 - error TS2339: Property 'orientation' does not exist on type '{}'.
+
+51   { className, orientation = "vertical", ...props },
+                  ~~~~~~~~~~~
+
+components/ui/scroll-area.tsx:56:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+56       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ScrollAreaScrollbarProps & RefAttributes<HTMLDivElement>'
+
+components/ui/select.tsx:54:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+54   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/select.tsx:59:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+59       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & SelectScrollUpButtonProps & RefAttributes<HTMLDivElement>'
+
+components/ui/select.tsx:76:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+76   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/select.tsx:81:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+81       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & SelectScrollDownButtonProps & RefAttributes<HTMLDivElement>'
+
+components/ui/select.tsx:138:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+138   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/select.tsx:143:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+143       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & SelectLabelProps & RefAttributes<HTMLDivElement>'
+
+components/ui/select.tsx:185:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+185   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/select.tsx:190:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+190       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & SelectSeparatorProps & RefAttributes<HTMLDivElement>'
+
+components/ui/separator.tsx:19:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+19   { className, orientation = "horizontal", decorative = true, ...props },
+       ~~~~~~~~~
+
+components/ui/separator.tsx:19:16 - error TS2339: Property 'orientation' does not exist on type '{}'.
+
+19   { className, orientation = "horizontal", decorative = true, ...props },
+                  ~~~~~~~~~~~
+
+components/ui/separator.tsx:19:44 - error TS2339: Property 'decorative' does not exist on type '{}'.
+
+19   { className, orientation = "horizontal", decorative = true, ...props },
+                                              ~~~~~~~~~~
+
+components/ui/separator.tsx:24:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+24       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & SeparatorProps & RefAttributes<HTMLDivElement>'
+
+components/ui/sheet.tsx:12:31 - error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & DialogProps'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & DialogProps'.
+
+12   return <SheetPrimitive.Root ref={ref} data-slot="sheet" {...props} />;
+                                 ~~~
+
+components/ui/sheet.tsx:20:34 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+20   return <SheetPrimitive.Trigger ref={ref} data-slot="sheet-trigger" {...props} />;
+                                    ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogTriggerProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/sheet.tsx:28:32 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+28   return <SheetPrimitive.Close ref={ref} data-slot="sheet-close" {...props} />;
+                                  ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogCloseProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/sheet.tsx:36:33 - error TS2322: Type '{ ref: ForwardedRef<unknown>; "data-slot": string; }' is not assignable to type 'IntrinsicAttributes & DialogPortalProps'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & DialogPortalProps'.
+
+36   return <SheetPrimitive.Portal ref={ref} data-slot="sheet-portal" {...props} />;
+                                   ~~~
+
+components/ui/sheet.tsx:44:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+44   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/sheet.tsx:49:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+49       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogOverlayProps & RefAttributes<HTMLDivElement>'
+
+components/ui/sheet.tsx:65:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+65   { className, children, side = "right", ...props },
+       ~~~~~~~~~
+
+components/ui/sheet.tsx:65:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+65   { className, children, side = "right", ...props },
+                  ~~~~~~~~
+
+components/ui/sheet.tsx:65:26 - error TS2339: Property 'side' does not exist on type '{}'.
+
+65   { className, children, side = "right", ...props },
+                            ~~~~
+
+components/ui/sheet.tsx:69:6 - error TS2559: Type '{ children: Element[]; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+69     <SheetPortal>
+        ~~~~~~~~~~~
+
+components/ui/sheet.tsx:72:9 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+72         ref={ref}
+           ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogContentProps & RefAttributes<HTMLDivElement>'
+
+components/ui/sheet.tsx:105:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+105   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/sheet.tsx:110:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+110       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/sheet.tsx:123:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+123   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/sheet.tsx:128:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+128       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>'
+
+components/ui/sheet.tsx:141:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+141   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/sheet.tsx:146:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLHeadingElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLHeadingElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLHeadingElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLHeadingElement | null'.
+
+146       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogTitleProps & RefAttributes<HTMLHeadingElement>'
+
+components/ui/sheet.tsx:159:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+159   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/sheet.tsx:164:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLParagraphElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLParagraphElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLParagraphElement | null'.
+
+164       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & DialogDescriptionProps & RefAttributes<HTMLParagraphElement>'
+
+components/ui/sidebar.tsx:51:9 - error TS7031: Binding element 'openProp' implicitly has an 'any' type.
+
+51   open: openProp,
+           ~~~~~~~~
+
+components/ui/sidebar.tsx:52:17 - error TS7031: Binding element 'setOpenProp' implicitly has an 'any' type.
+
+52   onOpenChange: setOpenProp,
+                   ~~~~~~~~~~~
+
+components/ui/sidebar.tsx:53:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+53   className,
+     ~~~~~~~~~
+
+components/ui/sidebar.tsx:54:3 - error TS7031: Binding element 'style' implicitly has an 'any' type.
+
+54   style,
+     ~~~~~
+
+components/ui/sidebar.tsx:55:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
+
+55   children,
+     ~~~~~~~~
+
+components/ui/sidebar.tsx:63:38 - error TS7006: Parameter 'value' implicitly has an 'any' type.
+
+63   const setOpen = React.useCallback((value) => {
+                                        ~~~~~
+
+components/ui/sidebar.tsx:76:65 - error TS7006: Parameter 'open' implicitly has an 'any' type.
+
+76     return isMobile ? setOpenMobile((open) => !open) : setOpen((open) => !open);
+                                                                   ~~~~
+
+components/ui/sidebar.tsx:81:28 - error TS7006: Parameter 'event' implicitly has an 'any' type.
+
+81     const handleKeyDown = (event) => {
+                              ~~~~~
+
+components/ui/sidebar.tsx:118:30 - error TS2322: Type '{ state: string; open: any; setOpen: (value: any) => void; isMobile: boolean; openMobile: boolean; setOpenMobile: React.Dispatch<React.SetStateAction<boolean>>; toggleSidebar: () => void; }' is not assignable to type 'null'.
+
+118     <SidebarContext.Provider value={contextValue}>
+                                 ~~~~~
+
+  node_modules/@types/react/index.d.ts:617:9
+    617         value: T;
+                ~~~~~
+    The expected type comes from property 'value' which is declared here on type 'IntrinsicAttributes & ProviderProps<null>'
+
+components/ui/sidebar.tsx:144:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+144   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:145:3 - error TS7031: Binding element 'children' implicitly has an 'any' type.
+
+145   children,
+      ~~~~~~~~
+
+components/ui/sidebar.tsx:166:8 - error TS2322: Type '{ children: Element; open: never; onOpenChange: never; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+166       <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
+           ~~~~~
+
+components/ui/sidebar.tsx:167:10 - error TS2322: Type '{ children: Element[]; "data-sidebar": string; "data-slot": string; "data-mobile": string; className: string; style: { "--sidebar-width": string; }; side: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+167         <SheetContent
+             ~~~~~~~~~~~~
+
+components/ui/sidebar.tsx:178:12 - error TS2322: Type '{ children: Element[]; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+178           <SheetHeader className="sr-only">
+               ~~~~~~~~~~~
+
+components/ui/sidebar.tsx:179:14 - error TS2559: Type '{ children: string; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+179             <SheetTitle>Sidebar</SheetTitle>
+                 ~~~~~~~~~~
+
+components/ui/sidebar.tsx:180:14 - error TS2559: Type '{ children: string; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+180             <SheetDescription>Displays the mobile sidebar.</SheetDescription>
+                 ~~~~~~~~~~~~~~~~
+
+components/ui/sidebar.tsx:233:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+233   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:234:3 - error TS7031: Binding element 'onClick' implicitly has an 'any' type.
+
+234   onClick,
+      ~~~~~~~
+
+components/ui/sidebar.tsx:248:9 - error TS2349: This expression is not callable.
+  Type 'never' has no call signatures.
+
+248         toggleSidebar()
+            ~~~~~~~~~~~~~
+
+components/ui/sidebar.tsx:258:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+258   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:285:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+285   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:301:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+301   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:314:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+314   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:327:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+327   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:340:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+340   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:347:7 - error TS2322: Type '{ "data-slot": string; "data-sidebar": string; className: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'className' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+347       className={cn("bg-sidebar-border mx-2 w-auto", className)}
+          ~~~~~~~~~
+
+components/ui/sidebar.tsx:353:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+353   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:369:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+369   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:382:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+382   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:402:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+402   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:424:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+424   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:437:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+437   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:450:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+450   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:489:3 - error TS7031: Binding element 'tooltip' implicitly has an 'any' type.
+
+489   tooltip,
+      ~~~~~~~
+
+components/ui/sidebar.tsx:490:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+490   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:502:49 - error TS2322: Type 'string' is not assignable to type '"default" | "outline" | null | undefined'.
+
+502       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
+                                                    ~~~~~~~
+
+components/ui/sidebar.tsx:502:58 - error TS2322: Type 'string' is not assignable to type '"default" | "sm" | "lg" | null | undefined'.
+
+502       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
+                                                             ~~~~
+
+components/ui/sidebar.tsx:517:6 - error TS2559: Type '{ children: Element[]; }' has no properties in common with type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+517     <Tooltip>
+         ~~~~~~~
+
+components/ui/sidebar.tsx:518:8 - error TS2322: Type '{ children: Element; asChild: true; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'children' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+
+518       <TooltipTrigger asChild>{button}</TooltipTrigger>
+           ~~~~~~~~~~~~~~
+
+components/ui/sidebar.tsx:529:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+529   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:557:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+557   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:578:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+578   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:601:13 - error TS2353: Object literal may only specify known properties, and '"--skeleton-width"' does not exist in type 'Properties<string | number, string & {}>'.
+
+601             "--skeleton-width": width
+                ~~~~~~~~~~~~~~~~~~
+
+  node_modules/@types/react/index.d.ts:2927:9
+    2927         style?: CSSProperties | undefined;
+                 ~~~~~
+    The expected type comes from property 'style' which is declared here on type 'IntrinsicAttributes & SkeletonProps & RefAttributes<HTMLDivElement>'
+
+components/ui/sidebar.tsx:609:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+609   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:626:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+626   className,
+      ~~~~~~~~~
+
+components/ui/sidebar.tsx:642:3 - error TS7031: Binding element 'className' implicitly has an 'any' type.
+
+642   className,
+      ~~~~~~~~~
+
+components/ui/slider.tsx:21:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+21   { className, defaultValue, value, min = 0, max = 100, ...props },
+       ~~~~~~~~~
+
+components/ui/slider.tsx:21:16 - error TS2339: Property 'defaultValue' does not exist on type '{}'.
+
+21   { className, defaultValue, value, min = 0, max = 100, ...props },
+                  ~~~~~~~~~~~~
+
+components/ui/slider.tsx:21:30 - error TS2339: Property 'value' does not exist on type '{}'.
+
+21   { className, defaultValue, value, min = 0, max = 100, ...props },
+                                ~~~~~
+
+components/ui/slider.tsx:21:37 - error TS2339: Property 'min' does not exist on type '{}'.
+
+21   { className, defaultValue, value, min = 0, max = 100, ...props },
+                                       ~~~
+
+components/ui/slider.tsx:21:46 - error TS2339: Property 'max' does not exist on type '{}'.
+
+21   { className, defaultValue, value, min = 0, max = 100, ...props },
+                                                ~~~
+
+components/ui/slider.tsx:37:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLSpanElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLSpanElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLSpanElement | null'.
+
+37       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & SliderProps & RefAttributes<HTMLSpanElement>'
+
+components/ui/sonner.tsx:11:25 - error TS7006: Parameter 'props' implicitly has an 'any' type.
+
+11 export function Toaster(props) {
+                           ~~~~~
+
+components/ui/switch.tsx:17:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+17   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/switch.tsx:22:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+22       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & SwitchProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/table.tsx:14:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+14   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/table.tsx:20:9 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLTableElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLTableElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLTableElement | null'.
+
+20         ref={ref}
+           ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement>'
+
+components/ui/table.tsx:35:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+35   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/table.tsx:40:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLTableSectionElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLTableSectionElement | null'.
+
+40       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>'
+
+components/ui/table.tsx:54:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+54   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/table.tsx:59:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLTableSectionElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLTableSectionElement | null'.
+
+59       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>'
+
+components/ui/table.tsx:73:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+73   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/table.tsx:78:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLTableSectionElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLTableSectionElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLTableSectionElement | null'.
+
+78       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLTableSectionElement>, HTMLTableSectionElement>'
+
+components/ui/table.tsx:92:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+92   { className, ...props },
+       ~~~~~~~~~
+
+components/ui/table.tsx:97:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableRowElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLTableRowElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLTableRowElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLTableRowElement | null'.
+
+97       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLTableRowElement>, HTMLTableRowElement>'
+
+components/ui/table.tsx:114:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+114   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/table.tsx:119:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableHeaderCellElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLTableHeaderCellElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLTableHeaderCellElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLTableHeaderCellElement | null'.
+
+119       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<ThHTMLAttributes<HTMLTableHeaderCellElement>, HTMLTableHeaderCellElement>'
+
+components/ui/table.tsx:136:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+136   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/table.tsx:141:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLTableDataCellElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLTableDataCellElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLTableDataCellElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLTableDataCellElement | null'.
+
+141       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<TdHTMLAttributes<HTMLTableDataCellElement>, HTMLTableDataCellElement>'
+
+components/ui/table.tsx:158:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+158   { className, ...props },
+        ~~~~~~~~~
+
+components/ui/table.tsx:163:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLElement | null'.
+
+163       ref={ref}
+          ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>'
+
+components/ui/toggle-group.tsx:30:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+30   { className, variant = "default", size = "default", children, ...props },
+       ~~~~~~~~~
+
+components/ui/toggle-group.tsx:30:16 - error TS2339: Property 'variant' does not exist on type '{}'.
+
+30   { className, variant = "default", size = "default", children, ...props },
+                  ~~~~~~~
+
+components/ui/toggle-group.tsx:30:37 - error TS2339: Property 'size' does not exist on type '{}'.
+
+30   { className, variant = "default", size = "default", children, ...props },
+                                       ~~~~
+
+components/ui/toggle-group.tsx:30:55 - error TS2339: Property 'children' does not exist on type '{}'.
+
+30   { className, variant = "default", size = "default", children, ...props },
+                                                         ~~~~~~~~
+
+components/ui/toggle-group.tsx:35:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+35       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ((ToggleGroupSingleProps | ToggleGroupMultipleProps) & RefAttributes<HTMLDivElement>)'
+
+components/ui/toggle-group.tsx:65:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+65   { className, children, variant, size, ...props },
+       ~~~~~~~~~
+
+components/ui/toggle-group.tsx:65:16 - error TS2339: Property 'children' does not exist on type '{}'.
+
+65   { className, children, variant, size, ...props },
+                  ~~~~~~~~
+
+components/ui/toggle-group.tsx:65:26 - error TS2339: Property 'variant' does not exist on type '{}'.
+
+65   { className, children, variant, size, ...props },
+                            ~~~~~~~
+
+components/ui/toggle-group.tsx:65:35 - error TS2339: Property 'size' does not exist on type '{}'.
+
+65   { className, children, variant, size, ...props },
+                                     ~~~~
+
+components/ui/toggle-group.tsx:73:7 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+73       ref={ref}
+         ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & ToggleGroupItemProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/tooltip.tsx:16:4 - error TS2741: Property 'children' is missing in type '{ "data-slot": string; delayDuration: number; }' but required in type 'TooltipProviderProps'.
+
+16   <TooltipPrimitive.Provider data-slot="tooltip-provider" delayDuration={delayDuration} {...props} />
+      ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  node_modules/@radix-ui/react-tooltip/dist/index.d.ts:10:5
+    10     children: React.ReactNode;
+           ~~~~~~~~
+    'children' is declared here.
+
+components/ui/tooltip.tsx:36:48 - error TS2322: Type '{ "data-slot": string; ref: ForwardedRef<unknown>; }' is not assignable to type 'IntrinsicAttributes & TooltipProps'.
+  Property 'ref' does not exist on type 'IntrinsicAttributes & TooltipProps'.
+
+36     <TooltipPrimitive.Root data-slot="tooltip" ref={ref} {...props} />
+                                                  ~~~
+
+components/ui/tooltip.tsx:53:36 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLButtonElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLButtonElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLButtonElement | null'.
+
+53   return <TooltipPrimitive.Trigger ref={ref} data-slot="tooltip-trigger" {...props} />;
+                                      ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & TooltipTriggerProps & RefAttributes<HTMLButtonElement>'
+
+components/ui/tooltip.tsx:68:5 - error TS2339: Property 'className' does not exist on type '{}'.
+
+68   { className, sideOffset = 0, children, ...props },
+       ~~~~~~~~~
+
+components/ui/tooltip.tsx:68:16 - error TS2339: Property 'sideOffset' does not exist on type '{}'.
+
+68   { className, sideOffset = 0, children, ...props },
+                  ~~~~~~~~~~
+
+components/ui/tooltip.tsx:68:32 - error TS2339: Property 'children' does not exist on type '{}'.
+
+68   { className, sideOffset = 0, children, ...props },
+                                  ~~~~~~~~
+
+components/ui/tooltip.tsx:74:9 - error TS2322: Type 'ForwardedRef<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+  Type 'MutableRefObject<unknown>' is not assignable to type 'LegacyRef<HTMLDivElement> | undefined'.
+    Type 'MutableRefObject<unknown>' is not assignable to type 'RefObject<HTMLDivElement>'.
+      Types of property 'current' are incompatible.
+        Type 'unknown' is not assignable to type 'HTMLDivElement | null'.
+
+74         ref={ref}
+           ~~~
+
+  node_modules/@types/react/index.d.ts:304:9
+    304         ref?: LegacyRef<T> | undefined;
+                ~~~
+    The expected type comes from property 'ref' which is declared here on type 'IntrinsicAttributes & TooltipContentProps & RefAttributes<HTMLDivElement>'
+
+components/ui/use-form-field.tsx:28:55 - error TS2339: Property 'name' does not exist on type 'never'.
+
+28   const formState = useFormState({ name: fieldContext.name });
+                                                         ~~~~
+
+components/ui/use-form-field.tsx:29:49 - error TS2339: Property 'name' does not exist on type 'never'.
+
+29   const fieldState = getFieldState(fieldContext.name, formState);
+                                                   ~~~~
+
+components/ui/use-form-field.tsx:30:27 - error TS2339: Property 'id' does not exist on type 'never'.
+
+30   const id = itemContext?.id;
+                             ~~
+
+components/ui/use-form-field.tsx:33:24 - error TS2339: Property 'name' does not exist on type 'never'.
+
+33     name: fieldContext.name,
+                          ~~~~
+
+types/ui.ts:241:18 - error TS2430: Interface 'SliderProps' incorrectly extends interface 'ComponentProps'.
+  Types of property 'defaultValue' are incompatible.
+    Type 'number[] | undefined' is not assignable to type 'string | number | readonly string[] | undefined'.
+      Type 'number[]' is not assignable to type 'string | number | readonly string[] | undefined'.
+        Type 'number[]' is not assignable to type 'readonly string[]'.
+          Type 'number' is not assignable to type 'string'.
+
+241 export interface SliderProps extends ComponentProps {
+                     ~~~~~~~~~~~
+
+types/ui.ts:253:18 - error TS2430: Interface 'CalendarProps' incorrectly extends interface 'ComponentProps'.
+  Types of property 'onSelect' are incompatible.
+    Type '((date: Date | Date[] | { from: Date; to: Date; } | undefined) => void) | undefined' is not assignable to type 'ReactEventHandler<HTMLElement> | undefined'.
+      Type '(date: Date | Date[] | { from: Date; to: Date; } | undefined) => void' is not assignable to type 'ReactEventHandler<HTMLElement>'.
+        Types of parameters 'date' and 'event' are incompatible.
+          Type 'SyntheticEvent<HTMLElement, Event>' is not assignable to type 'Date | Date[] | { from: Date; to: Date; } | undefined'.
+
+253 export interface CalendarProps extends ComponentProps {
+                     ~~~~~~~~~~~~~
+
+
+Found 338 errors in 28 files.
+
+Errors  Files
+     4  components/ui/alert-dialog.tsx:3
+    16  components/ui/carousel.tsx:29
+    32  components/ui/chart.tsx:25
+    21  components/ui/context-menu.tsx:17
+    15  components/ui/drawer.tsx:11
+    13  components/ui/form.tsx:11
+     5  components/ui/hover-card.tsx:11
+     9  components/ui/input-otp.tsx:11
+    37  components/ui/menubar.tsx:15
+    19  components/ui/navigation-menu.tsx:20
+    16  components/ui/pagination.tsx:9
+     7  components/ui/popover.tsx:16
+     3  components/ui/progress.tsx:16
+     4  components/ui/radio-group.tsx:18
+     6  components/ui/resizable.tsx:16
+     6  components/ui/scroll-area.tsx:18
+     8  components/ui/select.tsx:54
+     4  components/ui/separator.tsx:19
+    19  components/ui/sheet.tsx:12
+    46  components/ui/sidebar.tsx:51
+     6  components/ui/slider.tsx:21
+     1  components/ui/sonner.tsx:11
+     2  components/ui/switch.tsx:17
+    16  components/ui/table.tsx:14
+    10  components/ui/toggle-group.tsx:30
+     7  components/ui/tooltip.tsx:16
+     4  components/ui/use-form-field.tsx:28
+     2  types/ui.ts:241
+
 f:\WebDev\library-management\frontend>
