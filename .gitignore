@@ -105,3 +105,6 @@ reports/
 *.csv
 *.xlsx
 *.xls
+
+# Others
+frontend/*.tsbuildinfo
