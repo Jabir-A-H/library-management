@@ -1,8 +1,17 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { borrowerAPI, lendingAPI, bookAPI } from './api';
-import type { Borrower, BorrowerCreate, BorrowerUpdate, BorrowerSearchFilters } from '@/types/Borrower';
+import type {
+  Borrower,
+  BorrowerCreate,
+  BorrowerUpdate,
+  BorrowerSearchFilters,
+} from '@/types/Borrower';
 import type { Book, BookSearchFilters } from '@/types/Book';
-import type { LendingRecord, LendingCreate, LendingSearchFilters } from '@/types/Lending';
+import type {
+  LendingRecord,
+  LendingCreate,
+  LendingSearchFilters,
+} from '@/types/Lending';
 
 // --- Borrower hooks ---
 
@@ -27,7 +36,8 @@ export function useBorrower(id: string | number) {
 export function useAddBorrower() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (borrower: BorrowerCreate) => borrowerAPI.createBorrower(borrower),
+    mutationFn: (borrower: BorrowerCreate) =>
+      borrowerAPI.createBorrower(borrower),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['borrowers'] });
     },
@@ -38,7 +48,7 @@ export function useAddBorrower() {
 export function useUpdateBorrower() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ id, data }: { id: number; data: BorrowerUpdate }) => 
+    mutationFn: ({ id, data }: { id: number; data: BorrowerUpdate }) =>
       borrowerAPI.updateBorrower(id, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['borrowers'] });
@@ -82,7 +92,8 @@ export function useBook(id: string | number) {
 export function useAddBook() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: (book: Omit<Book, 'id' | 'createdAt' | 'updatedAt'>) => bookAPI.createBook(book),
+    mutationFn: (book: Omit<Book, 'id' | 'created_at' | 'updated_at'>) =>
+      bookAPI.createBook(book),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['books'] });
     },
@@ -138,8 +149,13 @@ export function useCreateLending() {
 export function useReturnBook() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ recordId, returnData }: { recordId: number; returnData?: Record<string, any> }) => 
-      lendingAPI.returnBook(recordId, returnData),
+    mutationFn: ({
+      recordId,
+      returnData,
+    }: {
+      recordId: number;
+      returnData?: Record<string, any>;
+    }) => lendingAPI.returnBook(recordId, returnData),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['lending'] });
       queryClient.invalidateQueries({ queryKey: ['books'] });
@@ -152,8 +168,13 @@ export function useReturnBook() {
 export function useExtendDueDate() {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ recordId, newDueDate }: { recordId: number; newDueDate: string }) => 
-      lendingAPI.extendDueDate(recordId, newDueDate),
+    mutationFn: ({
+      recordId,
+      newDueDate,
+    }: {
+      recordId: number;
+      newDueDate: string;
+    }) => lendingAPI.extendDueDate(recordId, newDueDate),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['lending'] });
     },

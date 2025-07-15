@@ -1,5 +1,14 @@
 import { useState } from 'react';
-import { X, Heart, Edit, Calendar, Tag, Image as ImageIcon, ChevronLeft, ChevronRight } from 'lucide-react';
+import {
+  X,
+  Heart,
+  Edit,
+  Calendar,
+  Tag,
+  Image as ImageIcon,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -13,17 +22,27 @@ interface BookDetailsProps {
   isOpen: boolean;
 }
 
-function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDetailsProps) {
+function BookDetails({
+  book,
+  onClose,
+  onEdit,
+  onToggleFavorite,
+  isOpen,
+}: BookDetailsProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [showImageViewer, setShowImageViewer] = useState(false);
 
   if (!isOpen || !book) return null;
 
-  // Use coverImage and previewImages as URLs or base64 (backend integration needed)
-  const coverImageData = book.coverImage || null;
-  const previewImages = book.previewImages ? book.previewImages.filter(Boolean) : [];
+  // Use cover_image and previewImages as URLs or base64 (backend integration needed)
+  const coverImageData = book.cover_image || null;
+  const previewImages = book.previewImages
+    ? book.previewImages.filter(Boolean)
+    : [];
   // All images for the viewer (cover + previews)
-  const allImages: string[] = [coverImageData, ...previewImages].filter((img): img is string => Boolean(img));
+  const allImages: string[] = [coverImageData, ...previewImages].filter(
+    (img): img is string => Boolean(img)
+  );
 
   // SVG placeholder for missing/errored images
   const placeholderImage =
@@ -37,12 +56,14 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
 
   // Go to next image in viewer
   const nextImage = () => {
-    setCurrentImageIndex(prev => (prev + 1) % allImages.length);
+    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
   };
 
   // Go to previous image in viewer
   const prevImage = () => {
-    setCurrentImageIndex(prev => (prev - 1 + allImages.length) % allImages.length);
+    setCurrentImageIndex(
+      (prev) => (prev - 1 + allImages.length) % allImages.length
+    );
   };
 
   // Toggle favorite and close modal to refresh view
@@ -68,17 +89,45 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
                 variant="ghost"
                 size="sm"
                 onClick={handleToggleFavorite}
-                className={book.isFavorite ? 'text-red-500 hover:text-red-600' : 'hover:text-red-500'}
-                aria-label={book.isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-                title={book.isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+                className={
+                  book.isFavorite
+                    ? 'text-red-500 hover:text-red-600'
+                    : 'hover:text-red-500'
+                }
+                aria-label={
+                  book.isFavorite || false
+                    ? 'Remove from favorites'
+                    : 'Add to favorites'
+                }
+                title={
+                  book.isFavorite || false
+                    ? 'Remove from favorites'
+                    : 'Add to favorites'
+                }
               >
-                <Heart className={`h-5 w-5 ${book.isFavorite ? 'fill-current' : ''}`} />
+                <Heart
+                  className={`h-5 w-5 ${
+                    book.isFavorite || false ? 'fill-current' : ''
+                  }`}
+                />
               </Button>
-              <Button variant="outline" size="sm" onClick={() => onEdit(book)} aria-label="Edit book" title="Edit book">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => onEdit(book)}
+                aria-label="Edit book"
+                title="Edit book"
+              >
                 <Edit className="h-4 w-4 mr-2" />
                 Edit
               </Button>
-              <Button variant="ghost" size="sm" onClick={onClose} aria-label="Close details" title="Close details">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={onClose}
+                aria-label="Close details"
+                title="Close details"
+              >
                 <X className="h-4 w-4" />
               </Button>
             </div>
@@ -109,16 +158,22 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {book.genre && (
                     <div>
-                      <h4 className="font-medium text-sm text-muted-foreground mb-1">Genre</h4>
+                      <h4 className="font-medium text-sm text-muted-foreground mb-1">
+                        Genre
+                      </h4>
                       <p className="text-foreground">{book.genre}</p>
                     </div>
                   )}
-                  {book.publicationYear && (
+                  {book.publication_year && (
                     <div>
-                      <h4 className="font-medium text-sm text-muted-foreground mb-1">Publication Year</h4>
+                      <h4 className="font-medium text-sm text-muted-foreground mb-1">
+                        Publication Year
+                      </h4>
                       <div className="flex items-center gap-1">
                         <Calendar className="h-4 w-4 text-muted-foreground" />
-                        <p className="text-foreground">{book.publicationYear}</p>
+                        <p className="text-foreground">
+                          {book.publication_year}
+                        </p>
                       </div>
                     </div>
                   )}
@@ -127,8 +182,12 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
                 {/* Description */}
                 {book.description && (
                   <div>
-                    <h4 className="font-medium text-sm text-muted-foreground mb-2">Description</h4>
-                    <p className="text-foreground leading-relaxed">{book.description}</p>
+                    <h4 className="font-medium text-sm text-muted-foreground mb-2">
+                      Description
+                    </h4>
+                    <p className="text-foreground leading-relaxed">
+                      {book.description}
+                    </p>
                   </div>
                 )}
 
@@ -142,7 +201,7 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
                     <div className="flex flex-wrap gap-2">
                       {book.tags.map((tag, index) => (
                         <Badge key={index} variant="secondary">
-                          {tag}
+                          {typeof tag === 'string' ? tag : tag.name}
                         </Badge>
                       ))}
                     </div>
@@ -173,8 +232,18 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
                 {/* Metadata */}
                 <div className="pt-4 border-t text-sm text-muted-foreground">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    <div>Added: {book.createdAt ? new Date(book.createdAt).toLocaleDateString() : 'Unknown'}</div>
-                    <div>Updated: {book.updatedAt ? new Date(book.updatedAt).toLocaleDateString() : 'Unknown'}</div>
+                    <div>
+                      Added:{' '}
+                      {book.created_at
+                        ? new Date(book.created_at).toLocaleDateString()
+                        : 'Unknown'}
+                    </div>
+                    <div>
+                      Updated:{' '}
+                      {book.updated_at
+                        ? new Date(book.updated_at).toLocaleDateString()
+                        : 'Unknown'}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -246,4 +315,3 @@ function BookDetails({ book, onClose, onEdit, onToggleFavorite, isOpen }: BookDe
 }
 
 export default BookDetails;
-

@@ -12,13 +12,8 @@
  * @param {File} file
  * @returns {boolean}
  */
-export function isValidImageFile(file) {
-  const validTypes = [
-    'image/jpeg',
-    'image/png',
-    'image/gif',
-    'image/webp',
-  ];
+export function isValidImageFile(file: File): boolean {
+  const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
   return validTypes.includes(file.type) && file.size <= 5 * 1024 * 1024;
 }
 
@@ -27,10 +22,10 @@ export function isValidImageFile(file) {
  * @param {File} file
  * @returns {Promise<string>}
  */
-export function fileToDataURL(file) {
+export function fileToDataURL(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
-    reader.onload = e => resolve(e.target.result);
+    reader.onload = (e) => resolve((e.target as FileReader)?.result as string);
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });

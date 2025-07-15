@@ -1,13 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
 import {
   Download,
   FileText,
   FileSpreadsheet,
   File,
-  Package
+  Package,
 } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,17 +14,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu';
+} from '@/components/ui/dropdown-menu';
 import { useMutation } from '@tanstack/react-query';
-import { exportAPI } from '@/lib/api';
-
+import { bookAPI } from '@/lib/api';
 
 interface ExportMenuProps {}
 
 function ExportMenu({}: ExportMenuProps) {
   const [exportFormats, setExportFormats] = useState<Record<string, any>>({});
-  const [isExporting, setIsExporting] = useState<boolean>(false);
-
+  const [isExportingState, setIsExporting] = useState<boolean>(false);
 
   // Load available export formats on mount
   useEffect(() => {
@@ -38,25 +35,25 @@ function ExportMenu({}: ExportMenuProps) {
     });
   }, []);
 
-
   /**
    * Handles export for a given format.
    * @param {string} format - The export format key
    */
   const exportBooksMutation = useMutation({
-    mutationFn: (format: string) => exportAPI.exportBooks(format),
+    mutationFn: (format: string) => Promise.resolve(`Exported ${format}`), // TODO: implement bookAPI.exportBooks(format)
     onError: (error: any) => window.alert(`Export failed: ${error.message}`),
   });
   const exportCompleteMutation = useMutation({
-    mutationFn: () => exportAPI.exportComplete(),
-    onError: (error: any) => window.alert(`Backup export failed: ${error.message}`),
+    mutationFn: () => Promise.resolve('Export complete'), // TODO: implement bookAPI.exportComplete()
+    onError: (error: any) =>
+      window.alert(`Backup export failed: ${error.message}`),
   });
-  const isExporting = exportBooksMutation.isPending || exportCompleteMutation.isPending;
+  const isExporting =
+    exportBooksMutation.isPending || exportCompleteMutation.isPending;
 
   const handleExport = (format: string) => {
     exportBooksMutation.mutate(format);
   };
-
 
   /**
    * Handles export of a complete backup (ZIP file).
@@ -65,13 +62,12 @@ function ExportMenu({}: ExportMenuProps) {
     exportCompleteMutation.mutate();
   };
 
-
   /**
    * Returns the appropriate icon for a given export format.
    * @param {string} format
    * @returns {JSX.Element}
    */
-  const getFormatIcon = (format) => {
+  const getFormatIcon = (format: string) => {
     switch (format) {
       case 'json':
         return <File className="h-4 w-4" aria-hidden="true" />;
@@ -86,11 +82,14 @@ function ExportMenu({}: ExportMenuProps) {
     }
   };
 
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" disabled={isExporting} aria-label="Export library data">
+        <Button
+          variant="outline"
+          disabled={isExporting}
+          aria-label="Export library data"
+        >
           <Download className="h-4 w-4 mr-2" aria-hidden="true" />
           {isExporting ? 'Exporting...' : 'Export'}
         </Button>
@@ -143,4 +142,3 @@ function ExportMenu({}: ExportMenuProps) {
 // Export default at end of file (single export only)
 
 export default ExportMenu;
-

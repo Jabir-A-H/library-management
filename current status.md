@@ -3,7 +3,7 @@
 ---
 
 ## Executive Summary
-This project is a modern, full-stack Bengali library management system (ছোটপাতা পাঠাগার) using Next.js 14 (TypeScript) for the frontend and FastAPI (Python) for the backend, with PostgreSQL as the database. The backend is complete and production-ready. The frontend is functional but requires major repairs due to a recent backend schema cleanup, resulting in 664 TypeScript errors and integration issues. The migration plan is well-defined and covers all phases from stabilization to deployment.
+This project is a modern, full-stack Bengali library management system (ছোটপাতা পাঠাগার) using Next.js 14 (TypeScript) for the frontend and FastAPI (Python) for the backend, with PostgreSQL as the database. The backend is complete and production-ready. The frontend is functional but requires major repairs due to a recent backend schema cleanup, resulting in 481 TypeScript errors and integration issues. The migration plan is well-defined and covers all phases from stabilization to deployment.
 
 ## 1. Project Stack & Architecture
 - **Frontend:** Next.js 14, TypeScript 5+, React Query v5, shadcn/ui, Tailwind CSS, React Hook Form
@@ -38,7 +38,7 @@ This project is a modern, full-stack Bengali library management system (ছো�
 ## 3. Frontend Status
 - **Completion:** ~60% (functional, but not production-ready)
 - **Critical Issues:**
-  - 664 TypeScript errors across 58 files (see migration plan)
+  - 481 TypeScript errors across 47 files (see migration plan)
   - Database schema misalignment: frontend uses old fields (isFavorite, publicationYear, status, etc.), backend uses new fields (publication_year, page_count, read_status, cover_image)
   - UI component type errors: shadcn/ui components lack proper TypeScript interfaces
   - API integration issues: missing/correct API methods, React Query hooks need fixing

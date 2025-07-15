@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import {
   Download,
@@ -7,9 +6,9 @@ import {
   Code,
   Globe,
   Package,
-  Upload
+  Upload,
 } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,9 +16,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from './ui/dropdown-menu';
-import ExportService from '../lib/exportUtils';
-
+} from '@/components/ui/dropdown-menu';
+import ExportService from '@/lib/exportUtils';
 
 interface ExportDropdownProps {}
 
@@ -71,7 +69,8 @@ function ExportDropdown({}: ExportDropdownProps) {
     input.type = 'file';
     input.accept = '.json,application/json';
     input.onchange = async (e) => {
-      const file = e.target.files && e.target.files[0];
+      const target = e.target as HTMLInputElement;
+      const file = target.files && target.files[0];
       if (!file) return;
       try {
         const count = await exportService.importFromJSON(file);
@@ -80,7 +79,9 @@ function ExportDropdown({}: ExportDropdownProps) {
         window.location.reload();
       } catch (error) {
         console.error('Import failed:', error);
-        window.alert('Import failed. Please check the file format and try again.');
+        window.alert(
+          'Import failed. Please check the file format and try again.'
+        );
       }
     };
     input.click();
@@ -120,11 +121,14 @@ function ExportDropdown({}: ExportDropdownProps) {
     },
   ];
 
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" disabled={isExporting} aria-label="Export or import library data">
+        <Button
+          variant="outline"
+          disabled={isExporting}
+          aria-label="Export or import library data"
+        >
           <Download className="h-4 w-4 mr-2" aria-hidden="true" />
           {isExporting ? 'Exporting...' : 'Export'}
         </Button>
@@ -145,7 +149,9 @@ function ExportDropdown({}: ExportDropdownProps) {
               <IconComponent className="h-4 w-4 mr-2" aria-hidden="true" />
               <div className="flex flex-col">
                 <span className="font-medium">{option.label}</span>
-                <span className="text-xs text-muted-foreground">{option.description}</span>
+                <span className="text-xs text-muted-foreground">
+                  {option.description}
+                </span>
               </div>
             </DropdownMenuItem>
           );
@@ -160,7 +166,9 @@ function ExportDropdown({}: ExportDropdownProps) {
           <Upload className="h-4 w-4 mr-2" aria-hidden="true" />
           <div className="flex flex-col">
             <span className="font-medium">Import</span>
-            <span className="text-xs text-muted-foreground">Restore from backup</span>
+            <span className="text-xs text-muted-foreground">
+              Restore from backup
+            </span>
           </div>
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -168,6 +176,4 @@ function ExportDropdown({}: ExportDropdownProps) {
   );
 }
 
-
 export default ExportDropdown;
-

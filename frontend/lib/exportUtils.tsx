@@ -9,6 +9,8 @@
  *   service.importFromJSON(file);
  */
 export class ExportService {
+  private storageKey: string;
+
   /**
    * @constructor
    * @property {string} storageKey - The localStorage key for books
@@ -21,7 +23,7 @@ export class ExportService {
    * Get all books from localStorage.
    * @returns {Array} Array of book objects
    */
-  getAllBooks() {
+  getAllBooks(): any[] {
     try {
       const books = localStorage.getItem(this.storageKey);
       return books ? JSON.parse(books) : [];
@@ -39,9 +41,11 @@ export class ExportService {
     const data = {
       exportDate: new Date().toISOString(),
       totalBooks: books.length,
-      books: books
+      books: books,
     };
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const blob = new Blob([JSON.stringify(data, null, 2)], {
+      type: 'application/json',
+    });
     this.downloadFile(blob, `library-export-${this.getDateString()}.json`);
   }
 
@@ -55,20 +59,31 @@ export class ExportService {
       return;
     }
     // CSV headers
-    const headers = ['Title', 'Author', 'Genre', 'Publication Year', 'Description', 'Tags', 'Is Favorite', 'Created At'];
+    const headers = [
+      'Title',
+      'Author',
+      'Genre',
+      'Publication Year',
+      'Description',
+      'Tags',
+      'Is Favorite',
+      'Created At',
+    ];
     // Convert books to CSV rows
     const csvRows = [
       headers.join(','),
-      ...books.map(book => [
-        this.escapeCsvValue(book.title || ''),
-        this.escapeCsvValue(book.author || ''),
-        this.escapeCsvValue(book.genre || ''),
-        book.publicationYear || '',
-        this.escapeCsvValue(book.description || ''),
-        this.escapeCsvValue((book.tags || []).join('; ')),
-        book.isFavorite ? 'Yes' : 'No',
-        book.createdAt || ''
-      ].join(','))
+      ...books.map((book: any) =>
+        [
+          this.escapeCsvValue(book.title || ''),
+          this.escapeCsvValue(book.author || ''),
+          this.escapeCsvValue(book.genre || ''),
+          book.publication_year || '',
+          this.escapeCsvValue(book.description || ''),
+          this.escapeCsvValue((book.tags || []).join('; ')),
+          book.isFavorite || false ? 'Yes' : 'No',
+          book.created_at || '',
+        ].join(',')
+      ),
     ];
     const csvContent = csvRows.join('\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -88,14 +103,17 @@ export class ExportService {
     textContent += `Export Date: ${new Date().toLocaleString()}\n`;
     textContent += `Total Books: ${books.length}\n`;
     textContent += `${'='.repeat(50)}\n\n`;
-    books.forEach((book, index) => {
+    books.forEach((book: any, index: number) => {
       textContent += `${index + 1}. ${book.title}\n`;
       textContent += `   Author: ${book.author || 'Unknown'}\n`;
       if (book.genre) textContent += `   Genre: ${book.genre}\n`;
-      if (book.publicationYear) textContent += `   Year: ${book.publicationYear}\n`;
-      if (book.description) textContent += `   Description: ${book.description}\n`;
-      if (book.tags && book.tags.length > 0) textContent += `   Tags: ${book.tags.join(', ')}\n`;
-      if (book.isFavorite) textContent += `   ⭐ Favorite\n`;
+      if (book.publication_year)
+        textContent += `   Year: ${book.publication_year}\n`;
+      if (book.description)
+        textContent += `   Description: ${book.description}\n`;
+      if (book.tags && book.tags.length > 0)
+        textContent += `   Tags: ${book.tags.join(', ')}\n`;
+      if (book.isFavorite || false) textContent += `   ⭐ Favorite\n`;
       textContent += `\n`;
     });
     const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8;' });
@@ -135,19 +153,50 @@ export class ExportService {
         <div class="stats">
             <strong>Export Date:</strong> ${new Date().toLocaleString()}<br>
             <strong>Total Books:</strong> ${books.length}<br>
-            <strong>Favorites:</strong> ${books.filter(b => b.isFavorite).length}
+            <strong>Favorites:</strong> ${
+              books.filter((b: any) => b.isFavorite || false).length
+            }
         </div>
     </div>
 `;
-    books.forEach(book => {
+    books.forEach((book: any) => {
       htmlContent += `
     <div class="book">
-        <div class="book-title">${this.escapeHtml(book.title || 'Untitled')} ${book.isFavorite ? '<span class="favorite">⭐</span>' : ''}</div>
-        <div class="book-author">by ${this.escapeHtml(book.author || 'Unknown Author')}</div>
-        ${book.genre ? `<div class="book-meta"><strong>Genre:</strong> ${this.escapeHtml(book.genre)}</div>` : ''}
-        ${book.publicationYear ? `<div class="book-meta"><strong>Year:</strong> ${book.publicationYear}</div>` : ''}
-        ${book.description ? `<div class="book-meta"><strong>Description:</strong> ${this.escapeHtml(book.description)}</div>` : ''}
-        ${book.tags && book.tags.length > 0 ? `<div class="book-meta"><strong>Tags:</strong> ${book.tags.map(tag => `<span class="tags">${this.escapeHtml(tag)}</span>`).join(' ')}</div>` : ''}
+        <div class="book-title">${this.escapeHtml(book.title || 'Untitled')} ${
+        book.isFavorite || false ? '<span class="favorite">⭐</span>' : ''
+      }</div>
+        <div class="book-author">by ${this.escapeHtml(
+          book.author || 'Unknown Author'
+        )}</div>
+        ${
+          book.genre
+            ? `<div class="book-meta"><strong>Genre:</strong> ${this.escapeHtml(
+                book.genre
+              )}</div>`
+            : ''
+        }
+        ${
+          book.publication_year
+            ? `<div class="book-meta"><strong>Year:</strong> ${book.publication_year}</div>`
+            : ''
+        }
+        ${
+          book.description
+            ? `<div class="book-meta"><strong>Description:</strong> ${this.escapeHtml(
+                book.description
+              )}</div>`
+            : ''
+        }
+        ${
+          book.tags && book.tags.length > 0
+            ? `<div class="book-meta"><strong>Tags:</strong> ${book.tags
+                .map(
+                  (tag: any) =>
+                    `<span class="tags">${this.escapeHtml(tag)}</span>`
+                )
+                .join(' ')}</div>`
+            : ''
+        }
     </div>`;
     });
     htmlContent += `
@@ -170,11 +219,17 @@ export class ExportService {
       metadata: {
         exportType: 'complete-backup',
         application: 'ছোটপাতা পাঠাগার',
-        instructions: 'To restore this backup, use the import function in the application.'
-      }
+        instructions:
+          'To restore this backup, use the import function in the application.',
+      },
     };
-    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
-    this.downloadFile(blob, `library-complete-backup-${this.getDateString()}.json`);
+    const blob = new Blob([JSON.stringify(backupData, null, 2)], {
+      type: 'application/json',
+    });
+    this.downloadFile(
+      blob,
+      `library-complete-backup-${this.getDateString()}.json`
+    );
   }
 
   /**
@@ -182,12 +237,12 @@ export class ExportService {
    * @param {File} file
    * @returns {Promise<number>} Resolves to number of books imported
    */
-  importFromJSON(file) {
+  importFromJSON(file: File): Promise<number> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.onload = (e) => {
         try {
-          const data = JSON.parse(e.target.result);
+          const data = JSON.parse((e.target as FileReader)?.result as string);
           // Validate the data structure
           if (!data.books || !Array.isArray(data.books)) {
             throw new Error('Invalid backup file format');
@@ -209,7 +264,7 @@ export class ExportService {
    * @param {string} value
    * @returns {string}
    */
-  escapeCsvValue(value) {
+  escapeCsvValue(value: any): string {
     if (typeof value !== 'string') return value;
     if (value.includes(',') || value.includes('"') || value.includes('\n')) {
       return `"${value.replace(/"/g, '""')}"`;
@@ -222,7 +277,7 @@ export class ExportService {
    * @param {string} text
    * @returns {string}
    */
-  escapeHtml(text) {
+  escapeHtml(text: any): string {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
@@ -241,7 +296,7 @@ export class ExportService {
    * @param {Blob} blob
    * @param {string} filename
    */
-  downloadFile(blob, filename) {
+  downloadFile(blob: Blob, filename: string): void {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -254,4 +309,3 @@ export class ExportService {
 }
 
 export default ExportService;
-

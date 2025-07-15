@@ -1,12 +1,24 @@
 import type { Book } from '@/types/Book';
 import { useAddBook, useUpdateBook } from '@/lib/reactQueryHooks';
 import { useState, useEffect, useCallback } from 'react';
-import { X, Upload, Image as ImageIcon, Trash2, AlertCircle } from 'lucide-react';
+import {
+  X,
+  Upload,
+  Image as ImageIcon,
+  Trash2,
+  AlertCircle,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectTrigger,
+  SelectContent,
+  SelectItem,
+  SelectValue,
+} from '@/components/ui/select';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { imageUtils } from '@/lib/imageUtils';
 import type { ChangeEvent } from 'react';
@@ -35,21 +47,21 @@ interface FormData {
   isbn: string;
   genre: string;
   category: string;
-  publicationYear: string;
-  pageCount: string;
+  publication_year: string;
+  page_count: string;
   description: string;
   tags: string[];
-  coverImage: string | null;
-  previewImages: string[];
-  readStatus: string;
+  cover_image: string | null;
+  preview_images: string[];
+  read_status: string;
   rating: string;
-  totalCopies: string;
-  availableCopies: string;
+  total_copies: string;
+  available_copies: string;
   room: string;
   shelf: string;
-  columnLocation: string;
-  rowLocation: string;
-  locationComment: string;
+  column_location: string;
+  row_location: string;
+  location_comment: string;
   publisher: string;
   language: string;
   comments: string;
@@ -62,11 +74,11 @@ interface FormErrors {
   title?: string;
   author?: string;
   isbn?: string;
-  publicationYear?: string;
-  pageCount?: string;
+  publication_year?: string;
+  page_count?: string;
   rating?: string;
-  totalCopies?: string;
-  availableCopies?: string;
+  total_copies?: string;
+  available_copies?: string;
   general?: string;
 }
 
@@ -79,13 +91,12 @@ interface PreviewImageData {
   file?: File;
 }
 
-
 /**
  * Category options that align with the backend categories
  */
 const CATEGORY_OPTIONS = [
   'Political',
-  'Language Movement', 
+  'Language Movement',
   'Story',
   'Novel',
   'Poem',
@@ -106,7 +117,7 @@ const CATEGORY_OPTIONS = [
  */
 const READ_STATUS_OPTIONS = [
   'unread',
-  'reading', 
+  'reading',
   'completed',
   'on_hold',
   'dropped',
@@ -119,7 +130,7 @@ const READ_STATUS_OPTIONS = [
 const LANGUAGE_OPTIONS = [
   'English',
   'Bengali',
-  'Hindi', 
+  'Hindi',
   'Urdu',
   'Arabic',
   'Other',
@@ -136,7 +147,7 @@ interface CategorySelectProps {
 
 function CategorySelect({ value, onChange, error }: CategorySelectProps) {
   const [custom, setCustom] = useState<string>('');
-  
+
   const handleCustomSubmit = useCallback(() => {
     if (custom.trim()) {
       onChange(custom.trim());
@@ -151,8 +162,10 @@ function CategorySelect({ value, onChange, error }: CategorySelectProps) {
           <SelectValue placeholder="Select or type category" />
         </SelectTrigger>
         <SelectContent>
-          {CATEGORY_OPTIONS.map(opt => (
-            <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+          {CATEGORY_OPTIONS.map((opt) => (
+            <SelectItem key={opt} value={opt}>
+              {opt}
+            </SelectItem>
           ))}
           {custom && <SelectItem value={custom}>{custom}</SelectItem>}
         </SelectContent>
@@ -160,9 +173,9 @@ function CategorySelect({ value, onChange, error }: CategorySelectProps) {
       <Input
         placeholder="Or type a custom category"
         value={custom}
-        onChange={e => setCustom(e.target.value)}
+        onChange={(e) => setCustom(e.target.value)}
         onBlur={handleCustomSubmit}
-        onKeyDown={e => {
+        onKeyDown={(e) => {
           if (e.key === 'Enter') {
             e.preventDefault();
             handleCustomSubmit();
@@ -187,38 +200,55 @@ interface TagInputProps {
 function TagInput({ tags, setTags, error }: TagInputProps) {
   const [input, setInput] = useState<string>('');
 
-  const addTag = useCallback((tag: string) => {
-    const trimmedTag = tag.trim();
-    if (trimmedTag && !tags.includes(trimmedTag)) {
-      setTags([...tags, trimmedTag]);
-    }
-  }, [tags, setTags]);
+  const addTag = useCallback(
+    (tag: string) => {
+      const trimmedTag = tag.trim();
+      if (trimmedTag && !tags.includes(trimmedTag)) {
+        setTags([...tags, trimmedTag]);
+      }
+    },
+    [tags, setTags]
+  );
 
-  const removeTag = useCallback((index: number) => {
-    setTags(tags.filter((_, i) => i !== index));
-  }, [tags, setTags]);
+  const removeTag = useCallback(
+    (index: number) => {
+      setTags(tags.filter((_, i) => i !== index));
+    },
+    [tags, setTags]
+  );
 
-  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-    if ((e.key === 'Enter' || e.key === ',') && input.trim()) {
-      e.preventDefault();
-      addTag(input);
-      setInput('');
-    } else if (e.key === 'Backspace' && !input && tags.length) {
-      e.preventDefault();
-      setTags(tags.slice(0, -1));
-    }
-  }, [input, tags, addTag, setTags]);
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if ((e.key === 'Enter' || e.key === ',') && input.trim()) {
+        e.preventDefault();
+        addTag(input);
+        setInput('');
+      } else if (e.key === 'Backspace' && !input && tags.length) {
+        e.preventDefault();
+        setTags(tags.slice(0, -1));
+      }
+    },
+    [input, tags, addTag, setTags]
+  );
 
   return (
     <div className="space-y-2">
-      <div className={`flex flex-wrap gap-2 border rounded-md px-2 py-1 bg-background min-h-[2.5rem] ${error ? 'border-red-500' : ''}`}>
+      <div
+        className={`flex flex-wrap gap-2 border rounded-md px-2 py-1 bg-background min-h-[2.5rem] ${
+          error ? 'border-red-500' : ''
+        }`}
+      >
         {tags.map((tag: string, idx: number) => (
-          <Badge key={idx} variant="secondary" className="flex items-center gap-1">
+          <Badge
+            key={idx}
+            variant="secondary"
+            className="flex items-center gap-1"
+          >
             {tag}
-            <button 
-              type="button" 
-              onClick={() => removeTag(idx)} 
-              className="ml-1 hover:text-red-500 focus:outline-none" 
+            <button
+              type="button"
+              onClick={() => removeTag(idx)}
+              className="ml-1 hover:text-red-500 focus:outline-none"
               aria-label={`Remove tag ${tag}`}
             >
               <X className="h-3 w-3" />
@@ -228,7 +258,7 @@ function TagInput({ tags, setTags, error }: TagInputProps) {
         <input
           className="flex-1 min-w-[120px] border-none outline-none bg-transparent"
           value={input}
-          onChange={e => setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Type and press Enter or ,"
           aria-label="Add tag"
@@ -256,8 +286,10 @@ function ReadStatusSelect({ value, onChange, error }: ReadStatusSelectProps) {
           <SelectValue placeholder="Select read status" />
         </SelectTrigger>
         <SelectContent>
-          {READ_STATUS_OPTIONS.map(opt => (
-            <SelectItem key={opt} value={opt}>{opt}</SelectItem>
+          {READ_STATUS_OPTIONS.map((opt) => (
+            <SelectItem key={opt} value={opt}>
+              {opt}
+            </SelectItem>
           ))}
         </SelectContent>
       </Select>
@@ -276,21 +308,21 @@ function createBookTemplate(): FormData {
     isbn: '',
     genre: '',
     category: '',
-    publicationYear: '',
-    pageCount: '',
+    publication_year: '',
+    page_count: '',
     description: '',
     tags: [],
-    coverImage: null,
-    previewImages: [],
-    readStatus: 'unread',
+    cover_image: null,
+    preview_images: [],
+    read_status: 'unread',
     rating: '',
-    totalCopies: '1',
-    availableCopies: '1',
+    total_copies: '1',
+    available_copies: '1',
     room: '',
     shelf: '',
-    columnLocation: '',
-    rowLocation: '',
-    locationComment: '',
+    column_location: '',
+    row_location: '',
+    location_comment: '',
     publisher: '',
     language: 'English',
     comments: '',
@@ -327,11 +359,13 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({ value, onChange }) => {
  */
 function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
   const [formData, setFormData] = useState<FormData>(createBookTemplate());
-  const [coverImagePreview, setCoverImagePreview] = useState<string | null>(null);
+  const [coverImagePreview, setCoverImagePreview] = useState<string | null>(
+    null
+  );
   const [previewImages, setPreviewImages] = useState<PreviewImageData[]>([]);
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const addBook = useAddBook();
   const updateBook = useUpdateBook();
   const isEdit = Boolean(book?.id);
@@ -346,27 +380,36 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
         author: book.author || '',
         isbn: book.isbn || '',
         genre: book.genre || '',
-        category: book.category || '',
-        publicationYear: book.publicationYear ? String(book.publicationYear) : '',
-        pageCount: book.numPages ? String(book.numPages) : '',
+        category:
+          typeof book.category === 'string'
+            ? book.category
+            : book.category?.name || '',
+        publication_year: book.publication_year
+          ? String(book.publication_year)
+          : '',
+        page_count: book.page_count ? String(book.page_count) : '',
         description: book.description || '',
-        tags: book.tags || [],
-        coverImage: book.coverImage || null,
-        previewImages: book.previewImages || [],
-        readStatus: book.readStatus || 'unread',
+        tags: Array.isArray(book.tags)
+          ? book.tags.map((tag) => (typeof tag === 'string' ? tag : tag.name))
+          : [],
+        cover_image: book.cover_image || null,
+        preview_images: book.preview_images || [],
+        read_status: book.read_status || 'unread',
         rating: book.rating ? String(book.rating) : '',
-        totalCopies: book.totalCopies ? String(book.totalCopies) : '1',
-        availableCopies: book.availableCopies ? String(book.availableCopies) : '1',
+        total_copies: book.total_copies ? String(book.total_copies) : '1',
+        available_copies: book.available_copies
+          ? String(book.available_copies)
+          : '1',
         room: book.room || '',
         shelf: book.shelf || '',
-        columnLocation: book.columnLocation || '',
-        rowLocation: book.rowLocation || '',
-        locationComment: book.locationComment || '',
+        column_location: book.column_location || '',
+        row_location: book.row_location || '',
+        location_comment: book.location_comment || '',
         publisher: book.publisher || '',
         language: book.language || 'English',
         comments: book.comments || '',
       });
-      setCoverImagePreview(book.coverImage || null);
+      setCoverImagePreview(book.cover_image || null);
       setPreviewImages([]);
     } else {
       setFormData(createBookTemplate());
@@ -379,20 +422,23 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
   /**
    * Handle input changes for form fields
    */
-  const handleInputChange = useCallback((field: keyof FormData, value: string | string[]) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: value
-    }));
-    
-    // Clear error when user starts typing
-    if (errors[field as keyof FormErrors]) {
-      setErrors(prev => ({
+  const handleInputChange = useCallback(
+    (field: keyof FormData, value: string | string[]) => {
+      setFormData((prev) => ({
         ...prev,
-        [field]: undefined
+        [field]: value,
       }));
-    }
-  }, [errors]);
+
+      // Clear error when user starts typing
+      if (errors[field as keyof FormErrors]) {
+        setErrors((prev) => ({
+          ...prev,
+          [field]: undefined,
+        }));
+      }
+    },
+    [errors]
+  );
 
   /**
    * Validate form data
@@ -419,18 +465,18 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
     }
 
     // Publication year validation
-    if (formData.publicationYear) {
-      const year = Number(formData.publicationYear);
+    if (formData.publication_year) {
+      const year = Number(formData.publication_year);
       if (isNaN(year) || year < 0 || year > new Date().getFullYear()) {
-        newErrors.publicationYear = 'Please enter a valid year';
+        newErrors.publication_year = 'Please enter a valid year';
       }
     }
 
     // Page count validation
-    if (formData.pageCount) {
-      const pages = Number(formData.pageCount);
+    if (formData.page_count) {
+      const pages = Number(formData.page_count);
       if (isNaN(pages) || pages < 1) {
-        newErrors.pageCount = 'Page count must be a positive number';
+        newErrors.page_count = 'Page count must be a positive number';
       }
     }
 
@@ -443,19 +489,24 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
     }
 
     // Copies validation
-    const totalCopies = Number(formData.totalCopies);
-    const availableCopies = Number(formData.availableCopies);
-    
+    const totalCopies = Number(formData.total_copies);
+    const availableCopies = Number(formData.available_copies);
+
     if (isNaN(totalCopies) || totalCopies < 1) {
-      newErrors.totalCopies = 'Total copies must be at least 1';
+      newErrors.total_copies = 'Total copies must be at least 1';
     }
-    
+
     if (isNaN(availableCopies) || availableCopies < 0) {
-      newErrors.availableCopies = 'Available copies cannot be negative';
+      newErrors.available_copies = 'Available copies cannot be negative';
     }
-    
-    if (!isNaN(totalCopies) && !isNaN(availableCopies) && availableCopies > totalCopies) {
-      newErrors.availableCopies = 'Available copies cannot exceed total copies';
+
+    if (
+      !isNaN(totalCopies) &&
+      !isNaN(availableCopies) &&
+      availableCopies > totalCopies
+    ) {
+      newErrors.available_copies =
+        'Available copies cannot exceed total copies';
     }
 
     setErrors(newErrors);
@@ -465,82 +516,112 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
   /**
    * Handle cover image upload
    */
-  const handleCoverImageUpload = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
+  const handleCoverImageUpload = useCallback(
+    async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (!file) return;
 
-    if (!imageUtils.isValidImageFile(file)) {
-      setErrors(prev => ({ ...prev, general: 'Please select a valid image file (JPEG, PNG, GIF, WebP) under 5MB' }));
-      return;
-    }
+      if (!imageUtils.isValidImageFile(file)) {
+        setErrors((prev) => ({
+          ...prev,
+          general:
+            'Please select a valid image file (JPEG, PNG, GIF, WebP) under 5MB',
+        }));
+        return;
+      }
 
-    try {
-      const dataURL = await imageUtils.fileToDataURL(file);
-      setCoverImagePreview(dataURL as string);
-      setFormData(prev => ({ ...prev, coverImage: dataURL as string }));
-      setErrors(prev => ({ ...prev, general: undefined }));
-    } catch (error) {
-      console.error('Error uploading cover image:', error);
-      setErrors(prev => ({ ...prev, general: 'Error uploading image. Please try again.' }));
-    }
-  }, []);
+      try {
+        const dataURL = await imageUtils.fileToDataURL(file);
+        setCoverImagePreview(dataURL as string);
+        setFormData((prev) => ({ ...prev, cover_image: dataURL as string }));
+        setErrors((prev) => ({ ...prev, general: undefined }));
+      } catch (error) {
+        console.error('Error uploading cover image:', error);
+        setErrors((prev) => ({
+          ...prev,
+          general: 'Error uploading image. Please try again.',
+        }));
+      }
+    },
+    []
+  );
 
   /**
    * Handle multiple preview images upload
    */
-  const handlePreviewImageUpload = useCallback(async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(event.target.files || []);
-    if (files.length === 0) return;
+  const handlePreviewImageUpload = useCallback(
+    async (event: React.ChangeEvent<HTMLInputElement>) => {
+      const files = Array.from(event.target.files || []);
+      if (files.length === 0) return;
 
-    const validFiles = files.filter(file => imageUtils.isValidImageFile(file));
-    if (validFiles.length !== files.length) {
-      setErrors(prev => ({ ...prev, general: 'Some files were skipped. Please select valid image files (JPEG, PNG, GIF, WebP) under 5MB' }));
-    }
-
-    try {
-      const newPreviews: PreviewImageData[] = [];
-      for (const file of validFiles) {
-        const dataURL = await imageUtils.fileToDataURL(file);
-        newPreviews.push({ 
-          id: `preview_${Date.now()}_${Math.random()}`, 
-          data: dataURL as string,
-          file 
-        });
+      const validFiles = files.filter((file) =>
+        imageUtils.isValidImageFile(file)
+      );
+      if (validFiles.length !== files.length) {
+        setErrors((prev) => ({
+          ...prev,
+          general:
+            'Some files were skipped. Please select valid image files (JPEG, PNG, GIF, WebP) under 5MB',
+        }));
       }
-      
-      setPreviewImages(prev => [...prev, ...newPreviews]);
-      setFormData(prev => ({
-        ...prev,
-        previewImages: [...prev.previewImages, ...newPreviews.map(p => p.data)]
-      }));
-      setErrors(prev => ({ ...prev, general: undefined }));
-    } catch (error) {
-      console.error('Error uploading preview images:', error);
-      setErrors(prev => ({ ...prev, general: 'Error uploading images. Please try again.' }));
-    }
-  }, []);
+
+      try {
+        const newPreviews: PreviewImageData[] = [];
+        for (const file of validFiles) {
+          const dataURL = await imageUtils.fileToDataURL(file);
+          newPreviews.push({
+            id: `preview_${Date.now()}_${Math.random()}`,
+            data: dataURL as string,
+            file,
+          });
+        }
+
+        setPreviewImages((prev) => [...prev, ...newPreviews]);
+        setFormData((prev) => ({
+          ...prev,
+          preview_images: [
+            ...prev.preview_images,
+            ...newPreviews.map((p) => p.data),
+          ],
+        }));
+        setErrors((prev) => ({ ...prev, general: undefined }));
+      } catch (error) {
+        console.error('Error uploading preview images:', error);
+        setErrors((prev) => ({
+          ...prev,
+          general: 'Error uploading images. Please try again.',
+        }));
+      }
+    },
+    []
+  );
 
   /**
    * Remove cover image
    */
   const removeCoverImage = useCallback(() => {
     setCoverImagePreview(null);
-    setFormData(prev => ({ ...prev, coverImage: null }));
+    setFormData((prev) => ({ ...prev, cover_image: null }));
   }, []);
 
   /**
    * Remove a preview image
    */
-  const removePreviewImage = useCallback((imageId: string) => {
-    setPreviewImages(prev => prev.filter(img => img.id !== imageId));
-    setFormData(prev => ({
-      ...prev,
-      previewImages: prev.previewImages.filter((_, index) => {
-        const imgToRemove = previewImages.find(img => img.id === imageId);
-        return imgToRemove ? prev.previewImages[index] !== imgToRemove.data : true;
-      })
-    }));
-  }, [previewImages]);
+  const removePreviewImage = useCallback(
+    (imageId: string) => {
+      setPreviewImages((prev) => prev.filter((img) => img.id !== imageId));
+      setFormData((prev) => ({
+        ...prev,
+        preview_images: prev.preview_images.filter((_, index) => {
+          const imgToRemove = previewImages.find((img) => img.id === imageId);
+          return imgToRemove
+            ? prev.preview_images[index] !== imgToRemove.data
+            : true;
+        }),
+      }));
+    },
+    [previewImages]
+  );
 
   /**
    * Convert form data to Book format for API
@@ -552,21 +633,23 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
       isbn: data.isbn || undefined,
       genre: data.genre || undefined,
       category: data.category || undefined,
-      publicationYear: data.publicationYear ? Number(data.publicationYear) : undefined,
-      numPages: data.pageCount ? Number(data.pageCount) : undefined,
+      publication_year: data.publication_year
+        ? Number(data.publication_year)
+        : undefined,
+      page_count: data.page_count ? Number(data.page_count) : undefined,
       description: data.description || undefined,
       tags: data.tags,
-      coverImage: data.coverImage || undefined,
-      previewImages: data.previewImages,
-      readStatus: data.readStatus || undefined,
+      cover_image: data.cover_image || undefined,
+      preview_images: data.preview_images,
+      read_status: data.read_status || undefined,
       rating: data.rating ? Number(data.rating) : undefined,
-      totalCopies: Number(data.totalCopies),
-      availableCopies: Number(data.availableCopies),
+      total_copies: Number(data.total_copies),
+      available_copies: Number(data.available_copies),
       room: data.room || undefined,
       shelf: data.shelf || undefined,
-      columnLocation: data.columnLocation || undefined,
-      rowLocation: data.rowLocation || undefined,
-      locationComment: data.locationComment || undefined,
+      column_location: data.column_location || undefined,
+      row_location: data.row_location || undefined,
+      location_comment: data.location_comment || undefined,
       publisher: data.publisher || undefined,
       language: data.language,
       comments: data.comments || undefined,
@@ -576,39 +659,54 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
   /**
    * Handle form submission
    */
-  const handleSubmit = useCallback(async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    
-    if (!validateForm() || isSubmitting) return;
-    
-    setIsSubmitting(true);
-    setErrors(prev => ({ ...prev, general: undefined }));
+  const handleSubmit = useCallback(
+    async (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
 
-    try {
-      const bookData = toBookFormat(formData);
-      
-      if (isEdit && book) {
-        await updateBook.mutateAsync({ ...book, ...bookData } as Book);
-        onSave(bookData);
-      } else {
-        const newBook = await addBook.mutateAsync(bookData as any);
-        onSave(newBook || bookData);
+      if (!validateForm() || isSubmitting) return;
+
+      setIsSubmitting(true);
+      setErrors((prev) => ({ ...prev, general: undefined }));
+
+      try {
+        const bookData = toBookFormat(formData);
+
+        if (isEdit && book) {
+          await updateBook.mutateAsync({ ...book, ...bookData } as Book);
+          onSave(bookData);
+        } else {
+          const newBook = await addBook.mutateAsync(bookData as any);
+          onSave(newBook || bookData);
+        }
+
+        onCancel();
+      } catch (error: any) {
+        console.error('Error saving book:', error);
+        setErrors((prev) => ({
+          ...prev,
+          general: `Error ${isEdit ? 'updating' : 'adding'} book: ${
+            error.message || 'Unknown error'
+          }`,
+        }));
+      } finally {
+        setIsSubmitting(false);
       }
-      
-      onCancel();
-    } catch (error: any) {
-      console.error('Error saving book:', error);
-      setErrors(prev => ({ 
-        ...prev, 
-        general: `Error ${isEdit ? 'updating' : 'adding'} book: ${error.message || 'Unknown error'}` 
-      }));
-    } finally {
-      setIsSubmitting(false);
-    }
-  }, [formData, validateForm, isSubmitting, toBookFormat, isEdit, book, updateBook, addBook, onSave, onCancel]);
+    },
+    [
+      formData,
+      validateForm,
+      isSubmitting,
+      toBookFormat,
+      isEdit,
+      book,
+      updateBook,
+      addBook,
+      onSave,
+      onCancel,
+    ]
+  );
 
   if (!isOpen) return null;
-
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
@@ -617,7 +715,13 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
           <CardTitle className="text-xl font-semibold">
             {isEdit ? 'Edit Book' : 'Add New Book'}
           </CardTitle>
-          <Button variant="ghost" size="sm" onClick={onCancel} aria-label="Cancel" title="Cancel">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onCancel}
+            aria-label="Cancel"
+            title="Cancel"
+          >
             <X className="h-4 w-4" />
           </Button>
         </CardHeader>
@@ -632,10 +736,14 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
 
             {/* Basic Information */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium border-b pb-2">Basic Information</h3>
+              <h3 className="text-lg font-medium border-b pb-2">
+                Basic Information
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="title" className="text-sm font-medium">Title *</label>
+                  <label htmlFor="title" className="text-sm font-medium">
+                    Title *
+                  </label>
                   <Input
                     id="title"
                     value={formData.title}
@@ -644,24 +752,34 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                     className={errors.title ? 'border-red-500' : ''}
                     required
                   />
-                  {errors.title && <p className="text-sm text-red-500">{errors.title}</p>}
+                  {errors.title && (
+                    <p className="text-sm text-red-500">{errors.title}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="author" className="text-sm font-medium">Author *</label>
+                  <label htmlFor="author" className="text-sm font-medium">
+                    Author *
+                  </label>
                   <Input
                     id="author"
                     value={formData.author}
-                    onChange={(e) => handleInputChange('author', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange('author', e.target.value)
+                    }
                     placeholder="Enter author name"
                     className={errors.author ? 'border-red-500' : ''}
                     required
                   />
-                  {errors.author && <p className="text-sm text-red-500">{errors.author}</p>}
+                  {errors.author && (
+                    <p className="text-sm text-red-500">{errors.author}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="isbn" className="text-sm font-medium">ISBN</label>
+                  <label htmlFor="isbn" className="text-sm font-medium">
+                    ISBN
+                  </label>
                   <Input
                     id="isbn"
                     value={formData.isbn}
@@ -669,15 +787,21 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                     placeholder="978-0-123456-78-9"
                     className={errors.isbn ? 'border-red-500' : ''}
                   />
-                  {errors.isbn && <p className="text-sm text-red-500">{errors.isbn}</p>}
+                  {errors.isbn && (
+                    <p className="text-sm text-red-500">{errors.isbn}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="publisher" className="text-sm font-medium">Publisher</label>
+                  <label htmlFor="publisher" className="text-sm font-medium">
+                    Publisher
+                  </label>
                   <Input
                     id="publisher"
                     value={formData.publisher}
-                    onChange={(e) => handleInputChange('publisher', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange('publisher', e.target.value)
+                    }
                     placeholder="Enter publisher name"
                   />
                 </div>
@@ -686,10 +810,14 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
 
             {/* Classification */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium border-b pb-2">Classification</h3>
+              <h3 className="text-lg font-medium border-b pb-2">
+                Classification
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="genre" className="text-sm font-medium">Genre</label>
+                  <label htmlFor="genre" className="text-sm font-medium">
+                    Genre
+                  </label>
                   <Input
                     id="genre"
                     value={formData.genre}
@@ -699,7 +827,9 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="category" className="text-sm font-medium">Category</label>
+                  <label htmlFor="category" className="text-sm font-medium">
+                    Category
+                  </label>
                   <CategorySelect
                     value={formData.category}
                     onChange={(value) => handleInputChange('category', value)}
@@ -707,7 +837,9 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="language" className="text-sm font-medium">Language</label>
+                  <label htmlFor="language" className="text-sm font-medium">
+                    Language
+                  </label>
                   <LanguageSelect
                     value={formData.language}
                     onChange={(value) => handleInputChange('language', value)}
@@ -718,92 +850,142 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
 
             {/* Publication Details */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium border-b pb-2">Publication Details</h3>
+              <h3 className="text-lg font-medium border-b pb-2">
+                Publication Details
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="publicationYear" className="text-sm font-medium">Publication Year</label>
+                  <label
+                    htmlFor="publication_year"
+                    className="text-sm font-medium"
+                  >
+                    Publication Year
+                  </label>
                   <Input
-                    id="publicationYear"
+                    id="publication_year"
                     type="number"
-                    value={formData.publicationYear}
-                    onChange={(e) => handleInputChange('publicationYear', e.target.value)}
+                    value={formData.publication_year}
+                    onChange={(e) =>
+                      handleInputChange('publication_year', e.target.value)
+                    }
                     placeholder="YYYY"
                     min="0"
                     max={new Date().getFullYear()}
-                    className={errors.publicationYear ? 'border-red-500' : ''}
+                    className={errors.publication_year ? 'border-red-500' : ''}
                   />
-                  {errors.publicationYear && <p className="text-sm text-red-500">{errors.publicationYear}</p>}
+                  {errors.publication_year && (
+                    <p className="text-sm text-red-500">
+                      {errors.publication_year}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="pageCount" className="text-sm font-medium">Number of Pages</label>
+                  <label htmlFor="page_count" className="text-sm font-medium">
+                    Number of Pages
+                  </label>
                   <Input
-                    id="pageCount"
+                    id="page_count"
                     type="number"
-                    value={formData.pageCount}
-                    onChange={(e) => handleInputChange('pageCount', e.target.value)}
+                    value={formData.page_count}
+                    onChange={(e) =>
+                      handleInputChange('page_count', e.target.value)
+                    }
                     placeholder="Enter page count"
                     min="1"
-                    className={errors.pageCount ? 'border-red-500' : ''}
+                    className={errors.page_count ? 'border-red-500' : ''}
                   />
-                  {errors.pageCount && <p className="text-sm text-red-500">{errors.pageCount}</p>}
+                  {errors.page_count && (
+                    <p className="text-sm text-red-500">{errors.page_count}</p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="rating" className="text-sm font-medium">Rating (1-5)</label>
+                  <label htmlFor="rating" className="text-sm font-medium">
+                    Rating (1-5)
+                  </label>
                   <Input
                     id="rating"
                     type="number"
                     value={formData.rating}
-                    onChange={(e) => handleInputChange('rating', e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange('rating', e.target.value)
+                    }
                     placeholder="1-5"
                     min="1"
                     max="5"
                     step="0.1"
                     className={errors.rating ? 'border-red-500' : ''}
                   />
-                  {errors.rating && <p className="text-sm text-red-500">{errors.rating}</p>}
+                  {errors.rating && (
+                    <p className="text-sm text-red-500">{errors.rating}</p>
+                  )}
                 </div>
               </div>
             </div>
 
             {/* Inventory & Status */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium border-b pb-2">Inventory & Status</h3>
+              <h3 className="text-lg font-medium border-b pb-2">
+                Inventory & Status
+              </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="totalCopies" className="text-sm font-medium">Total Copies</label>
+                  <label htmlFor="total_copies" className="text-sm font-medium">
+                    Total Copies
+                  </label>
                   <Input
-                    id="totalCopies"
+                    id="total_copies"
                     type="number"
-                    value={formData.totalCopies}
-                    onChange={(e) => handleInputChange('totalCopies', e.target.value)}
+                    value={formData.total_copies}
+                    onChange={(e) =>
+                      handleInputChange('total_copies', e.target.value)
+                    }
                     placeholder="1"
                     min="1"
-                    className={errors.totalCopies ? 'border-red-500' : ''}
+                    className={errors.total_copies ? 'border-red-500' : ''}
                   />
-                  {errors.totalCopies && <p className="text-sm text-red-500">{errors.totalCopies}</p>}
+                  {errors.total_copies && (
+                    <p className="text-sm text-red-500">
+                      {errors.total_copies}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="availableCopies" className="text-sm font-medium">Available Copies</label>
+                  <label
+                    htmlFor="available_copies"
+                    className="text-sm font-medium"
+                  >
+                    Available Copies
+                  </label>
                   <Input
-                    id="availableCopies"
+                    id="available_copies"
                     type="number"
-                    value={formData.availableCopies}
-                    onChange={(e) => handleInputChange('availableCopies', e.target.value)}
+                    value={formData.available_copies}
+                    onChange={(e) =>
+                      handleInputChange('available_copies', e.target.value)
+                    }
                     placeholder="1"
                     min="0"
-                    className={errors.availableCopies ? 'border-red-500' : ''}
+                    className={errors.available_copies ? 'border-red-500' : ''}
                   />
-                  {errors.availableCopies && <p className="text-sm text-red-500">{errors.availableCopies}</p>}
+                  {errors.available_copies && (
+                    <p className="text-sm text-red-500">
+                      {errors.available_copies}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="readStatus" className="text-sm font-medium">Read Status</label>
+                  <label htmlFor="read_status" className="text-sm font-medium">
+                    Read Status
+                  </label>
                   <ReadStatusSelect
-                    value={formData.readStatus}
-                    onChange={(value) => handleInputChange('readStatus', value)}
+                    value={formData.read_status}
+                    onChange={(value) =>
+                      handleInputChange('read_status', value)
+                    }
                   />
                 </div>
               </div>
@@ -814,7 +996,9 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
               <h3 className="text-lg font-medium border-b pb-2">Location</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="space-y-2">
-                  <label htmlFor="room" className="text-sm font-medium">Room</label>
+                  <label htmlFor="room" className="text-sm font-medium">
+                    Room
+                  </label>
                   <Input
                     id="room"
                     value={formData.room}
@@ -824,7 +1008,9 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="shelf" className="text-sm font-medium">Shelf</label>
+                  <label htmlFor="shelf" className="text-sm font-medium">
+                    Shelf
+                  </label>
                   <Input
                     id="shelf"
                     value={formData.shelf}
@@ -834,32 +1020,50 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="columnLocation" className="text-sm font-medium">Column</label>
+                  <label
+                    htmlFor="column_location"
+                    className="text-sm font-medium"
+                  >
+                    Column
+                  </label>
                   <Input
-                    id="columnLocation"
-                    value={formData.columnLocation}
-                    onChange={(e) => handleInputChange('columnLocation', e.target.value)}
+                    id="column_location"
+                    value={formData.column_location}
+                    onChange={(e) =>
+                      handleInputChange('column_location', e.target.value)
+                    }
                     placeholder="e.g., 1, 2, 3"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="rowLocation" className="text-sm font-medium">Row</label>
+                  <label htmlFor="row_location" className="text-sm font-medium">
+                    Row
+                  </label>
                   <Input
-                    id="rowLocation"
-                    value={formData.rowLocation}
-                    onChange={(e) => handleInputChange('rowLocation', e.target.value)}
+                    id="row_location"
+                    value={formData.row_location}
+                    onChange={(e) =>
+                      handleInputChange('row_location', e.target.value)
+                    }
                     placeholder="e.g., Top, Middle, Bottom"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="locationComment" className="text-sm font-medium">Location Comment</label>
+                <label
+                  htmlFor="location_comment"
+                  className="text-sm font-medium"
+                >
+                  Location Comment
+                </label>
                 <Input
-                  id="locationComment"
-                  value={formData.locationComment}
-                  onChange={(e) => handleInputChange('locationComment', e.target.value)}
+                  id="location_comment"
+                  value={formData.location_comment}
+                  onChange={(e) =>
+                    handleInputChange('location_comment', e.target.value)
+                  }
                   placeholder="Additional location details"
                 />
               </div>
@@ -867,14 +1071,20 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
 
             {/* Description & Comments */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium border-b pb-2">Description & Comments</h3>
+              <h3 className="text-lg font-medium border-b pb-2">
+                Description & Comments
+              </h3>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label htmlFor="description" className="text-sm font-medium">Description</label>
+                  <label htmlFor="description" className="text-sm font-medium">
+                    Description
+                  </label>
                   <textarea
                     id="description"
                     value={formData.description}
-                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInputChange('description', e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+                      handleInputChange('description', e.target.value)
+                    }
                     placeholder="Enter book description or summary"
                     rows={3}
                     className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -882,11 +1092,15 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="comments" className="text-sm font-medium">Comments</label>
+                  <label htmlFor="comments" className="text-sm font-medium">
+                    Comments
+                  </label>
                   <textarea
                     id="comments"
                     value={formData.comments}
-                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) => handleInputChange('comments', e.target.value)}
+                    onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
+                      handleInputChange('comments', e.target.value)
+                    }
                     placeholder="Additional notes or comments"
                     rows={2}
                     className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
@@ -900,14 +1114,14 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
               <h3 className="text-lg font-medium border-b pb-2">Tags</h3>
               <TagInput
                 tags={formData.tags}
-                setTags={(tags) => setFormData(prev => ({ ...prev, tags }))}
+                setTags={(tags) => setFormData((prev) => ({ ...prev, tags }))}
               />
             </div>
 
             {/* Images */}
             <div className="space-y-4">
               <h3 className="text-lg font-medium border-b pb-2">Images</h3>
-              
+
               {/* Cover Image */}
               <div className="space-y-2">
                 <label className="text-sm font-medium">Cover Image</label>
@@ -920,7 +1134,9 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                         className="w-32 h-48 object-cover rounded shadow-lg border"
                       />
                       <div className="flex-1">
-                        <p className="text-sm text-muted-foreground mb-2">Cover image uploaded</p>
+                        <p className="text-sm text-muted-foreground mb-2">
+                          Cover image uploaded
+                        </p>
                         <Button
                           type="button"
                           variant="outline"
@@ -961,10 +1177,12 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
 
               {/* Preview Images */}
               <div className="space-y-2">
-                <label className="text-sm font-medium">Preview Images (Optional)</label>
+                <label className="text-sm font-medium">
+                  Preview Images (Optional)
+                </label>
                 <div className="border-2 border-dashed border-border rounded-lg p-4">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-                    {previewImages.map(image => (
+                    {previewImages.map((image) => (
                       <div key={image.id} className="relative">
                         <img
                           src={image.data}
@@ -1011,7 +1229,12 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
 
             {/* Form Actions */}
             <div className="flex justify-end space-x-2 pt-6 border-t">
-              <Button type="button" variant="outline" onClick={onCancel} disabled={isSubmitting}>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={onCancel}
+                disabled={isSubmitting}
+              >
                 Cancel
               </Button>
               <Button type="submit" disabled={isSubmitting}>
@@ -1020,8 +1243,10 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
                     <span className="animate-spin mr-2">⏳</span>
                     {isEdit ? 'Updating...' : 'Adding...'}
                   </>
+                ) : isEdit ? (
+                  'Update Book'
                 ) : (
-                  isEdit ? 'Update Book' : 'Add Book'
+                  'Add Book'
                 )}
               </Button>
             </div>
@@ -1033,4 +1258,3 @@ function BookForm({ book, onSave, onCancel, isOpen }: BookFormProps) {
 }
 
 export default BookForm;
-

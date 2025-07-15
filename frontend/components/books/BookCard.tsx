@@ -13,16 +13,23 @@ interface BookCardProps {
   onViewDetails: (book: Book) => void;
 }
 
-function BookCard({ book, onEdit, onDelete, onToggleFavorite, onViewDetails }: BookCardProps) {
+function BookCard({
+  book,
+  onEdit,
+  onDelete,
+  onToggleFavorite,
+  onViewDetails,
+}: BookCardProps) {
   const [imageError, setImageError] = useState<boolean>(false);
 
-  // Use coverImage as URL or base64 (backend integration needed)
-  const coverImageData = (book as any).coverImage || null;
+  // Use cover_image (backend field) as URL or base64
+  const coverImageData = book.cover_image || null;
   // SVG placeholder for missing/errored images
   const placeholderImage =
     "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='300' viewBox='0 0 200 300'%3E%3Crect width='200' height='300' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%236b7280' font-family='Arial, sans-serif' font-size='16'%3ENo Cover%3C/text%3E%3C/svg%3E";
   const handleImageError = () => setImageError(true);
-  const displayImage = imageError || !coverImageData ? placeholderImage : coverImageData;
+  const displayImage =
+    imageError || !coverImageData ? placeholderImage : coverImageData;
 
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-card border border-border">
@@ -34,7 +41,6 @@ function BookCard({ book, onEdit, onDelete, onToggleFavorite, onViewDetails }: B
           onError={handleImageError}
         />
 
-        {/* Favorite button overlay */}
         <Button
           variant="ghost"
           size="sm"
@@ -43,14 +49,26 @@ function BookCard({ book, onEdit, onDelete, onToggleFavorite, onViewDetails }: B
               ? 'bg-red-500 text-white hover:bg-red-600'
               : 'bg-white/80 text-gray-600 hover:bg-white hover:text-red-500'
           }`}
-          aria-label={book.isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-          title={book.isFavorite ? 'Remove from favorites' : 'Add to favorites'}
-          onClick={e => {
+          aria-label={
+            book.isFavorite || false
+              ? 'Remove from favorites'
+              : 'Add to favorites'
+          }
+          title={
+            book.isFavorite || false
+              ? 'Remove from favorites'
+              : 'Add to favorites'
+          }
+          onClick={(e) => {
             e.stopPropagation();
             onToggleFavorite(book.id);
           }}
         >
-          <Heart className={`h-4 w-4 ${book.isFavorite ? 'fill-current' : ''}`} />
+          <Heart
+            className={`h-4 w-4 ${
+              book.isFavorite || false ? 'fill-current' : ''
+            }`}
+          />
         </Button>
 
         {/* Action buttons overlay - shown on hover */}
@@ -60,7 +78,7 @@ function BookCard({ book, onEdit, onDelete, onToggleFavorite, onViewDetails }: B
             size="sm"
             aria-label="View details"
             title="View details"
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation();
               onViewDetails(book);
             }}
@@ -73,7 +91,7 @@ function BookCard({ book, onEdit, onDelete, onToggleFavorite, onViewDetails }: B
             size="sm"
             aria-label="Edit book"
             title="Edit book"
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation();
               onEdit(book);
             }}
@@ -86,7 +104,7 @@ function BookCard({ book, onEdit, onDelete, onToggleFavorite, onViewDetails }: B
             size="sm"
             aria-label="Delete book"
             title="Delete book"
-            onClick={e => {
+            onClick={(e) => {
               e.stopPropagation();
               onDelete(book);
             }}
@@ -117,7 +135,7 @@ function BookCard({ book, onEdit, onDelete, onToggleFavorite, onViewDetails }: B
             {book.tags.slice(0, 3).map((tag, index) => (
               <Badge key={index} variant="secondary" className="text-xs">
                 <Tag className="h-3 w-3 mr-1" />
-                {tag}
+                {typeof tag === 'string' ? tag : tag.name}
               </Badge>
             ))}
             {book.tags.length > 3 && (
@@ -132,15 +150,12 @@ function BookCard({ book, onEdit, onDelete, onToggleFavorite, onViewDetails }: B
       <CardFooter className="p-4 pt-0 flex justify-between items-center text-sm text-muted-foreground">
         <div className="flex items-center gap-1">
           <Calendar className="h-3 w-3" />
-          <span>{book.publicationYear || 'Unknown'}</span>
+          <span>{book.publication_year || 'Unknown'}</span>
         </div>
-        <div className="text-xs">
-          {book.genre}
-        </div>
+        <div className="text-xs">{book.genre}</div>
       </CardFooter>
     </Card>
   );
 }
 
 export default BookCard;
-
