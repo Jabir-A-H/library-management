@@ -6,20 +6,28 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 # Base schema
+
 class TagBase(BaseModel):
     name: str = Field(..., max_length=50, description="Tag name")
-    color: Optional[str] = Field("#007bff", max_length=7, description="Tag color (hex code)")
+    color: Optional[str] = Field(
+        "#007bff",
+        max_length=7,
+        description="Tag color (hex code)"
+    )
 
 # Create schema
+
 class TagCreate(TagBase):
     pass
 
 # Update schema
+
 class TagUpdate(BaseModel):
     name: Optional[str] = Field(None, max_length=50)
     color: Optional[str] = Field(None, max_length=7)
 
 # Response schema
+
 class TagResponse(TagBase):
     id: int
     book_count: int
@@ -30,6 +38,7 @@ class TagResponse(TagBase):
         from_attributes = True
 
 # List response schema
+
 class TagListResponse(BaseModel):
     tags: List[TagResponse]
     total: int

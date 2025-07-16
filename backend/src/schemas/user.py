@@ -6,29 +6,39 @@ from datetime import datetime
 from pydantic import BaseModel, Field, EmailStr, field_validator, ConfigDict
 
 # Base schema matching your database structure
+
 class UserBase(BaseModel):
     username: str = Field(..., max_length=80, description="Username")
     email: EmailStr = Field(..., description="Email address")
-    full_name: Optional[str] = Field(None, max_length=120, description="Full name")
+    full_name: Optional[str] = Field(
+        None,
+        max_length=120,
+        description="Full name"
+    )
     role: str = Field("user", max_length=50, description="User role")
     is_active: bool = Field(True, description="Active status")
 
     @field_validator('username')
     @classmethod
-    def validate_username(cls, v):
+    def validate_username(cls, v: str) -> str:
         if not v.replace('_', '').replace('-', '').isalnum():
-            raise ValueError('Username can only contain letters, numbers, underscores, and hyphens')
+            raise ValueError(
+                'Username can only contain letters, numbers, underscores, and hyphens'
+            )
         return v
 
     @field_validator('role')
     @classmethod
-    def validate_role(cls, v):
+    def validate_role(cls, v: str) -> str:
         allowed_roles = ['admin', 'librarian', 'user']
         if v not in allowed_roles:
-            raise ValueError(f'Role must be one of: {", ".join(allowed_roles)}')
+            raise ValueError(
+                f'Role must be one of: {", ".join(allowed_roles)}'
+            )
         return v
 
 # User creation schema (includes password)
+
 class UserCreate(UserBase):
     password: str = Field(
         ..., min_length=6, description="Password (min 6 characters)"
@@ -36,7 +46,7 @@ class UserCreate(UserBase):
 
     @field_validator('password')
     @classmethod
-    def validate_password(cls, v):
+    def validate_password(cls, v: str) -> str:
         if len(v) < 6:
             raise ValueError('Password must be at least 6 characters long')
         if not any(c.isdigit() for c in v):
@@ -47,6 +57,7 @@ class UserCreate(UserBase):
 
 
 # User update schema
+
 class UserUpdate(BaseModel):
     email: Optional[EmailStr] = None
     full_name: Optional[str] = Field(None, max_length=120)

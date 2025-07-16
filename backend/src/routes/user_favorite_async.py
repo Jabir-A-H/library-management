@@ -11,10 +11,10 @@ This module provides REST API endpoints for managing user favorites:
 All routes follow RESTful conventions and include proper error handling,
 validation, and documentation for API consumers.
 """
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Any
 from fastapi import APIRouter, Depends, HTTPException, status, Query, Path
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, func, and_, or_, desc, text
+from sqlalchemy import select, func, and_, desc, text
 from sqlalchemy.orm import selectinload
 from datetime import datetime, timedelta
 import math
@@ -24,7 +24,7 @@ from ..models.user_favorite_async import UserFavorite
 from ..models.book_async import Book
 from ..models.user_async import User
 from ..schemas.user_favorite import (
-    UserFavoriteCreate, UserFavoriteUpdate, UserFavoriteResponse, 
+    UserFavoriteCreate, UserFavoriteResponse, 
     UserFavoriteListResponse, UserFavoriteSimpleResponse,
     UserFavoriteBooksResponse, BookFavoritedByResponse,
     UserFavoriteSearchFilters, UserFavoriteStatistics,

@@ -258,8 +258,9 @@ def setup_routes(app: FastAPI) -> None:
                 from .database_async import get_db
             except ImportError:
                 from database_async import get_db
+            from sqlalchemy import text
             async for db in get_db():
-                await db.execute("SELECT 1")
+                await db.execute(text("SELECT 1"))
                 db_status = "connected"
                 break
         except Exception as e:

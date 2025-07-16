@@ -17,8 +17,16 @@ from pydantic import BaseModel, Field, field_validator
 # Base schema for user favorites
 class UserFavoriteBase(BaseModel):
     """Base schema for user favorite operations"""
-    user_id: int = Field(..., description="ID of the user who favorited the book", gt=0)
-    book_id: int = Field(..., description="ID of the favorited book", gt=0)
+    user_id: int = Field(
+        ...,
+        description="ID of the user who favorited the book",
+        gt=0
+    )
+    book_id: int = Field(
+        ...,
+        description="ID of the favorited book",
+        gt=0
+    )
 
 # Create schema for adding new favorites
 class UserFavoriteCreate(UserFavoriteBase):
@@ -35,11 +43,20 @@ class UserFavoriteUpdate(BaseModel):
 class UserFavoriteResponse(UserFavoriteBase):
     """Complete user favorite response with all fields and relationships"""
     id: int = Field(..., description="Unique identifier for the favorite")
-    created_at: Optional[datetime] = Field(None, description="When the favorite was created")
+    created_at: Optional[datetime] = Field(
+        None,
+        description="When the favorite was created"
+    )
     
     # Nested relationships - using detailed schemas to avoid circular imports
-    book: Optional[Dict[str, Any]] = Field(None, description="Basic book information")
-    user: Optional[Dict[str, Any]] = Field(None, description="Basic user information")
+    book: Optional[Dict[str, Any]] = Field(
+        None,
+        description="Basic book information"
+    )
+    user: Optional[Dict[str, Any]] = Field(
+        None,
+        description="Basic user information"
+    )
 
     class Config:
         from_attributes = True
@@ -58,10 +75,18 @@ class UserFavoriteSimpleResponse(BaseModel):
 # Paginated list response
 class UserFavoriteListResponse(BaseModel):
     """Paginated response for user favorite lists"""
-    favorites: List[UserFavoriteResponse] = Field(..., description="List of user favorites")
+    favorites: List[UserFavoriteResponse] = Field(
+        ...,
+        description="List of user favorites"
+    )
     total: int = Field(..., description="Total number of favorites", ge=0)
     page: int = Field(..., description="Current page number", ge=1)
-    size: int = Field(..., description="Number of items per page", ge=1, le=100)
+    size: int = Field(
+        ...,
+        description="Number of items per page",
+        ge=1,
+        le=100
+    )
     pages: int = Field(..., description="Total number of pages", ge=0)
 
     @field_validator('pages')

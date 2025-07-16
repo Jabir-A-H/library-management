@@ -1,7 +1,7 @@
 """
 Authentication utilities
 """
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 from jose import jwt
 from passlib.context import CryptContext
@@ -10,10 +10,13 @@ import os
 # Configuration
 SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-here")
 ALGORITHM = os.getenv("ALGORITHM", "HS256")
-ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30"))
+ACCESS_TOKEN_EXPIRE_MINUTES = int(
+    os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30")
+)
 
 # Password hashing context
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
 
 class AuthUtils:
     """Authentication utilities class"""
@@ -29,20 +32,23 @@ class AuthUtils:
         return pwd_context.hash(password)
     
     @staticmethod
-    def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -> str:
+    def create_access_token(
+        data: dict[str, str], expires_delta: Optional[timedelta] = None
+    ) -> str:
         """Create JWT access token"""
-        to_encode = data.copy()
+        to_encode: dict[str, str] = data.copy()
         if expires_delta:
-            expire = datetime.utcnow() + expires_delta
+            expire = datetime.now(timezone.utc) + expires_delta
         else:
-            expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
-        
-        to_encode.update({"exp": expire})
+            expire = datetime.now(timezone.utc) + timedelta(
+                minutes=ACCESS_TOKEN_EXPIRE_MINUTES
+            )
+        to_encode["exp"] = int(expire.timestamp())  # type: ignore
         encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
         return encoded_jwt
     
     @staticmethod
-    def decode_access_token(token: str) -> dict:
+    def decode_access_token(token: str) -> dict[str, str | int | float]:
         """Decode JWT access token"""
         return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
     

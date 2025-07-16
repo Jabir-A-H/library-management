@@ -1,5 +1,6 @@
 """
-Lending Record schemas for API requests and responses - Updated to match existing database schema
+Lending Record schemas for API requests and responses.
+Updated to match existing database schema.
 """
 from typing import Optional, List
 from datetime import datetime, date
@@ -18,21 +19,27 @@ class LendingRecordBase(BaseModel):
 
     @model_validator(mode='after')
     def validate_dates(self):
-        if (self.due_date and self.checkout_date and 
-            self.due_date <= self.checkout_date):
+        if (
+            self.due_date and self.checkout_date and self.due_date <= self.checkout_date
+        ):
             raise ValueError('Due date must be after checkout date')
-        
-        if (self.return_date and self.checkout_date and 
-            self.return_date < self.checkout_date):
+
+        if (
+            self.return_date and self.checkout_date and self.return_date < self.checkout_date
+        ):
             raise ValueError('Return date cannot be before checkout date')
-        
+
         return self
 
 # Create schema
+
+
 class LendingRecordCreate(LendingRecordBase):
     pass
 
 # Update schema
+
+
 class LendingRecordUpdate(BaseModel):
     due_date: Optional[date] = None
     return_date: Optional[date] = None
@@ -41,19 +48,23 @@ class LendingRecordUpdate(BaseModel):
     comments: Optional[str] = None
 
 # Return book schema
+
+
 class BookReturn(BaseModel):
     return_date: Optional[date] = Field(default_factory=date.today)
     fine_amount: Optional[float] = Field(0.0, ge=0)
     comments: Optional[str] = None
 
 # Renew book schema
+
+
 class BookRenew(BaseModel):
     new_due_date: date = Field(..., description="New due date")
     comments: Optional[str] = None
 
     @field_validator('new_due_date')
     @classmethod
-    def validate_new_due_date(cls, v):
+    def validate_new_due_date(cls, v: date) -> date:
         if v <= date.today():
             raise ValueError('New due date must be in the future')
         return v

@@ -5,7 +5,7 @@ from typing import Optional
 from datetime import date, timedelta
 from fastapi import APIRouter, Depends, HTTPException, status, Query
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, func, and_, or_, update
+from sqlalchemy import select, func, and_, or_
 from sqlalchemy.orm import selectinload
 import math
 
@@ -30,7 +30,7 @@ async def get_lending_records(
     borrower_id: Optional[int] = Query(None, description="Filter by borrower ID"),
     overdue_only: bool = Query(False, description="Show only overdue records"),
     db: AsyncSession = Depends(get_db),
-    current_user = Depends(get_current_active_user)
+    current_user=Depends(get_current_active_user)
 ):
     """Get all lending records with pagination and filtering"""
     
