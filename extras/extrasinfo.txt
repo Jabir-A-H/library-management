@@ -61,8 +61,8 @@ After fixing, confirm that the file is error-free and still functions as intende
 
 
 cd /d F:\WebDev\library-management
-tree /f > extras\project_tree.txt
-code --list-extensions > extras\vscode-extensions.txt
+cd /d F:\WebDev\library-management\extras && project_tree.bat
+code --list-extensions > F:\WebDev\library-management\extras\vscode-extensions.txt
 powershell -ExecutionPolicy Bypass -File "F:\WebDev\library-management\extras\Backup-LibraryDB.ps1"
 cd backend && venv\scripts\activate
 uvicorn src.main_fastapi:app --reload --host 0.0.0.0 --port 8000
@@ -72,8 +72,9 @@ pnpm run build
 git fetch origin
 git reset --hard origin/main
 
-npx tsc --noEmit --pretty
-npx tsc --noEmit --pretty  2>&1 | findstr /C:"Found" /C:"error" /C:"warning"
+cd /d F:\WebDev\library-management\frontend
+npx tsc --noEmit --pretty 2>&1
+npx tsc --noEmit --pretty 2>&1 | findstr /C:"Found" /C:"error" /C:"warning"
 
 Review the entire project for correctness, readability, and best practices. Access required releted and relevant files to better understand the whole code to fix any bugs, improve the code structure, and optimize logic where needed. Add proper documentation on the code comments. Fix any and all errors and ensure it integrates properly with the rest of the project. Then, go ahead and apply the necessary changes directly to improve the file and the whole project as a whole.
 
