@@ -1,10 +1,6 @@
 # ছোটপাতা পাঠাগার - Complete Setup Guide
 
 ## 📋 Prerequisites Check
-
-Before starting, ensure you have these installed:
-
-- **Python 3.13+** (for backend) - Check with `python --version`
 - **Node.js 18+** (for frontend) - Check with `node --version`
 - **PostgreSQL 16+** (database) - Check with `psql --version`
 - **Git** (version control) - Check with `git --version`
@@ -70,23 +66,14 @@ venv\Scripts\activate
 :: Install dependencies
 pip install -r requirements.txt
 
-:: Setup environment variables
-copy .env.example .env
-:: Edit .env with your database credentials
 
 :: Run database migrations
-alembic upgrade head
-
-:: Start backend server
 python start_server.py
 ```
-
 **Backend should now be running at:** <http://localhost:8000>
-
 ### Step 3: Frontend Setup (Next.js)
 
 Open a **NEW** command prompt window:
-
 ```cmd
 :: Navigate to frontend directory
 cd frontend
@@ -163,12 +150,12 @@ start http://localhost:3000
 
 ## 📱 Application URLs
 
-| Service | URL | Description |
-|---------|-----|-------------|
-| Frontend App | <http://localhost:3000> | Main application interface |
-| Backend API | <http://localhost:8000> | REST API endpoints |
-| API Docs | <http://localhost:8000/docs> | Interactive API documentation |
-| ReDoc | <http://localhost:8000/redoc> | Alternative API documentation |
+| Service      | URL                           | Description                   |
+| ------------ | ----------------------------- | ----------------------------- |
+| Frontend App | <http://localhost:3000>       | Main application interface    |
+| Backend API  | <http://localhost:8000>       | REST API endpoints            |
+| API Docs     | <http://localhost:8000/docs>  | Interactive API documentation |
+| ReDoc        | <http://localhost:8000/redoc> | Alternative API documentation |
 
 ## 🔐 Default Access
 
