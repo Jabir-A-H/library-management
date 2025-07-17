@@ -123,12 +123,15 @@ def create_app() -> FastAPI:
         
         ## Features
         
-        * **Books Management** - Full CRUD operations for books with multilingual support
-        * **Borrowers Management** - Manage library members and their information
-        * **Lending System** - Track book lending and returns with due dates
-        * **User Favorites** - Allow users to favorite and organize their preferred books
-        * **Export Functions** - Export data in various formats (CSV, PDF, etc.)
-        * **Authentication** - Secure user authentication and authorization
+            * **Books Management** - Full CRUD operations for books with multilingual 
+              support
+            * **Borrowers Management** - Manage library members and their 
+              information
+            * **Lending System** - Track book lending and returns with due dates
+            * **User Favorites** - Allow users to favorite and organize their 
+              preferred books
+            * **Export Functions** - Export data in various formats (CSV, PDF, etc.)
+            * **Authentication** - Secure user authentication and authorization
         
         ## API Documentation
         
@@ -223,7 +226,10 @@ def setup_routes(app: FastAPI) -> None:
     Setup all API routes for the application.
     
     Args:
-        app: FastAPI application instance
+            log_msg = (
+                f"📤 {request.method} {request.url} - {status_code} "
+                f"({time_str})"
+            )
     """
     
     # Health check endpoints
@@ -301,59 +307,45 @@ def setup_routes(app: FastAPI) -> None:
     
     for route_info in routes_info:
         module_name = route_info["module"]
+        router = None
+        # Strategy 1: Try relative import (when run as package)
         try:
-            # Try different import strategies
-            router = None
-            
-            # Strategy 1: Try relative import (when run as package)
-            try:
-                module = __import__(f"routes.{module_name}", fromlist=["router"])
-                router = getattr(module, "router", None)
-                if router:
-                    logger.debug(f"✅ Imported {module_name} using relative import")
-            except (ImportError, ModuleNotFoundError):
-                pass
-            
-            # Strategy 2: Try absolute import from routes directory
-            if not router:
-                try:
-                    import importlib.util
-                    routes_dir = os.path.join(current_dir, "routes")
-                    module_path = os.path.join(routes_dir, f"{module_name}.py")
-                    
-                    if os.path.exists(module_path):
-                        spec = importlib.util.spec_from_file_location(
-                            f"routes_{module_name}", 
-                            module_path
-                        )
-                        if spec and spec.loader:
-                            module = importlib.util.module_from_spec(spec)
-                            # Add to sys.modules to avoid import conflicts
-                            sys.modules[f"routes_{module_name}"] = module
-                            
-                            # Execute the module
-                            spec.loader.exec_module(module)
-                            router = getattr(module, "router", None)
-                            if router:
-                                logger.debug(f"✅ Imported {module_name} using file import")
-                except Exception as e:
-                    logger.debug(f"File import failed for {module_name}: {e}")
-            
-            # Register the router if successfully imported
+            module = __import__(f"routes.{module_name}", fromlist=["router"])
+            router = getattr(module, "router", None)
             if router:
-                app.include_router(
-                    router,
-                    prefix=route_info["prefix"],
-                    tags=route_info["tags"]
-                )
-                logger.info(f"✅ {route_info['tags'][0]} routes registered successfully")
-            else:
-                logger.warning(f"⚠️ Failed to import {module_name} router - feature unavailable")
-                
-        except Exception as e:
-            logger.error(f"❌ Error setting up {module_name} routes: {e}")
-            # Continue with other routes even if one fails
-            continue
+                logger.debug(f"✅ Imported {module_name} using relative import")
+        except (ImportError, ModuleNotFoundError):
+            pass
+        # Strategy 2: Try absolute import from routes directory
+        if not router:
+            try:
+                import importlib.util
+                routes_dir = os.path.join(current_dir, "routes")
+                module_path = os.path.join(routes_dir, f"{module_name}.py")
+                if os.path.exists(module_path):
+                    spec = importlib.util.spec_from_file_location(
+                        f"routes_{module_name}", 
+                        module_path
+                    )
+                    if spec and spec.loader:
+                        module = importlib.util.module_from_spec(spec)
+                        sys.modules[f"routes_{module_name}"] = module
+                        spec.loader.exec_module(module)
+                        router = getattr(module, "router", None)
+                        if router:
+                            logger.debug(f"✅ Imported {module_name} using file import")
+            except Exception as e:
+                logger.debug(f"File import failed for {module_name}: {e}")
+        # Register the router if successfully imported
+        if router:
+            app.include_router(
+                router,
+                prefix=route_info["prefix"],
+                tags=route_info["tags"]
+            )
+            logger.info(f"✅ {route_info['tags'][0]} routes registered successfully")
+        else:
+            logger.warning(f"⚠️ Failed to import {module_name} router - feature unavailable")
     
     logger.info("🎯 Route setup completed")
 
