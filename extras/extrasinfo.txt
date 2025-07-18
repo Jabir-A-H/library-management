@@ -78,7 +78,7 @@ npx tsc --noEmit --pretty 2>&1 | findstr /C:"Found" /C:"error" /C:"warning"
 
 analyze the whole directory to write an extensive readme, current status, etc documentation files as i will be taking a short break from this project to work on another one. Make the documentations detailed woth what to do next like error fixing or feature implementation and so on so that i can come back and start working again instantly.
 
-Review the entire project for correctness, readability, and best practices. Access required releted and relevant files to better understand the whole code to fix any bugs, improve the code structure, and optimize logic where needed. Add proper documentation on the code comments. Fix any and all errors and ensure it integrates properly with the rest of the project. Then, go ahead and apply the necessary changes directly to improve the file and the whole project as a whole.
+Review the entire project for correctness, readability, and best practices. Access required releted and relevant files to better understand the whole code to fix any bugs, improve the code structure, and optimize logic where needed. Add proper documentation on the code comments. Fix any and all errors and ensure it integrates properly with the rest of the project. Then, go ahead and apply the necessary changes directly to improve the file and the whole project.
 
 After each change, validate it before moving to the next step.
 
